@@ -2,9 +2,10 @@
 # cmdline => conky -c /etc/conky/conky.conf
 #
 # Sensors Information
-# $sudo apt-get install lm-sensors
-# $sudo apt-get install hwinfo
-# $sudo apt-get install sensord
-# $sudo apt-get install fancontrol
+# $sudo apt install lm-sensors
+# $sudo apt install hwinfo
+# $sudo apt install psensor
+# $sudo apt install sensord
+# $sudo apt install fancontrol
 
 exit 0
