@@ -7,5 +7,6 @@
 # $sudo apt install psensor
 # $sudo apt install sensord
 # $sudo apt install fancontrol
+# $sudo apt install i2c-tools
 
 exit 0
