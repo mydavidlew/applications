@@ -6,8 +6,8 @@
 # $sudo apt install hwinfo
 # $sudo apt install hardinfo | $hardinfo -rma devices.so | $hardinfo
 # $sudo apt install psensor
-# $sudo apt install sensord
+# $sudo apt install sensord or $sudo snap install indicator-sensors
 # $sudo apt install fancontrol
-# $sudo apt install i2c-tools
+# $sudo apt install i2c-tools | $sudo modprobe eeprom
 
 exit 0
