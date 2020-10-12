@@ -11,9 +11,10 @@
 # $sudo apt install i2c-tools | $sudo modprobe eeprom
 # $sudo apt install libcanberra-gtk-module libcanberra-gtk3-module
 
-# Open Source AMD Radeon Ubuntu Driver
+# Open Source Intel and AMD GPU Ubuntu Driver
 # $sudo add-apt-repository ppa:oibaf/graphics-drivers
-# $sudo apt update && sudo apt -y upgrade
+# $sudo apt update && sudo apt upgrade -y
+# $sudo apt dist-upgrade
 # $sudo apt install mesa-utils | $glxinfo -B
 
 # $sudo apt install cpu-x
