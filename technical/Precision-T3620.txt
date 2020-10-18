@@ -1,0 +1,41 @@
+Disk /dev/sda: 1.84 TiB, 2000398934016 bytes, 3907029168 sectors
+Disk model: TOSHIBA DT01ACA2
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x54c7cf82
+
+Device     Boot      Start        End    Sectors  Size Id Type
+/dev/sda1  *          2048    1026047    1024000  500M  7 HPFS/NTFS/exFAT
+/dev/sda2          1026048 3905963411 3904937364  1.8T  7 HPFS/NTFS/exFAT
+/dev/sda3       3905964032 3907024895    1060864  518M 27 Hidden NTFS WinRE
+
+
+
+
+Disk /dev/sdb: 931.53 GiB, 1000204886016 bytes, 1953525168 sectors
+Disk model: SAMSUNG HD103SJ 
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xb1c8166d
+
+Device     Boot   Start        End    Sectors  Size Id Type
+/dev/sdb1  *       2048    1050623    1048576  512M  b W95 FAT32
+/dev/sdb2       1052670 1953523711 1952471042  931G  5 Extended
+/dev/sdb5       1052672 1953523711 1952471040  931G 8e Linux LVM
+
+
+Disk /dev/mapper/vgubuntu-root: 930.6 GiB, 998638616576 bytes, 1950466048 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/vgubuntu-swap_1: 976 MiB, 1023410176 bytes, 1998848 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
