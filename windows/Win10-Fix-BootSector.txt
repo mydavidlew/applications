@@ -1,0 +1,64 @@
+You will need to create a startup repair disk for Windows 10. 
+
+If you don't have one you can download create one using the following instructions:
+
+How to download official Windows 10 ISO files
+
+Method 1:
+
+===============
+
+1. Put the Windows 10 installation disc into the disc drive, and then start the computer.
+
+2. Press a key when the message indicating "Press any key to boot from CD or DVD …". appears.
+
+3. Select a language, a time, a currency, and a keyboard or another input method, and then click Next.
+
+4. Click Repair your computer.
+
+5. Click the operating system that you want to repair, and then click Next.
+
+6. In the System Recovery Options dialog box, click Command Prompt.
+
+7. Type sfc /scannow, and then press ENTER.
+
+Method 2:
+
+===============
+
+1. Put the Windows Windows 10 installation disc in the disc drive, and then start the computer.
+
+2. Press any key when the message indicating "Press any key to boot from CD or DVD …". appears.
+
+3. Select a language, time, currency, and a keyboard or another input method. Then click Next.
+
+4. Click Repair your computer.
+
+5. Click the operating system that you want to repair, and then click Next.
+
+6. In the System Recovery Options dialog box, click Command Prompt.
+
+7. Type Bootrec /RebuildBcd, and then press ENTER.
+
+Method 3:
+
+===============
+
+1. Put the Windows Windows 10 installation disc into the disc drive, and then start the computer.
+2. Press a key when the message indicating "Press any key to boot from CD or DVD …". appears.
+
+3. Select a language, a time, a currency, and a keyboard or another input method, and then click Next.
+
+4. Click Repair your computer.
+
+5. Click the operating system that you want to repair, and then click Next.
+
+6. In the System Recovery Options dialog box, click Command Prompt.
+
+7. Type BOOTREC /FIXMBR, and then press ENTER.
+
+8. Type BOOTREC /FIXBOOT, and then press ENTER.
+
+9. Type Drive:\boot\Bootsect.exe /NT60 All, and then press ENTER.
+
+Note: In this command, Drive is the drive where the Windows 10 installation media is located.
