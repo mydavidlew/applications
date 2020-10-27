@@ -14,5 +14,9 @@
 # $sudo apt dist-upgrade
 # $sudo apt install mesa-utils | $glxinfo -B
 
+# Open Source Dell Desktop and Laptop
+# $sudo apt install i8kutils
+# $sudo snap install dell-bios-fan-control
+
 # Tools Applications
 # $sudo apt install cpu-x
