@@ -1,0 +1,45 @@
+[Types of servers]
+You can connect to different types of servers. Some servers are public, and allow anybody to connect. Other servers require you to log in with a username and password.
+You may not have permissions to perform certain actions on files on a server. For example, on public FTP sites, you will probably not be able to delete files.
+The URL you enter depends on the protocol that the server uses to export its file shares.
+
+A URL, or uniform resource locator, is a form of address that refers to a location or file on a network. The address is formatted like this:
+$ scheme://servername.example.com/folder
+
+The scheme specifies the protocol or type of server. The example.com portion of the address is called the domain name. If a username is required, it is inserted before the server name:
+$ scheme://username@servername.example.com/folder
+
+Some schemes require the port number to be specified. Insert it after the domain name:
+$ scheme://servername.example.com:port/folder
+
+[SSH]
+If you have a secure shell account on a server, you can connect using this method. Many web hosts provide SSH accounts to members so they can securely upload files. SSH servers always require you to log in.
+A typical SSH URL looks like this:
+$ ssh://username@servername.example.com/folder
+When using SSH, all the data you send (including your password) is encrypted so that other users on your network can’t see it.
+
+[FTP (with login)]
+FTP is a popular way to exchange files on the Internet. Because data is not encrypted over FTP, many servers now provide access through SSH. Some servers, however, still allow or require you to use FTP to upload or download files. FTP sites with logins will usually allow you to delete and upload files.
+A typical FTP URL looks like this:
+$ ftp://username@ftp.example.com/path/
+
+[Public FTP]
+Sites that allow you to download files will sometimes provide public or anonymous FTP access. These servers do not require a username and password, and will usually not allow you to delete or upload files.
+Some anonymous FTP sites require you to log in with a public username and password, or with a public username using your email address as the password. For these servers, use the FTP (with login) method, and use the credentials specified by the FTP site.
+A typical anonymous FTP URL looks like this:
+$ ftp://ftp.example.com/path/
+
+[Windows share]
+Windows computers use a proprietary protocol to share files over a local area network. Computers on a Windows network are sometimes grouped into domains for organization and to better control access. If you have the right permissions on the remote computer, you can connect to a Windows share from the file manager.
+A typical Windows share URL looks like this:
+$ smb://servername/Share
+
+[WebDAV and Secure WebDAV]
+Based on the HTTP protocol used on the web, WebDAV is sometimes used to share files on a local network and to store files on the internet. If the server you’re connecting to supports secure connections, you should choose this option. Secure WebDAV uses strong SSL encryption, so that other users can’t see your password.
+A WebDAV URL looks like this:
+$ dav://example.hostname.com/path
+
+[NFS share]
+UNIX computers traditionally use the Network File System protocol to share files over a local network. With NFS, security is based on the UID of the user accessing the share, so no authentication credentials are needed when connecting.
+A typical NFS share URL looks like this:
+$ nfs://servername/path
