@@ -1,4 +1,8 @@
+Installing PowerShell on macOS - https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6#binary-archives
+PowerShell supports macOS 10.12 and higher. PowerShell 7.0.3 or higher and PowerShell Preview 7.1.0 or higher require macOS 10.13 and higher. All packages are available on our GitHub releases page. After the package is installed, run pwsh from a terminal.
+
 Installing binary archives on macOS
+Local macOS path used is '~/Library/Application\ Support/Microsoft/PowerShell/'
 
 # Download the powershell '.tar.gz' archive
 curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/powershell-7.0.3-osx-x64.tar.gz
@@ -14,3 +18,15 @@ sudo chmod +x /usr/local/microsoft/powershell/7.0.3/pwsh
 
 # Create the symbolic link that points to pwsh
 sudo ln -s /usr/local/microsoft/powershell/7.0.3/pwsh /usr/local/bin/pwsh
+
+Paths
+$PSHOME is /usr/local/microsoft/powershell/7.0.3/
+User profiles will be read from ~/.config/powershell/profile.ps1
+Default profiles will be read from $PSHOME/profile.ps1
+User modules will be read from ~/.local/share/powershell/Modules
+Shared modules will be read from /usr/local/share/powershell/Modules
+Default modules will be read from $PSHOME/Modules
+PSReadline history will be recorded to ~/.local/share/powershell/PSReadLine/ConsoleHost_history.txt
+The profiles respect PowerShell's per-host configuration. So the default host-specific profile exists at Microsoft.PowerShell_profile.ps1 in the same locations.
+
+PowerShell respects the XDG Base Directory Specification on macOS. Because macOS is a derivation of BSD, the prefix /usr/local is used instead of /opt. So, $PSHOME is /usr/local/microsoft/powershell/7.0.3/, and the symbolic link is placed at /usr/local/bin/pwsh.
