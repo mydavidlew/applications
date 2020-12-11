@@ -1,0 +1,50 @@
+# X11 forwarding needs to be enabled on both the <client side> and the <server side>.
+
+[###On the Client Side###]
+The -X (capital X) option to ssh enables X11 forwarding, and you can make this the default (for all connections or for a specific conection) with ForwardX11 yes in ~/.ssh/config.
+
+1) At user home ssh folder "~/.ssh/config" file have these lines;
+# ~/.ssh/config
+Host *
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  
+2) You need to have X server installed (e.g. macOS: XQuartz; Windows: Xming).
+
+3) Then to do X11 forwarding using SSH, you need to add (-X) to your ssh command. In case for untrusted X11, then try (-Y) flag instead (if you trust the host);
+$ ssh -v -X -Y user@hostname
+
+4) To have verbose parameter for ssh, add (-v), check for any warnings as error throw below;
+debug1: No xauth program.
+Warning: untrusted X11 forwarding setup failed: xauth key data not generated
+
+
+[###On the Server Side###]
+The xauth program must be installed on the server side. If there are any X11 programs there, it's very likely that xauth will be there. In the unlikely case xauth was installed in a nonstandard location, it can be called through ~/.ssh/rc (on the server!).
+To confirm that ssh is forwarding X11, check for a line containing Requesting X11 forwarding in the ssh -v -X output. Note that the server won't reply either way, a security precaution of hiding details from potential attackers.
+
+1) Edit ssh_config as administrator(USE sudo). Inside ssh_config, remove the hash # in the lines ForwardAgent, ForwardX11, ForwardX11Trusted, and set the corresponding arguments to yes.
+# /etc/ssh/ssh_config
+Host *
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+
+2) X11Forwarding yes must specified in /etc/ssh/sshd_config. Note that the default is no forwarding (some distributions turn it on in their default /etc/ssh/sshd_config), and that the user cannot override this setting.
+# /etc/ssh/sshd_config
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost no
+
+3) Note that you do not need to set any environment variables on the server. "DISPLAY" and "XAUTHORITY" will automatically be set to their proper values. If you run ssh and DISPLAY & XAUTHORITY are not set, it means ssh is not forwarding the X11 connection.
+$ export XAUTHORITY=$HOME/.Xauthority
+
+4) Then verify that the DISPLAY is not empty by;
+$ echo $DISPLAY
+
+5) In case you've warning: No xauth data, you may try to generate a new .Xauthority file;
+$ xauth generate :0 . trusted
+$ xauth list
