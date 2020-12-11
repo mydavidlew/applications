@@ -1,4 +1,7 @@
-# X11 forwarding needs to be enabled on both the <client side> and the <server side>.
+## X11 forwarding needs to be enabled on both the <Client Side> and the <Server Side>.
+1. Your client must be set up to forward X11.
+2. Your server must be set up to allow X11 forwarding.
+3. Your server must be able to set up X11 authentication.
 
 [###On the Client Side###]
 The -X (capital X) option to ssh enables X11 forwarding, and you can make this the default (for all connections or for a specific conection) with ForwardX11 yes in ~/.ssh/config.
@@ -39,7 +42,7 @@ X11Forwarding yes
 X11DisplayOffset 10
 X11UseLocalhost no
 
-3) Note that you do not need to set any environment variables on the server. "DISPLAY" and "XAUTHORITY" will automatically be set to their proper values. If you run ssh and DISPLAY & XAUTHORITY are not set, it means ssh is not forwarding the X11 connection.
+3) Note that you do not need to set any environment variables on the server. "DISPLAY" and "XAUTHORITY" will automatically be set to their proper values. If you run ssh and DISPLAY & XAUTHORITY are not set, it means ssh is not forwarding the X11 connection. Now go to folder ~ or $HOME, append export to your .bashrc file and save it.
 $ export XAUTHORITY=$HOME/.Xauthority
 
 4) Then verify that the DISPLAY is not empty by;
@@ -47,4 +50,7 @@ $ echo $DISPLAY
 
 5) In case you've warning: No xauth data, you may try to generate a new .Xauthority file;
 $ xauth generate :0 . trusted
+$ xauth generate $DISPLAY
+$ xauth add $(xauth -f $HOME/.Xauthority list | tail -1)
 $ xauth list
+$ xauth info
