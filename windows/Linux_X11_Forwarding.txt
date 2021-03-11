@@ -22,6 +22,22 @@ $ ssh -v -X -Y user@hostname
 debug1: No xauth program.
 Warning: untrusted X11 forwarding setup failed: xauth key data not generated
 
+Make sure you have installed "xauth" on your Serer Side. If it is not installed, run the following command as root or sudo user:
+$ sudo apt install xauth
+
+
+[###X11 Forwarding thru SSH Tunneling###]
+Have 3 hosts A, B & C. Host A can access B through ssh only. Host B can access C. We want to be able to run X11 programs on C and forward display to A. localPort can be any port that you are not already listening to on A, I often use 2222 for simplicity.
+
+1) First, establish a ssh tunnel to host C:22 thru B at host A using localhost with port 2222 (connect to host B and forward [2222] to C:22 through B)
+A$ ssh -v -N -L 2222:<host-C>:22 <user>@<host-B>
+
+2) Next, connect to host C from A through this newly-created tunnel using [2222], forwarding X11
+A$ ssh -v -X -p 2222 <user>@localhost
+
+3) Now we can run X11 programs on C and have them display on A
+A$ xclock
+
 
 [###On the Server Side###]
 The xauth program must be installed on the server side. If there are any X11 programs there, it's very likely that xauth will be there. In the unlikely case xauth was installed in a nonstandard location, it can be called through ~/.ssh/rc (on the server!).
