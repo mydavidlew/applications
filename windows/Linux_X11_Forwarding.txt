@@ -35,8 +35,8 @@ A$ ssh -v -N -L 2222:<host-C>:22 <user>@<host-B>
 2) Next, connect to host C from A through this newly-created tunnel using [2222], forwarding X11
 A$ ssh -v -X -p 2222 <user>@localhost
 
-3) Now we can run X11 programs on C and have them display on A
-A$ xclock
+3) Now we can run X11 programs on C and have them display on A. (Port localhost:2222 is forwarded to C:22 via B. SSH to C via localhost:2222. Use X as normal)
+C$ xclock
 
 
 [###On the Server Side###]
