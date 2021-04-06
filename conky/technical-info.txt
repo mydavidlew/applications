@@ -22,6 +22,7 @@
 
 # Tools Applications
 # $sudo apt install -y cpu-x
+# $sudo apt install inxi | $inxi -Fxz
 
 # In case you need to revert back to your original Ubuntu AMD Radeon drivers you can remove the PPA driver installation using the below commands:
 $ sudo apt install ppa-purge
