@@ -1,5 +1,6 @@
 # No widgets enabled!
-# cmdline => conky -c /etc/conky/conky.conf
+# cmdline => $sudo apt install conky-all
+# cmdline => $conky -c /etc/conky/conky.conf
 #
 
 exit 0
