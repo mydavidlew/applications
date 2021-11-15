@@ -17,7 +17,7 @@ https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
    $ git clone https://github.com/snuf/iomemory-vsl
    $ cd iomemory-vsl/
    $ make module
-   $ sudo insmod /usr/src/iomemory-vsl-3.2.16/iomemory-vsl.ko
+   $ sudo insmod root/usr/src/iomemory-vsl-3.2.16/iomemory-vsl.ko
    
 3. Unpack the driver source file:
    $ tar zxvf iomemory-vsl-source_3.2.15*.tar.gz
