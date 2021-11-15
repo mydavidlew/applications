@@ -36,3 +36,33 @@ Sensors:   System Temperatures: cpu: 47.0 C mobo: 44.0 C gpu: radeon temp: 29 C
            Fan Speeds (RPM): cpu: 941 mobo: 1224 
 Info:      Processes: 415 Uptime: 4h 16m Memory: 31.26 GiB used: 4.24 GiB (13.6%) Init: systemd runlevel: 5 Compilers: 
            gcc: 9.3.0 Shell: bash v: 5.0.17 inxi: 3.0.38 
+
+superadmin@dl-OptiPlex-990:~$ inxi -Fxz
+System:    Kernel: 5.11.0-40-generic x86_64 bits: 64 compiler: N/A Desktop: Gnome 3.36.9 
+           Distro: Ubuntu 20.04.3 LTS (Focal Fossa) 
+Machine:   Type: Desktop System: Dell product: OptiPlex 990 v: 01 serial: <filter> 
+           Mobo: Dell model: 06D7TR v: A02 serial: <filter> BIOS: Dell v: A24 date: 07/02/2018 
+CPU:       Topology: Quad Core model: Intel Core i5-2500 bits: 64 type: MCP arch: Sandy Bridge rev: 7 L2 cache: 6144 KiB 
+           flags: avx lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx bogomips: 26341 
+           Speed: 3666 MHz min/max: 1600/3700 MHz Core speeds (MHz): 1: 2989 2: 3269 3: 3561 4: 3479 
+Graphics:  Device-1: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell 
+           driver: radeon v: kernel bus ID: 01:00.0 
+           Display: x11 server: X.Org 1.20.11 driver: radeon resolution: 1920x1080~60Hz 
+           OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.11.0-40-generic LLVM 12.0.0) v: 3.3 Mesa 21.0.3 direct render: Yes 
+Audio:     Device-1: Intel 6 Series/C200 Series Family High Definition Audio vendor: Dell driver: snd_hda_intel v: kernel 
+           bus ID: 00:1b.0 
+           Sound Server: ALSA v: k5.11.0-40-generic 
+Network:   Device-1: Intel 82579LM Gigabit Network vendor: Dell driver: e1000e v: kernel port: 4040 bus ID: 00:19.0 
+           IF: eno1 state: up speed: 1000 Mbps duplex: full mac: <filter> 
+           IF-ID-1: br-af25e87a0086 state: down mac: <filter> 
+           IF-ID-2: br-d9e6107f03d0 state: down mac: <filter> 
+           IF-ID-3: docker0 state: down mac: <filter> 
+Drives:    Local Storage: total: 1.82 TiB used: 58.96 GiB (3.2%) 
+           ID-1: /dev/sda vendor: Seagate model: ST31000524AS size: 931.51 GiB temp: 36 C 
+           ID-2: /dev/sdb vendor: Samsung model: HD103SJ size: 931.51 GiB temp: 38 C 
+Partition: ID-1: / size: 915.40 GiB used: 58.96 GiB (6.4%) fs: ext4 dev: /dev/sdb5 
+Sensors:   System Temperatures: cpu: 42.0 C mobo: N/A gpu: radeon temp: 43 C 
+           Fan Speeds (RPM): N/A 
+Info:      Processes: 315 Uptime: 11m Memory: 31.31 GiB used: 1.99 GiB (6.3%) Init: systemd runlevel: 5 Compilers: gcc: 9.3.0 
+           Shell: bash v: 5.0.17 inxi: 3.0.38 
+
