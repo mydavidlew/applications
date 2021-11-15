@@ -1,0 +1,53 @@
+[HPE-PCIe-Fusion-ioDrive2 Installation]
+
+Repository for ioMemory VSL (Driver) Source
+https://github.com/vinsonlee/iomemory-vsl
+https://github.com/RemixVSL/iomemory-vsl
+
+References for ioMemory VSL Installation
+https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
+
+1. Install the following packages necessary for compiling the Fusion-io Source Driver Packages:
+   $ sudo apt install gcc fakeroot build-essential debhelper linux-headers-$(uname -r) rsync
+   $ ls -al /lib/modules/$(uname -r)
+
+2. Download the driver source file for your target operating system at
+   https://link.sandisk.com/commercialsupport.html
+   or
+   $ git clone https://github.com/snuf/iomemory-vsl
+   $ cd iomemory-vsl/
+   $ make module
+   $ sudo insmod /usr/src/iomemory-vsl-3.2.16/iomemory-vsl.ko
+   
+3. Unpack the driver source file:
+   $ tar zxvf iomemory-vsl-source_3.2.15*.tar.gz
+
+4. Change directory to the folder created in the previous step:
+   $ cd iomemory-vsl-source-3.2.15*
+
+5. Begin the driver rebuild:
+   $ dpkg-buildpackage -rfakeroot -b
+
+   You can also build the driver as a root user, though this is not recommended:
+   $ sudo dpkg-buildpackage
+
+   Alternatively "debuild" can be used:
+   $ debuild
+   
+   or
+   
+   Begin the Build Process:
+   $ make dpkg
+
+6. The new .deb package is located in the parent directory.
+
+   Note: A failure of any of these builds may be due to required packages
+         missing from the system. The output from the failed command
+         informs you of which packages are missing. Try installing any
+         missing packages and then repeating the build process.
+
+7. Install the generated driver in conjunction with any additional files
+   (fio-util, fio-firmware, etc.) that have been downloaded from
+   https://link.sandisk.com/commercialsupport.html.
+
+8. The device /dev/fioa is now available for hard drive use
