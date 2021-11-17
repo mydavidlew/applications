@@ -89,6 +89,45 @@ Sensors:   System Temperatures: cpu: 42.0 C mobo: N/A gpu: radeon temp: 43 C
 Info:      Processes: 315 Uptime: 11m Memory: 31.31 GiB used: 1.99 GiB (6.3%) Init: systemd runlevel: 5 Compilers: gcc: 9.3.0 
            Shell: bash v: 5.0.17 inxi: 3.0.38 
 
+superadmin@dl-PrecT-3620:~$ glxinfo -B
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: X.Org (0x1002)
+    Device: AMD CAICOS (DRM 2.50.0 / 5.13.0-21-generic, LLVM 12.0.1) (0x6779)
+    Version: 21.2.2
+    Accelerated: yes
+    Video memory: 1024MB
+    Unified memory: no
+    Preferred profile: core (0x1)
+    Max core profile version: 3.3
+    Max compat profile version: 3.1
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.1
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 1023 MB, largest block: 1023 MB
+    VBO free aux. memory - total: 1021 MB, largest block: 1021 MB
+    Texture free memory - total: 1023 MB, largest block: 1023 MB
+    Texture free aux. memory - total: 1021 MB, largest block: 1021 MB
+    Renderbuffer free memory - total: 1023 MB, largest block: 1023 MB
+    Renderbuffer free aux. memory - total: 1021 MB, largest block: 1021 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 1024 MB
+    Total available memory: 2045 MB
+    Currently available dedicated video memory: 1023 MB
+OpenGL vendor string: X.Org
+OpenGL renderer string: AMD CAICOS (DRM 2.50.0 / 5.13.0-21-generic, LLVM 12.0.1)
+OpenGL core profile version string: 3.3 (Core Profile) Mesa 21.2.2
+OpenGL core profile shading language version string: 3.30
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 3.1 Mesa 21.2.2
+OpenGL shading language version string: 1.40
+OpenGL context flags: (none)
+OpenGL ES profile version string: OpenGL ES 3.1 Mesa 21.2.2
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
+
 superadmin@dl-OptiPlex-7020:~$ glxinfo -B
 name of display: :0
 display: :0  screen: 0
