@@ -156,6 +156,45 @@ OpenGL context flags: (none)
 OpenGL ES profile version string: OpenGL ES 3.1 Mesa 20.0.8
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
 
+superadmin@dl-OptiPlex-990:~$ glxinfo -B
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: X.Org (0x1002)
+    Device: AMD CAICOS (DRM 2.50.0 / 5.11.0-40-generic, LLVM 12.0.0) (0x6779)
+    Version: 21.0.3
+    Accelerated: yes
+    Video memory: 1024MB
+    Unified memory: no
+    Preferred profile: core (0x1)
+    Max core profile version: 3.3
+    Max compat profile version: 3.1
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.1
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 1023 MB, largest block: 1023 MB
+    VBO free aux. memory - total: 1021 MB, largest block: 1021 MB
+    Texture free memory - total: 1023 MB, largest block: 1023 MB
+    Texture free aux. memory - total: 1021 MB, largest block: 1021 MB
+    Renderbuffer free memory - total: 1023 MB, largest block: 1023 MB
+    Renderbuffer free aux. memory - total: 1021 MB, largest block: 1021 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 1024 MB
+    Total available memory: 2045 MB
+    Currently available dedicated video memory: 1023 MB
+OpenGL vendor string: X.Org
+OpenGL renderer string: AMD CAICOS (DRM 2.50.0 / 5.11.0-40-generic, LLVM 12.0.0)
+OpenGL core profile version string: 3.3 (Core Profile) Mesa 21.0.3
+OpenGL core profile shading language version string: 3.30
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 3.1 Mesa 21.0.3
+OpenGL shading language version string: 1.40
+OpenGL context flags: (none)
+OpenGL ES profile version string: OpenGL ES 3.1 Mesa 21.0.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
+
 superadmin@dl-PrecT-3620:~$ sudo fio-status
 Found 1 ioMemory device in this system
 Driver version: 3.2.16 build 1731
