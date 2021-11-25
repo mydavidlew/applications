@@ -17,7 +17,7 @@
 # $sudo apt install mesa-utils | $glxinfo -B
 
 # Open Source Dell Desktop and Laptop
-# $sudo apt install -y i8kutils
+# $sudo apt install -y i8kutils ### refer below
 # $sudo snap install dell-bios-fan-control
 
 # Tools Applications
@@ -27,3 +27,49 @@
 # In case you need to revert back to your original Ubuntu AMD Radeon drivers you can remove the PPA driver installation using the below commands:
 $ sudo apt install ppa-purge
 $ sudo ppa-purge ppa:oibaf/graphics-drivers
+
+
+The steps! - http://keenformatics.blogspot.com/2013/06/how-to-solve-dell-laptops-fan-issues-in.html
+1) First of all, let's download and install i8kutils. Open your terminal and write:
+$ sudo apt-get install i8kutils
+2) Now you've got to add i8k to your modules. Open the modules file:
+$ sudo gedit /etc/modules
+and add the string "i8k" (without quotes) to the file. Save and exit.
+3) Create an i8k.conf file
+$ sudo vim /etc/modprobe.d/i8k.conf
+and fill it with this code:
+  options i8k force=1
+
+Note: Some older guides will tell you to create a /modprobe.d/options file. The "options" file isn't used anymore on Ubuntu. What does matter is that you create a file with a .conf extension (the filename isn't important, but I decided to name it i8k.conf for clarity). So beware of older i8kmon configuration guides.
+
+4) Now restart your computer, or run this code to make i8k run:
+$ sudo modprobe i8k force=1
+5) We will now create a i8kmon.conf file which will tell the i8kmon utility how to behave.
+$ sudo gedit /etc/i8kmon.conf
+Paste the following code in it:
+
+# Run as daemon, override with --daemon option
+set config(daemon)      0
+# Automatic fan control, override with --auto option
+set config(auto)        1
+# Report status on stdout, override with --verbose option
+set config(verbose) 1
+# Status check timeout (seconds), override with --timeout option
+set config(timeout) 20
+# Temperature thresholds: {fan_speeds low_ac high_ac low_batt high_batt}
+set config(0)   {{-1 0}  -1  40  -1  40}
+set config(1)   {{-1 1}  30  60  30  60}
+set config(2)   {{-1 2}  53  128  53  128}
+# For computer with 2 fans, use a variant of this instead:
+# Temperature thresholds: {fan_speeds low_ac high_ac low_batt high_batt}
+# set config(0) {{-1 0}  -1  52  -1  65}
+# set config(1) {{-1 1}  41  66  55  75}
+# set config(2) {{-1 1}  55  80  65  85}
+# set config(3) {{-1 2}  70 128  75 128}
+# end of file
+
+This has been edited to match my Dell Inspiron 15r 5521 fan configuration (and I hope I did it well). If you want more informations take a look at the documentation on Ubuntu Manuals: http://manpages.ubuntu.com/manpages/gutsy/man1/i8kmon.1.html
+
+6) Now you should be able to run i8kmon from your terminal and see if (and how) it's working. Simply run:
+$ i8kmon
+Finished!
