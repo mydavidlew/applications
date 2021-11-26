@@ -1,6 +1,7 @@
 [HPE-PCIe-Fusion-ioDrive2 Installation]
 
 Repository for ioMemory VSL (Driver) Source
+https://github.com/RemixVSL/iomemory-vsl
 https://github.com/vinsonlee/iomemory-vsl
 https://github.com/RemixVSL/iomemory-vsl
 
