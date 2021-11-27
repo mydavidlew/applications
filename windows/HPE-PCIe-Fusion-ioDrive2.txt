@@ -53,3 +53,25 @@ https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
    https://link.sandisk.com/commercialsupport.html.
 
 8. The device /dev/fioa is now available for hard drive use
+
+
+superadmin@dl-PrecT-3620:/opt/forticlient$ more /etc/fstab 
+# /etc/fstab: static file system information.
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system>                           <mount point>   <type>  <options>         <dump>  <pass>
+# / was on /dev/sda3 at installation
+UUID=8cb4ae44-8ee1-4b3a-b24e-5b95837c4843 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/sda2 at installation
+UUID=BD43-5933                            /boot/efi       vfat    umask=0077        0       1
+# additional swap space in filesystem
+/media/superadmin/ioDrive/swapfile        none            swap    sw                0       0
+/swapfile                                 none            swap    sw                0       0
+# other spinable drives mount on demand
+/dev/sda1 /media/superadmin/WINBOOT       ntfs rw,nosuid,nodev,relatime,x-gvfs-name=WINBOOT 0 0
+/dev/sda2 /media/superadmin/WINDOWS       ntfs rw,nosuid,nodev,relatime,x-gvfs-name=WINDOWS 0 0
+/dev/sdb1 /media/superadmin/Office        ext4 rw,nosuid,nodev,relatime,x-gvfs-name=Office  0 0
+/dev/sdb2 /media/superadmin/Backup        ext4 rw,nosuid,nodev,relatime,x-gvfs-name=Backup  0 0
+/dev/fioa /media/superadmin/ioDrive       ext4 rw,nosuid,nodev,relatime,x-gvfs-name=ioDrive 0 0
