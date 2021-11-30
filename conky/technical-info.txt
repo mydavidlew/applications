@@ -14,6 +14,8 @@
 # $sudo apt install mesa-utils | $glxinfo -B
 
 # Open Source Dell Desktop and Laptop
+# https://github.com/TomFreudenberg/dell-bios-fan-control
+# https://mijorus.medium.com/thermal-tweaks-on-dell-laptops-running-linux-769c8c80022e
 # $sudo apt install -y i8kutils ### refer below
 # $sudo snap install dell-bios-fan-control
 
