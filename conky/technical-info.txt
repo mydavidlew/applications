@@ -1,5 +1,6 @@
 # Sensors Information
 # $sudo apt install -y lm-sensors
+# $sudo apt install -y hddtemp
 # $sudo apt install -y fancontrol read-edid i2c-tools
 # $sudo apt install -y libcanberra-gtk-module libcanberra-gtk3-module
 # $sudo snap install indicator-sensors
