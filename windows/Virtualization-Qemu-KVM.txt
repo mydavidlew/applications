@@ -55,6 +55,12 @@ $ lsmod | grep -i kvm
 Confirm the installation was successful by using the virsh command:
 $ virsh list --all
 
+$ brctl addbr virbr0
+$ brctl stp virbr0 on
+$ brctl addif virbr0 vnet0
+$ brctl show
+$ brctl showmacs virbr0
+$ brctl showstp virbr0
 
 
 Image files
