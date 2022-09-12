@@ -1,0 +1,70 @@
+QEMU
+QEMU is a userland type 2 hypervisor for performing hardware virtualization (not to be confused with hardware-assisted virtualization), such as disk, network, VGA, PCI, USB, serial/parallel ports, etc. It is flexible in that it can emulate CPUs via dynamic binary translation (DBT) allowing code written for a given processor to be executed on another (i.e ARM on x86, or PPC on ARM). Though QEMU can run on its own and emulate all of the virtual machine’s resources, as all the emulation is performed in software it is extremely slow.
+
+KVM
+KVM is a Linux kernel module. It is a type 1 hypervisor that is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). But what is full virtualization, you may ask? When a CPU is emulated (vCPU) by the hypervisor, the hypervisor has to translate the instructions meant for the vCPU to the physical CPU. As you can imagine this has a massive performance impact. To overcome this, modern processors support virtualization extensions, such as Intel VT-x and AMD-V. These technologies provide the ability for a slice of the physical CPU to be directly mapped to the vCPU. Therefore the instructions meant for the vCPU can be directly executed on the physical CPU slice.
+
+Summary
+QEMU can run independently, but due to the emulation being performed entirely in software it is extremely slow. To overcome this, QEMU allows you to use KVM as an accelerator so that the physical CPU virtualization extensions can be used. So to conclude: QEMU is a type 2 hypervisor that runs within user space and performs virtual hardware emulation, whereas KVM is a type 1 hypervisor that runs in kernel space, that allows a user space program access to the hardware virtualization features of various processors
+
+Step 1: Check Virtualization Support in Ubuntu
+
+Before installing KVM on Ubuntu, we are first going to verify if the hardware supports KVM. A minimum requirement for installing KVM is the availability of CPU virtualization extensions such as AMD-V and Intel-VT.
+
+To check whether the Ubuntu system supports virtualization, run the following command. An outcome greater than 0 implies that virtualization is supported.
+$ egrep -c '(vmx|svm)' /proc/cpuinfo
+
+To check if your system supports KVM virtualization execute the command:
+$ sudo kvm-ok
+
+If the “kvm-ok” utility is not present on your server, install it by running the apt command:
+$ sudo apt install cpu-checker
+
+Step 2: Install KVM on Ubuntu 20.04 LTS
+
+With the confirmation that our system can support KVM virtualization, we are going to install KVM, To install KVM, virt-manager, bridge-utils and other dependencies, run the command:
+$ sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager virt-viewer
+
+A little explanation of the above packages.
+- qemu package (quick emulator) is an application that allows you to perform hardware virtualization.
+- qemu-kvm package is the main KVM package.
+- libvritd-daemon is the virtualization daemon.
+- bridge-utils package helps you create a bridge connection to allow other users to access a virtual machine other than the host system.
+- virt-manager is an application for managing virtual machines through a graphical user interface.
+
+Before proceeding further, we need to confirm that the virtualization daemon – libvritd-daemon – is running. To do so, execute the command.
+$ sudo systemctl status libvirtd
+
+You can enable it to start on boot by running:
+$ sudo systemctl enable --now libvirtd
+
+Step 3: Authorize Users to run Virtual Machines
+
+Only members of the libvirt and kvm user groups can run virtual machines. Add a user to the libvirt & kvm group by typing:
+$ sudo usermod -aG libvirt ${USER}
+$ sudo usermod -aG kvm ${USER}
+
+Step 4: Verify the Installation
+
+To check if the KVM modules are loaded, run the command:
+$ lsmod | grep -i kvm
+
+Confirm the installation was successful by using the virsh command:
+$ virsh list --all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
