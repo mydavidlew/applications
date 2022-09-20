@@ -96,3 +96,6 @@ $ sudo virsh destroy <vm>
 
 To delete the virtual machine along with its associated storage file, run:
 $ sudo virsh undefine --domain <vm> --remove-all-storage
+
+To connect to the guest console, use the command:
+$ sudo virsh console <vm>
