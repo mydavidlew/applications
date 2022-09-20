@@ -34,7 +34,7 @@ $ sudo apt install cpu-checker
 [[Step 2]]: Install KVM on Ubuntu 20.04 LTS
 
 With the confirmation that our system can support KVM virtualization, we are going to install KVM, To install KVM, virt-manager, bridge-utils and other dependencies, run the command:
-$ sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager virt-viewer
+$ sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager virt-viewer virtinst
 
 A little explanation of the above packages.
 - qemu package (quick emulator) is an application that allows you to perform hardware virtualization.
@@ -45,6 +45,7 @@ A little explanation of the above packages.
 - virt-manager is an application for managing virtual machines through a graphical user interface.
 - virt-viewer is a utility that displays the graphical view for the virtual machine.
 - virt-install is a utility that helps you to create virtual machines and install OS on those virtual machines from command line.
+- virtinst is a set of command-line utilities for provisioning and modifying virtual machines.
 
 Before proceeding further, we need to confirm that the virtualization daemon – libvritd-daemon – is running. To do so, execute the command.
 $ sudo systemctl status libvirtd
