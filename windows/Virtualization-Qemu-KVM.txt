@@ -70,8 +70,8 @@ Confirm the installation was successful by using the virsh command:
 $ sudo virsh list --all
 $ sudo virsh net-list
 $ sudo virsh net-info default
-$ sudo virsh dominfo <domain>
-$ sudo virsh domifaddr <domain>
+$ sudo virsh dominfo <vm>
+$ sudo virsh domifaddr <vm>
 
 To create a local virtual bridge network and interface for the kvm:
 $ brctl addbr <virbr0>
@@ -80,3 +80,18 @@ $ brctl addif <virbr0> <vnet0>
 $ brctl show
 $ brctl showmacs <virbr0>
 $ brctl showstp <virbr0>
+
+To start or power on the virtual machine, run:
+$ sudo virsh start <vm>
+
+To shut down a virtual machine use the syntax:
+$ sudo virsh shutdown <vm>
+
+To reboot the machine, run the command:
+$ sudo virsh reboot <vm>
+
+To destroy or forcefully power off virtual machine, run:
+$ sudo virsh destroy <vm>
+
+To delete the virtual machine along with its associated storage file, run:
+$ sudo virsh undefine --domain <vm> --remove-all-storage
