@@ -18,7 +18,7 @@ parallels - is a standard image tp of virtualization solutions of Paralles Inc.
 vpc - standard image format for Microsoft Virtual PC
 
 
-Step 1: Check Virtualization Support in Ubuntu
+[[Step 1]]: Check Virtualization Support in Ubuntu
 
 Before installing KVM on Ubuntu, we are first going to verify if the hardware supports KVM. A minimum requirement for installing KVM is the availability of CPU virtualization extensions such as AMD-V and Intel-VT.
 
@@ -31,7 +31,7 @@ $ sudo kvm-ok
 If the “kvm-ok” utility is not present on your server, install it by running the apt command:
 $ sudo apt install cpu-checker
 
-Step 2: Install KVM on Ubuntu 20.04 LTS
+[[Step 2]]: Install KVM on Ubuntu 20.04 LTS
 
 With the confirmation that our system can support KVM virtualization, we are going to install KVM, To install KVM, virt-manager, bridge-utils and other dependencies, run the command:
 $ sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager virt-viewer
@@ -52,7 +52,7 @@ $ sudo systemctl status libvirtd
 You can enable it to start on boot by running:
 $ sudo systemctl enable --now libvirtd
 
-Step 3: Authorize Users to run Virtual Machines
+[[Step 3]]: Authorize Users to run Virtual Machines
 
 Only members of the libvirt and kvm user groups can run virtual machines. Add a user to the libvirt & kvm group by typing:
 $ sudo usermod -aG libvirt ${USER}
@@ -61,7 +61,7 @@ $ sudo usermod -aG kvm ${USER}
 Reload updated group membership info as follows. Upon asked for a password, enter your login password.
 $ exec su -l $USER
 
-Step 4: Verify the Installation
+[[Step 4]]: Verify the Installation
 
 To check if the KVM modules are loaded, run the command:
 $ lsmod | grep -i kvm
