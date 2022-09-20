@@ -7,6 +7,17 @@ KVM is a Linux kernel module. It is a type 1 hypervisor that is a full virtualiz
 Summary
 QEMU can run independently, but due to the emulation being performed entirely in software it is extremely slow. To overcome this, QEMU allows you to use KVM as an accelerator so that the physical CPU virtualization extensions can be used. So to conclude: QEMU is a type 2 hypervisor that runs within user space and performs virtual hardware emulation, whereas KVM is a type 1 hypervisor that runs in kernel space, that allows a user space program access to the hardware virtualization features of various processors
 
+Short overview of Image-Files formats
+raw - is the default format. Allows flexible converting. Takes only used side on host, but only if used ext4 and (ext3?). This is called spare file or spare image
+qed - is enhanced disc format for faster access (since QEMU 0.14). It supports overlay and sparse images. Overlay means that on create you can assign allready existing image as base and only differences will be written to the overlay image (Beware: base image has to stay unchanged!). Its also faster than qcow2
+qcow2 - is most featured format in QEMU and is meant to replace qcow. This format support sparse images independent of underlying fs capabilities. It supports multiple VM-snapshots, encryption (AES) and compression.
+qcowis - an old QEMU format. Images in qcow are sparse and like qcow2 independent of underlying file system capabilities.
+vmdk - is standard format for VMware Workstation. Overlay function is similar to qcow2.
+vdi - is standard format for Virtual Box.
+parallels - is a standard image tp of virtualization solutions of Paralles Inc.
+vpc - standard image format for Microsoft Virtual PC
+
+
 Step 1: Check Virtualization Support in Ubuntu
 
 Before installing KVM on Ubuntu, we are first going to verify if the hardware supports KVM. A minimum requirement for installing KVM is the availability of CPU virtualization extensions such as AMD-V and Intel-VT.
@@ -56,38 +67,16 @@ To check if the KVM modules are loaded, run the command:
 $ lsmod | grep -i kvm
 
 Confirm the installation was successful by using the virsh command:
-$ virsh list --all
+$ sudo virsh list --all
+$ sudo virsh net-list
+$ sudo virsh net-info default
+$ sudo virsh dominfo <domain>
+$ sudo virsh domifaddr <domain>
 
-$ brctl addbr virbr0
-$ brctl stp virbr0 on
-$ brctl addif virbr0 vnet0
+To create a local virtual bridge network and interface for the kvm:
+$ brctl addbr <virbr0>
+$ brctl stp <virbr0> on
+$ brctl addif <virbr0> <vnet0>
 $ brctl show
-$ brctl showmacs virbr0
-$ brctl showstp virbr0
-
-
-Image files
-Virtual machines persist in containers or virtual drive images, therefore we should get familiar with them first.
-
-Short overview of Image-Files formats
-raw default format. Allows flexible converting. Takes only used side on host, but only if used ext4 and (ext3?). This is called spare file or spare image
-qed enhanced disc format for faster access (since QEMU 0.14). It supports overlay and sparse images. Overlay means that on create you can assign allready existing image as base and only differences will be written to the overlay image (Beware: base image has to stay unchanged!). Its also faster than qcow2
-qcow2 is most featured format in QEMU and is meant to replace qcow. This format support sparse images independent of underlying fs capabilities. It supports multiple VM-snapshots, encryption (AES) and compression.
-qcowis old QEMU format. Images in qcow are sparse and like qcow2 independent of underlying file system capabilities.
-vmdk is standard format for VMware Workstation. Overlay function is similar to qcow2.
-vdi is standard format for Virtual Box.
-parallels standard image tp of virtualization solutions of Paralles Inc.
-vpc standard image format for Microsoft Virtual PC
-
-
-
-
-
-
-
-
-
-
-
-
-
+$ brctl showmacs <virbr0>
+$ brctl showstp <virbr0>
