@@ -69,10 +69,11 @@ $ lsmod | grep -i kvm
 
 Confirm the installation was successful by using the virsh command:
 $ sudo virsh list --all
-$ sudo virsh net-list
+$ sudo virsh net-list --all
 $ sudo virsh net-info default
 $ sudo virsh dominfo <vm>
 $ sudo virsh domifaddr <vm>
+$ sudo virsh domiflist <vm>
 
 To create a local virtual bridge network and interface for the kvm:
 $ brctl addbr <virbr0>
