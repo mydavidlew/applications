@@ -98,5 +98,23 @@ $ sudo virsh destroy <vm>
 To delete the virtual machine along with its associated storage file, run:
 $ sudo virsh undefine --domain <vm> --remove-all-storage
 
+To edit a vm xml file, use:
+$ export EDITOR=vim
+$ sudo virsh edit <vm>
+
 To connect to the guest console, use the command:
-$ sudo virsh console <vm>
+$ sudo virsh console <vm> --force
+
+To create a new virtual machine with virsh, use:
+$ sudo virt-install \
+  --name centos7 \
+  --description "Test VM with CentOS 7" \
+  --ram=1024 \
+  --vcpus=2 \
+  --os-type=Linux \
+  --os-variant=rhel7 \
+  --disk path=/var/lib/libvirt/images/centos7.qcow2,bus=virtio,size=10 \
+  --graphics none \
+  --location $HOME/iso/CentOS-7-x86_64-Everything-1611.iso \
+  --network bridge:virbr0 \
+  --console pty,target_type=serial -x 'console=ttyS0,115200n8 serial'
