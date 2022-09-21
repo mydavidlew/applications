@@ -96,7 +96,7 @@ $ sudo brctl addif <br0> <eth0>
 
 Assigning an IP address:
 $ sudo ip addr add dev <br0> 192.168.120.1/24 broadcast 192.168.120.255
-$ sudo ip route add default via 192.168.120.1 dev <br0>
+$ sudo ip route add 192.168.120.0/24 via 192.168.120.1 dev <br0>
 
 Show current bridges and what interfaces they are connected to:
 $ brctl show
