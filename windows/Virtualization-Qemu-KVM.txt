@@ -180,10 +180,10 @@ To convert a network name to network UUID – previously defined UUID, use:
 $ sudo virsh net-uuid <mynet>
 
 Confirm that the bridge was successfully created, use brctl command provided by bridge-utils package to check available bridges,
-$ sudo brctl show virbr0
+$ sudo brctl show <virbr0>
 
 Checking Ip address assigned to the interface, use ip command for this:
-$ ip addr show dev virbr0
+$ ip addr show dev <virbr0>
 
 Attaching an interface to a VM, this takes effect immediately, and the NIC will be persistent on further reboots.
 $ sudo virsh attach-interface --domain <vm> --type network --source <mynet> --model virtio --config --live/current
