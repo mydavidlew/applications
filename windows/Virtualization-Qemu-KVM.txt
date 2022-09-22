@@ -136,3 +136,52 @@ $ brctl showstp <virbr0>
 Delete a bridge, you need to first set it to down:
 $ sudo ip link set dev <virbr0> down
 $ sudo brctl delbr <virbr0>
+
+[[Step 6]]: Create Linux Bridge using XML
+This network configuration uses a Linux bridge in combination with Network Address Translation (NAT) to enable a guest OS to get outbound connectivity regardless of the type of networking (wired, wireless, dial-up, and so on) used in the KVM host without requiring any specific administrator configuration.
+
+The quickest way to get started is by utilizing existing default network configuration. Dump default network xml configuration using below command.
+$ sudo virsh net-dumpxml default > mynet.xml
+
+Edit this file accordingly and use it to define new network interface
+$ sudo vim mynet.xml
+
+<network>
+  <name>mynet</name>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='virbr0' stp='on' delay='0'/>
+  <ip address='192.168.120.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.120.100' end='192.168.120.200'/>
+    </dhcp>
+  </ip>
+</network>
+
+To define a network from an XML file without starting it, use:
+$ sudo virsh net-define mynet.xml
+
+To start a (previously defined) inactive network, use:
+$ sudo virsh net-start mynet
+
+To create transient network that cannot be set to autostart use:
+$ sudo virsh net-create mynet.xml
+
+To set the network to autostart, use:
+$ sudo virsh net-autostart mynet
+
+Check to Confirm if autostart flag is turned to yes – Persistent should read yes as well.
+$ sudo virsh net-list --all
+
+To convert a network name to network UUID – previously defined UUID, use:
+$ sudo virsh net-uuid mynet
+
+Confirm that the bridge was successfully created, use brctl command provided by bridge-utils package to check available bridges,
+$ sudo brctl show virbr0
+
+Checking Ip address assigned to the interface, use ip command for this:
+$ ip addr show dev virbr0
+
