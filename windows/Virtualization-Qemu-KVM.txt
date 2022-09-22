@@ -186,11 +186,11 @@ Checking Ip address assigned to the interface, use ip command for this:
 $ ip addr show dev virbr0
 
 Attaching an interface to a VM, this takes effect immediately, and the NIC will be persistent on further reboots.
-$ sudo virsh attach-interface --domain <vm> --type bridge --source virbr0 --model virtio --config --live  
+$ sudo virsh attach-interface --domain <vm> --type network --source mynet --model virtio --config --live  
 $ sudo virsh domiflist <vm>
 
 Detaching an interface attached to a VM
-$ sudo virsh detach-interface --domain <vm> --type bridge --mac <11:22:33:44:55:66> [--persistent] [--config] [--live] [--current]
+$ sudo virsh detach-interface --domain <vm> --type network --mac <11:22:33:44:55:66> [--config] [--live] [--current]
 $ sudo virsh domiflist <vm>
 
 To fully remove a network, First destroy the network to put it in inactive mode:
