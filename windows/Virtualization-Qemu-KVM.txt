@@ -165,19 +165,19 @@ To define a network from an XML file without starting it, use:
 $ sudo virsh net-define mynet.xml
 
 To start a (previously defined) inactive network, use:
-$ sudo virsh net-start mynet
+$ sudo virsh net-start <mynet>
 
 To create transient network that cannot be set to autostart use:
 $ sudo virsh net-create mynet.xml
 
 To set the network to autostart, use:
-$ sudo virsh net-autostart mynet
+$ sudo virsh net-autostart <mynet>
 
 Check to Confirm if autostart flag is turned to yes – Persistent should read yes as well.
 $ sudo virsh net-list --all
 
 To convert a network name to network UUID – previously defined UUID, use:
-$ sudo virsh net-uuid mynet
+$ sudo virsh net-uuid <mynet>
 
 Confirm that the bridge was successfully created, use brctl command provided by bridge-utils package to check available bridges,
 $ sudo brctl show virbr0
@@ -186,21 +186,21 @@ Checking Ip address assigned to the interface, use ip command for this:
 $ ip addr show dev virbr0
 
 Attaching an interface to a VM, this takes effect immediately, and the NIC will be persistent on further reboots.
-$ sudo virsh attach-interface --domain <vm> --type network --source mynet --model virtio --config --live  
+$ sudo virsh attach-interface --domain <vm> --type network --source <mynet> --model virtio --config --live/current
 $ sudo virsh domiflist <vm>
 
 Detaching an interface attached to a VM
-$ sudo virsh detach-interface --domain <vm> --type network --mac <11:22:33:44:55:66> [--config] [--live] [--current]
+$ sudo virsh detach-interface --domain <vm> --type network --mac <11:22:33:44:55:66> --config --live/current
 $ sudo virsh domiflist <vm>
 
 To fully remove a network, First destroy the network to put it in inactive mode:
-$ sudo virsh net-destroy mynet
+$ sudo virsh net-destroy <mynet>
 
 Next, undefine the network.
-$ sudo virsh net-undefine mynet
+$ sudo virsh net-undefine <mynet>
 
 Confirm that the network is not listed as inactive/active.
 $ sudo virsh net-list --all
 
 You can as well use brctl command to check:
-$ sudo brctl show mynet
+$ sudo brctl show <mynet>
