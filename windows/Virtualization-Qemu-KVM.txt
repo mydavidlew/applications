@@ -190,7 +190,7 @@ $ sudo virsh attach-interface --domain <vm> --type bridge --source virbr0 --mode
 $ sudo virsh domiflist <vm>
 
 Detaching an interface attached to a VM
-$ sudo virsh detach-interface --domain <vm> --type bridge --mac <11:22:33:44:55:66> --config
+$ sudo virsh detach-interface --domain <vm> --type bridge --mac <11:22:33:44:55:66> [--persistent] [--config] [--live] [--current]
 $ sudo virsh domiflist <vm>
 
 To fully remove a network, First destroy the network to put it in inactive mode:
