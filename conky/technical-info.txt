@@ -76,3 +76,12 @@ This has been edited to match my Dell Inspiron 15r 5521 fan configuration (and I
 6) Now you should be able to run i8kmon from your terminal and see if (and how) it's working. Simply run:
 $ i8kmon
 Finished!
+
+9) For latest Ubuntu version that do not support 'hddtemp' command
+To install the hddtemp package from Ubuntu 21.10 in Ubuntu 22.04 run the following commands:
+$ sudo apt update
+$ wget http://archive.ubuntu.com/ubuntu/pool/universe/h/hddtemp/hddtemp_0.3-beta15-53_amd64.deb  
+$ sudo apt install ./hddtemp_0.3-beta15-53_amd64.deb
+
+Next update the /etc/sudoers using 'visudo' command to allow execute cmd without keyin password
+# <username> ALL=(ALL) NOPASSWD: /usr/sbin/hddtemp
