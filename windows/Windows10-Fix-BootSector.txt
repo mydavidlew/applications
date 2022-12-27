@@ -75,3 +75,20 @@ To get some space on the SSD/HDD for the EFI partition we shrink the main partit
   * "bcdboot <c:\Windows> /s <X>: /f all", X is the new drive letter, some more info - https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di
 
 For me this worked like a charm. Sometimes the pressure needs to be big enough to form diamonds.
+
+Xtra info:
+The 'bcdboot' tool is enough. (It is even possible to install Windows with only 'dism' and 'bcdboot'.)
+
+For BIOS mode: Create or choose the 'system' partition – an NTFS partition that'll hold the Windows BOOTMGR and the BCD. It must be a primary partition, and Microsoft also wants it to be separate from the main Windows partition (C:). It doesn't need to be the first partition, but it must be within the first 2TiB of the disk. The currently present "System Reserved" partition will do, I think?
+
+    Make sure the chosen 'system' partition is set as "active".
+
+For UEFI mode: Create a choose an 'EFI system' partition – a FAT32 partition that'll hold the Windows BOOTMGR and the BCD. This time, due to its filesystem it has to be separate from the C: partition. It must also have the correct "partition type" GUID partition table (GPT).
+
+For all modes:
+  * Temporarily assign a drive letter (S:) to the 'system' partition.
+  * Run 'bcdboot C:\Windows /s S:' to copy the boot manager files to the new 'system' partition and build a new BCD.
+  * You probably won't need to install the MBR boot code, as Windows initializes empty disks with the correct MBR boot code already, but that can be re-done using 'bootsect /nt60 S: /mbr'.
+  * Unassign the system partition's drive letter.
+  * Power off, physically disconnect the old drive, and see if it works.
+  * If it works, don't forget to delete the old 'system' partition (the 100 MB one on old Disk).
