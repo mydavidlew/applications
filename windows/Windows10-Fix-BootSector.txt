@@ -37,3 +37,7 @@ Method 3:
 9. Type Drive:\boot\Bootsect.exe /NT60 All, and then press ENTER.
 
 Note: In this command, Drive is the drive where the Windows 10 installation media is located.
+
+https://superuser.com/questions/1509289/move-windows-10-bootmanager-from-one-ssd-to-another
+https://superuser.com/questions/1536473/what-is-the-best-way-to-move-mbr-and-bootmgr-to-new-drive-windows-10#:~:text=For%20all%20modes%3A%201%20Temporarily%20assign%20a%20drive,re-done%20using%20bootsect%20%2Fnt60%20S%3A%20%2Fmbr.%20More%20items
+https://www.itechguides.com/windows-boot-manager-how-to-edit-bootmgr-and-fix-boot-errors-in-windows-10/#:~:text=2.%20How%20Do%20I%20Fix%20Windows%20Boot%20Manager%3F,at%20a%20time%2C%20and%20press%20enter%3A%20BOOTREC%20%2FFIXMBR
