@@ -114,3 +114,18 @@ Other utility partitions
   - Any other utility partitions not managed by Windows must be located before the Windows, data, and recovery image partitions. This allows end users to perform actions such as resizing the Windows partition without affecting system utilities.
   - Protect end users from accidentally modifying utility partitions by identifying them using a GPT attribute. This prevents these partitions from appearing in File Explorer.
   
+Windows partition
+  - The partition must have at least 20 gigabytes (GB) of drive space for 64-bit versions, or 16 GB for 32-bit versions.
+  - The Windows partition must be formatted using the NTFS file format.
+  - The Windows partition must have 16 GB of free space after the user has completed the Out Of Box Experience (OOBE) and Automatic Maintenance has completed.
+
+Recovery tools partition
+  - This partition must be at least 300 MB.
+  - The Windows Recovery Environment (Windows RE) tools require additional free space:
+     - A minimum of 52 MB is required but 250 MB is recommended, to accomodate future updates, especially with custom partition layouts.
+  - When calculating free space, note:
+     - The recovery image, winre.wim, is typically between 250-300MB, depending on what drivers, languages, and customizations you add.
+     - The file system itself can take up additional space. For example, NTFS may reserve 5-15MB or more on a 750MB partition.
+  - This partition must use the Type ID: 'DE94BBA4-06D1-4D40-A16A-BFD50179D6AC'.
+  - The recovery tools should be in a separate partition than the Windows partition to support automatic failover and to support booting partitions encrypted with Windows BitLocker Drive Encryption.
+  - We recommend that you place this partition immediately after the Windows partition. This allows Windows to modify and recreate the partition later if future updates require a larger recovery image.
