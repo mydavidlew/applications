@@ -47,9 +47,8 @@ Windows boot libraries are special codes that extend the functionality of the BO
 The solution had been to create a new EFI partition on the new SSD/HDD with the current/active Windows 10 installation. First I had to boot from the old installation (from another HDD). A recovery CD/DVD or USB key will do as well.
 
 To create a recovery drive:
-
-  * Press the windows key and type: "create recovery drive" and select. Enter admin password
-  * select "back up system files" to the "recovery drive" and click next
+  * Press the windows key and type: 'create recovery drive' and select. Enter admin password
+  * select 'back up system files' to the 'recovery drive' and click next
   * connect a USB driver and click next
   * click create and wait a bit
   * restart and enter the BIOS /EFI
@@ -58,8 +57,7 @@ To create a recovery drive:
 
 Now your system should reboot from the USB key. If not, try to use a USB connector directly on your motherboard.
 
-To get some space on the SSD for the EFI partition we shrink the main partition, create a new EFI partition and write a bootloader to it by doing following:
-
+To get some space on the SSD/HDD for the EFI partition we shrink the main partition, create a new EFI partition and write a bootloader to it by doing following:
   * Start a terminal with SHIFT-F10 during setup.
   * open 'diskpart', some more info - https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart
   * list all the available disks with 'list disk'
@@ -76,4 +74,4 @@ To get some space on the SSD for the EFI partition we shrink the main partition,
   * assign a drive number X to the selected volume by 'assign letter=<X>'
   * "bcdboot <c:\Windows> /s <X>: /f all", X is the new drive letter, some more info - https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di
 
-For me this worked like a charm. Sometimes the pressure needs to be big enough to form diamonds. :)
+For me this worked like a charm. Sometimes the pressure needs to be big enough to form diamonds.
