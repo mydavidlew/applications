@@ -1,5 +1,5 @@
 How to fix Windows 10 boot sector on the wrong drive?
-
+-----------------------------------------------------
 You will need to create a startup repair disk for Windows 10. 
 If you don't have one you can download create one using the following instructions:
 How to download official Windows 10 ISO files: http://answers.microsoft.com/en-us/windows/wiki/windows_10-windows_install/how-to-download-official-windows-10-iso-files/35cde7ec-5b6f-481c-a02d-dadf465df326
@@ -38,6 +38,42 @@ Method 3:
 
 Note: In this command, Drive is the drive where the Windows 10 installation media is located.
 
-https://superuser.com/questions/1509289/move-windows-10-bootmanager-from-one-ssd-to-another
-https://superuser.com/questions/1536473/what-is-the-best-way-to-move-mbr-and-bootmgr-to-new-drive-windows-10#:~:text=For%20all%20modes%3A%201%20Temporarily%20assign%20a%20drive,re-done%20using%20bootsect%20%2Fnt60%20S%3A%20%2Fmbr.%20More%20items
-https://www.itechguides.com/windows-boot-manager-how-to-edit-bootmgr-and-fix-boot-errors-in-windows-10/#:~:text=2.%20How%20Do%20I%20Fix%20Windows%20Boot%20Manager%3F,at%20a%20time%2C%20and%20press%20enter%3A%20BOOTREC%20%2FFIXMBR
+Create a Windows 10 Bootmanager in another Disk
+-----------------------------------------------
+Windows Boot Manager (BOOTMGR) is a UEFI (Unified Extensible Firmware Interface) application provided by Microsoft. UEFI application is, in its basic form, it's an application that connects a computer’s firmware to its Operating System. UEFI applications launch Windows Boot Manager, the boot manager determines which boot entries to run. The boot manager performs these two functions by initializing boot libraries and reading the boot configuration database.
+
+Windows boot libraries are special codes that extend the functionality of the BOOTMGR UEFI functionality. Similarly, the boot configuration database stores Windows boot options in the Boot Configuration Data (BCD) store.
+
+The solution had been to create a new EFI partition on the new SSD/HDD with the current/active Windows 10 installation. First I had to boot from the old installation (from another HDD). A recovery CD/DVD or USB key will do as well.
+
+To create a recovery drive:
+
+  * Press the windows key and type: "create recovery drive" and select. Enter admin password
+  * select "back up system files" to the "recovery drive" and click next
+  * connect a USB driver and click next
+  * click create and wait a bit
+  * restart and enter the BIOS /EFI
+  * look out for boot options and select the newly create USB key
+  * save & exit
+
+Now your system should reboot from the USB key. If not, try to use a USB connector directly on your motherboard.
+
+To get some space on the SSD for the EFI partition we shrink the main partition, create a new EFI partition and write a bootloader to it by doing following:
+
+  * Start a terminal with SHIFT-F10 during setup.
+  * open 'diskpart', some more info - https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart
+  * list all the available disks with 'list disk'
+  * 'select disk <X>', X is the one where the desired Windows 10 installation is located.
+  * 'list partition'
+  * 'select partition <X>', X is the one to be shrinked
+  * 'shrink desired=500', let's shrink it by 500MB
+  * 'create partition EFI size=100'
+  * 'format quick fs=fat32 label="System"', or maybe label=EFI if you like better?
+  * 'create partition msr size=400'
+  * 'exit'
+  * 'bootrec /fixboot'
+  * find and select the volume by 'list volume' and 'select volume <X>'
+  * assign a drive number X to the selected volume by 'assign letter=<X>'
+  * "bcdboot <c:\Windows> /s <X>: /f all", X is the new drive letter, some more info - https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di
+
+For me this worked like a charm. Sometimes the pressure needs to be big enough to form diamonds. :)
