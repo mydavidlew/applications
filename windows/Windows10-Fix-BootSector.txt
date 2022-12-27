@@ -142,7 +142,7 @@ To partition hard drives and prepare to apply images
 run:
   'DiskPart /s F:\CreatePartitions-UEFI.txt'
   
-[[CreatePartitions-UEFI.txt]]
+[[CreatePartitions-UEFI.txt]] - Creates the System, MSR, Windows, and recovery tools partitions for UEFI-based PCs.
 rem == CreatePartitions-UEFI.txt ==
 rem == These commands are used with DiskPart to
 rem    create four partitions
@@ -177,5 +177,38 @@ format quick fs=ntfs label="Recovery"
 assign letter="R"
 set id="de94bba4-06d1-4d40-a16a-bfd50179d6ac"
 gpt attributes=0x8000000000000001
+list volume
+exit
+
+[[CreatePartitions-BIOS.txt]] - Creates the System, Windows, and recovery tools partitions for BIOS-based PCs.
+rem == CreatePartitions-BIOS.txt ==
+rem == These commands are used with DiskPart to
+rem    create three partitions
+rem    for a BIOS/MBR-based computer.
+rem    Adjust the partition sizes to fill the drive
+rem    as necessary. ==
+select disk 0
+clean
+rem == 1. System partition ======================
+create partition primary size=100
+format quick fs=ntfs label="System"
+assign letter="S"
+active
+rem == 2. Windows partition =====================
+rem ==    a. Create the Windows partition =======
+create partition primary
+rem ==    b. Create space for the recovery tools  
+rem       ** Update this size to match the size of
+rem          the recovery tools (winre.wim)
+rem          plus some free space.
+shrink minimum=500
+rem ==    c. Prepare the Windows partition ====== 
+format quick fs=ntfs label="Windows"
+assign letter="W"
+rem == 3. Recovery partition ====================
+create partition primary
+format quick fs=ntfs label="Recovery image"
+assign letter="R"
+set id=27
 list volume
 exit
