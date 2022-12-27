@@ -87,8 +87,8 @@ For UEFI mode: Create a choose an 'EFI system' partition – a FAT32 partition t
 
 For all modes:
   * Temporarily assign a drive letter (S:) to the 'system' partition.
-  * Run 'bcdboot C:\Windows /s S:' to copy the boot manager files to the new 'system' partition and build a new BCD.
-  * You probably won't need to install the MBR boot code, as Windows initializes empty disks with the correct MBR boot code already, but that can be re-done using 'bootsect /nt60 S: /mbr'.
+  * Run 'bcdboot C:\Windows /s <S:>' to copy the boot manager files to the new 'system' partition and build a new BCD.
+  * You probably won't need to install the MBR boot code, as Windows initializes empty disks with the correct MBR boot code already, but that can be re-done using 'bootsect /nt60 <S:> /mbr'.
   * Unassign the system partition's drive letter.
   * Power off, physically disconnect the old drive, and see if it works.
   * If it works, don't forget to delete the old 'system' partition (the 100 MB one on old Disk).
