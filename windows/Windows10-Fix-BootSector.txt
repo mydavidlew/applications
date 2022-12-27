@@ -93,7 +93,7 @@ For all modes:
   * Power off, physically disconnect the old drive, and see if it works.
   * If it works, don't forget to delete the old 'system' partition (the 100 MB one on old Disk).
 
-UEFI/GPT-based hard drive partitions
+UEFI/GPT-based hard drive partitions (https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/oem-deployment-of-windows-desktop-editions-sample-scripts?preserve-view=true&view=windows-10#-createpartitions-uefitxt)
 Create custom partition layouts for your hard disk drives (HDDs), solid-state drives (SSDs), and other drives when deploying Windows to Unified Extensible Firmware Interface (UEFI)–based devices.
 
 Partition Requirements
