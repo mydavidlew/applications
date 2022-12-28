@@ -264,3 +264,48 @@ Sensors:   System Temperatures: cpu: 62.0 C mobo: 45.0 C gpu: radeon temp: 68.5 
            Fan Speeds (RPM): cpu: 1018 mobo: 1226 
 Info:      Processes: 438 Uptime: 5h 8m Memory: 31.25 GiB used: 8.41 GiB (26.9%) Init: systemd runlevel: 5 Compilers: 
            gcc: 11.2.0 Packages: 2998 Shell: Bash v: 5.1.8 inxi: 3.3.06 
+
+superadmin@dl-PrecT-3620:~$ inxi -Fxz (2022-12-28)
+System:    Kernel: 5.13.0-52-generic x86_64 bits: 64 compiler: gcc v: 11.2.0 Desktop: GNOME 40.5 
+           Distro: Ubuntu 21.10 (Impish Indri) 
+Machine:   Type: Desktop System: Dell product: Precision Tower 3620 v: N/A serial: <filter> 
+           Mobo: Dell model: 09WH54 v: A00 serial: <filter> UEFI: Dell v: 2.24.0 date: 11/10/2022 
+CPU:       Info: Quad Core model: Intel Core i7-6700 bits: 64 type: MT MCP arch: Skylake-S rev: 3 cache: L2: 8 MiB 
+           flags: avx avx2 lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx bogomips: 54398 
+           Speed: 3483 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 3483 2: 2836 3: 3246 4: 2650 5: 2699 6: 2739 7: 2848 
+           8: 3112 
+Graphics:  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel bus-ID: 00:02.0 
+           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell 
+           driver: radeon v: kernel bus-ID: 01:00.0 
+           Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
+           Display: x11 server: X.Org 1.20.13 driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa 
+           resolution: 1920x1080~60Hz 
+           OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.13.0-52-generic LLVM 12.0.1) v: 3.3 Mesa 21.2.6 direct render: Yes 
+Audio:     Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 
+           Device-2: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
+           Sound Server-1: ALSA v: k5.13.0-52-generic running: yes 
+           Sound Server-2: PulseAudio v: 15.0 running: yes 
+           Sound Server-3: PipeWire v: 0.3.32 running: yes 
+Network:   Device-1: Intel Ethernet I219-LM vendor: Dell driver: e1000e v: kernel port: f040 bus-ID: 00:1f.6 
+           IF: enp0s31f6 state: down mac: <filter> 
+           Device-2: Qualcomm Atheros AR9285 Wireless Network Adapter driver: ath9k v: kernel port: e000 bus-ID: 05:00.0 
+           IF: wlp5s0 state: up mac: <filter> 
+           IF-ID-1: br-08c6dba7361a state: down mac: <filter> 
+           IF-ID-2: br-20f173d5d876 state: down mac: <filter> 
+           IF-ID-3: docker0 state: down mac: <filter> 
+           IF-ID-4: virbr0 state: down mac: <filter> 
+           IF-ID-5: virbr1 state: down mac: <filter> 
+Bluetooth: Device-1: D-Link DBT-122 Bluetooth adapter type: USB driver: btusb v: 0.8 bus-ID: 1-4:3 
+           Report: hciconfig ID: hci0 rfk-id: 0 state: up address: <filter> bt-v: 1.1 lmp-v: 1.2 
+Drives:    Local Storage: total: 3.58 TiB used: 688.45 GiB (18.8%) 
+           ID-1: /dev/fioa model: N/A size: 1.1 TiB temp: 50.0 C 
+           ID-2: /dev/sda vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB 
+           ID-3: /dev/sdb vendor: Toshiba model: DT01ACA200 size: 1.82 TiB 
+           ID-4: /dev/sdc vendor: Apple model: SSD SM256E size: 233.76 GiB 
+Partition: ID-1: / size: 228.54 GiB used: 65.65 GiB (28.7%) fs: ext4 dev: /dev/sdc3 
+           ID-2: /boot/efi size: 512 MiB used: 5.2 MiB (1.0%) fs: vfat dev: /dev/sdc2 
+Swap:      ID-1: swap-1 type: file size: 32 GiB used: 0 KiB (0.0%) file: /media/superadmin/ioDrive/swapfile 
+Sensors:   System Temperatures: cpu: 50.0 C mobo: 40.0 C gpu: radeon temp: 55.5 C 
+           Fan Speeds (RPM): cpu: 1034 mobo: 1230 
+Info:      Processes: 384 Uptime: 0m Memory: 31.25 GiB used: 2.12 GiB (6.8%) Init: systemd runlevel: 5 Compilers: gcc: 11.2.0 
+           Packages: 2998 Shell: Bash v: 5.1.8 inxi: 3.3.06 
