@@ -59,6 +59,10 @@ Only members of the libvirt and kvm user groups can run virtual machines. Add a 
 $ sudo usermod -aG libvirt ${USER}
 $ sudo usermod -aG kvm ${USER}
 
+And grant the qemu the right to access the image folder by query the defult setting 1st.
+$ sudo getfacl -e /home/<folder>
+$ sudo setfacl -m u:libvirt-qemu:rx /home/<folder>
+
 Reload updated group membership info as follows. Upon asked for a password, enter your login password.
 $ exec su -l $USER
 
