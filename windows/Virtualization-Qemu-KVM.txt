@@ -115,6 +115,18 @@ $ sudo virt-install \
   --network bridge:virbr0 \
   --console pty,target_type=serial -x 'console=ttyS0,115200n8 serial'
 
+Sample to import existing disk image:
+$ virt-install --osinfo list
+$ sudo virt-install --import --name=<vm-name> \
+--os-type=Linux \
+--os-variant=ubuntu22.04 \
+--vcpu=2 \
+--ram=2048 \
+--disk path=/home/<QCow2 format of KVM image>.img,size=10 \
+--graphics none \
+--location= \
+--network bridge:virbr0
+
 [[Step 5]]: Create Linux Bridge using brctl
 If you don’t have networkmanager installed, you can use brctl command installed with the installation of bridge-utils to configure Linux bridge that we’ll use to configure KVM networking.
 
