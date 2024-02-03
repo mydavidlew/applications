@@ -59,7 +59,7 @@ Only members of the libvirt and kvm user groups can run virtual machines. Add a 
 $ sudo usermod -aG libvirt ${USER}
 $ sudo usermod -aG kvm ${USER}
 
-And grant the qemu the right to access the image folder by query the defult setting 1st.
+And grant the qemu the right to access the image folder by query the default setting 1st.
 $ sudo getfacl -e /home/<folder>
 $ sudo setfacl -m u:libvirt-qemu:rx /home/<folder>
 
@@ -102,6 +102,7 @@ To connect to the guest console, use the command:
 $ sudo virsh console <vm> --force
 
 To create a new virtual machine with virsh, use:
+$ virt-install --osinfo list
 $ sudo virt-install \
   --name centos7 \
   --description "Test VM with CentOS 7" \
@@ -115,17 +116,72 @@ $ sudo virt-install \
   --network bridge:virbr0 \
   --console pty,target_type=serial -x 'console=ttyS0,115200n8 serial'
 
-Sample to import existing disk image:
-$ virt-install --osinfo list
-$ sudo virt-install --import --name=<vm-name> \
---os-type=Linux \
---os-variant=ubuntu22.04 \
---vcpu=2 \
---ram=2048 \
---disk path=/home/<QCow2 format of KVM image>.img,size=10 \
---graphics none \
---location= \
---network bridge:virbr0
+[[[ Procedure to load and import existing disk image using commandline (without GUI) ]]]
+Local cloud config setting guides - https://github.com/canonical/cloud-init/blob/main/doc/examples/cloud-config.txt
+
+MiniStep 1: Create both the <user-data> and <meta-data> config files.
+$ echo "#cloud-config
+  # vim:syntax=yaml
+  users:
+  # A user by the name ec2-user is created in the image by default.
+    - default
+  # Following entry create user#1 and assigns password specified in plain text.
+  # Please not use of plain text password is not recommended from security best
+  # practises standpoint
+    - name: <user#1>
+      groups: sudo, users
+      sudo: ALL=(ALL) NOPASSWD:ALL
+      plain_text_passwd: <password>
+      shell: /bin/bash
+      lock_passwd: false
+  # Following entry creates user#2 and attaches a hashed passwd to the user. 
+  # Hashed passwords can be generated in multiple ways, example with python3 and the passlib module:
+  # python3 -c 'import passlib.hash;print(passlib.hash.sha512_crypt.hash("password"))'
+  # Newer versions of 'mkpasswd' will also work: mkpasswd -m sha-512 password
+    - name: <user#2>
+      groups: sudo, users
+      sudo: ALL=(ALL) NOPASSWD:ALL
+      plain_text_passwd: <password>
+      shell: /bin/bash
+      lock_passwd: false
+  chpasswd:
+    users:
+      - name: root
+        password: <password>
+        type: text
+    expire: False
+  " | tee /opt/virtualdrive/<image folder>/user-data
+
+$ echo "#cloud-config
+  local-hostname: <vm-hostname>
+  # eth0 is the default network interface enabled in the image. You can
+  # configure static network settings with an entry like below.
+  network-interfaces: |
+    iface enp1s0 inet static
+    address 192.168.1.200
+    network 192.168.1.0
+    netmask 255.255.255.0
+    broadcast 192.168.1.255
+    gateway 192.168.1.254
+  " | tee /opt/virtualdrive/<image folder>/meta-data
+
+MiniStep 2: Generate an iso image w.r.t. the kernal images in qcow2 format for direct bootup.
+To check the image details and format.
+$ qemu-img info /opt/virtualdrive/<image-folder>/linux-server-lts.img
+To generate the iso format of the image.
+$ genisoimage -output /opt/virtualdrive/<image-folder>/linux-server-lts.iso -volid cidata -joliet -rock user-data meta-data
+
+MiniStep 3: Start up the image thru import into the KVM.
+$ virt-install --import \
+  --name <vm-name> \
+  --os-type Linux \
+  --os-variant ubuntu22.04 \
+  --vcpus 2 --memory 2048 \
+  --virt-type kvm \
+  --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.img,device=disk,bus=virtio,size=10 \
+  --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.iso,device=cdrom \
+  --graphics none \
+  --network bridge:virbr0
 
 [[Step 5]]: Create Linux Bridge using brctl
 If you don’t have networkmanager installed, you can use brctl command installed with the installation of bridge-utils to configure Linux bridge that we’ll use to configure KVM networking.
