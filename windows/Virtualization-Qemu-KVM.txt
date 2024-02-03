@@ -183,6 +183,24 @@ $ virt-install --import \
   --graphics none \
   --network bridge:virbr0
 
+Once boot-up, create new user and configure network using netplan, below is sample basic netplan yaml file.
+<netplan yaml file>
+  network:
+    version: 2
+    ethernets:
+      enp1s0:
+        addresses:
+        - 192.168.1.200/24
+        nameservers:
+          addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+          search:
+          - myhome.local
+        routes:
+        - to: default
+          via: 192.168.1.254
+
 [[Step 5]]: Create Linux Bridge using brctl
 If you don’t have networkmanager installed, you can use brctl command installed with the installation of bridge-utils to configure Linux bridge that we’ll use to configure KVM networking.
 
