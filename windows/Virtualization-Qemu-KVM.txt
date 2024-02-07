@@ -113,7 +113,7 @@ $ sudo virt-install \
   --disk path=/var/lib/libvirt/images/centos7.qcow2,bus=virtio,size=10 \
   --graphics none \
   --location $HOME/iso/CentOS-7-x86_64-Everything-1611.iso \
-  --network bridge:virbr0 \
+  --network bridge:virbr0,model=virtio \
   --console pty,target_type=serial -x 'console=ttyS0,115200n8 serial'
 
 [[[ Procedure to load and import existing disk image using commandline (without GUI) ]]]
@@ -183,7 +183,7 @@ $ virt-install --import \
   --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.img,device=disk,bus=virtio,size=10 \
   --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.iso,device=cdrom \
   --graphics none \
-  --network bridge:virbr0
+  --network bridge:virbr0,model=virtio
 
 Once boot-up, create new user and configure network using netplan, below is sample basic netplan yaml file.
 <netplan yaml file>
