@@ -166,11 +166,11 @@ $ echo "#cloud-config
   " | tee /opt/virtualdrive/<image folder>/meta-data
 
 MiniStep 2: Generate an iso image w.r.t. the kernal images in qcow2 format for direct bootup.
-To check the image details and format.
+To check the kvm image details and format.
 $ qemu-img info /opt/virtualdrive/<image-folder>/linux-server-lts.img
-To resize the image by directly grow disk image.
-$ qemu-img resize /opt/virtualdrive/<image-folder>/linux-server-lts.img +10G
-To generate the iso format of the image.
+To resize the image to a specific size in Gig.
+$ qemu-img resize /opt/virtualdrive/<image-folder>/linux-server-lts.img <size>G
+To generate the overideable iso format of the image.
 $ genisoimage -output /opt/virtualdrive/<image-folder>/linux-server-lts.iso -volid cidata -joliet -rock user-data meta-data
 
 MiniStep 3: Start up the image thru import into the KVM.
