@@ -234,9 +234,133 @@ $ ip link show type bridge
 To show the interfaces which are part of the bridge, and query only for interfaces which have the 'virbr0' bridge as master:
 $ ip link show master <virbr0>
 
-No physical interfaces should ever be added to the 'virbr0' bridge, since it uses NAT to provide connectivity.
+By default there is only one-interface attached to the bridge, this interface is a virtual-ethernet-interface: it is created and added to the bridge automatically, and its purpose is just to provide a stable MAC address (52:54:00:48:3f:0c in this case) for the bridge. Note: No physical interfaces should ever be added to the 'virbr0' bridge, since it uses NAT to provide connectivity.
 
-[[Step 6]]: Create Linux Bridge using brctl
+[[Step 6]]: Use Bridged Networking for virtual machines
+The default network provides a very straightforward way to achieve connectivity when creating virtual machines: everything is “ready” and works out of the box. Sometimes, however, we want to achieve a full bridgining connection, where the guest devices are connected to the host LAN, without using NAT, can achieve by creating a new bridge and share one of the host physical ethernet interfaces.
+
+To create a new bridge & name this bridge 'br0':
+$ sudo ip link add <br0> type bridge
+
+To verify the bridge is created we do as before:
+$ sudo ip link show type bridge
+
+First we make sure the secondary interface state is UP:
+$ sudo ip link set <eth1> up
+
+- to add a host physical interface to the bridge. Notice that you can’t use your main ethernet interface in this case, since as soon as it is added to the bridge you would loose connectivity, since it will loose its IP address. In this case we will use an additional interface, 'eth1': this is an interface provided by an ethernet to a secondary network adapter attached to the machine.
+
+To add a physical ethernet interface to the bridge:
+$ sudo ip link set <eth1> master <br0>
+
+To assign a static IP address to the bridge:
+$ sudo ip address add dev <br0> <192.168.1.100/24>
+
+To verify that the ip address was added to the interface:
+$ ip addr show <br0>
+
+[[[ Making the configuration persistent ]]]
+To make our configuration persistent we must edit some configuration files, depending on the distribution we use.
+
+{Debian and derivatives}
+On the Debian family of distributions we must be sure that the bridge-utils package is installed:
+$ sudo apt-get install bridge-utils
+
+Once the package is installed, we should modify the content of the /etc/network/interfaces file:
+  # This file describes the network interfaces available on your system
+  # and how to activate them. For more information, see interfaces(5).
+
+  # The loopback network interface
+  auto lo
+  iface lo inet loopback
+
+  # Specify that the physical interface that should be connected to the bridge
+  # should be configured manually, to avoid conflicts with NetworkManager
+  iface <eth1> inet manual
+
+  # The br0 bridge settings
+  auto <br0>
+  iface <br0> inet static
+    bridge_ports <eth1>
+      address <192.168.1.100>
+      broadcast <192.168.1.255>
+      netmask <255.255.255.0>
+      gateway <192.168.1.1>
+
+{Red Hat family of distributions}
+To manipulate network scripts inside the /etc/sysconfig/network-scripts directory. Install the network-scripts package (NOT managed by NetworkManager):
+$ sudo dnf install network-scripts
+
+Once the package is installed, we need to create the file which will configure the <br0> bridge: /etc/sysconfig/network-scripts/ifcfg-br0. Inside the file we place the following content:
+  DEVICE=<br0>
+  TYPE=Bridge
+  BOOTPROTO=none
+  IPADDR=192.168.1.100
+  GATEWAY=192.168.1.1
+  NETMASK=255.255.255.0
+  ONBOOT=yes
+  DELAY=0
+  NM_CONTROLLED=0
+
+Than, we modify or create the file used to configure the physical interface we will connect to the bridge, in this case /etc/sysconfig/network-scripts/ifcfg-enp0s29u1u1:
+  TYPE=ethernet
+  BOOTPROTO=none
+  NAME=<eth1>
+  DEVICE=<eth1>
+  ONBOOT=yes
+  BRIDGE=<br0>
+  DELAY=0
+  NM_CONTROLLED=0
+
+With our configurations ready, we can start the network service, and enable it at boot:
+$ sudo systemctl enable --now network
+
+[[[ Disabling netfilter for the bridge ]]]
+To allow all traffic to be forwarded to the bridge, and therefore to the virtual machines connected to it, we need to disable netfilter. This is necessary, for example, for DNS resolution to work in the guest machines attached to the bridge. To do this we can create a file with the .conf extension inside the /etc/sysctl.d directory, let’s call it 99-netfilter-bridge.conf. Inside of it we write the following content:
+  net.bridge.bridge-nf-call-ip6tables = 0
+  net.bridge.bridge-nf-call-iptables = 0
+  net.bridge.bridge-nf-call-arptables = 0
+
+To load the settings written in the file, fist we ensure that the br_netfilter module is loaded:
+$ sudo modprobe br_netfilter
+
+To load the module automatically at boot, let’s create the /etc/modules-load.d/br_netfilter.conf file: it should contain only the name of the module itself:
+  br_netfilter
+
+Once the module is loaded, to load the settings we stored in the 99-netfilter-bridge.conf file, we can run:
+$ sudo sysctl -p /etc/sysctl.d/99-netfilter-bridge.conf
+
+[[[ Creating a new virtual network ]]]
+At this point define a new “network” to be used by our virtual machines. Open a file with any editor and paste the following content, than save it as bridged-network.xml:
+  <network>
+    <name>bridged-network</name>
+    <forward mode="bridge" />
+    <bridge name="br0" />
+  </network>
+
+Once the file is ready we pass its position as argument to the net-define virsh subcommand:
+$ sudo virsh net-define <bridged-network>.xml
+
+To activate the new network and make so that it is auto-started, we should run:
+$ sudo virsh net-start <bridged-network>
+$ sudo virsh net-autostart <bridged-network>
+
+We can verify the network has been activated by running the virsh net-list command, again:
+$ sudo virsh net-list --all
+
+We can now select the network by name when using the --network option:
+$ virt-install --import \
+  --name <vm-name> \
+  --os-type Linux \
+  --os-variant ubuntu22.04 \
+  --vcpus 2 --memory 2048 \
+  --virt-type kvm \
+  --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.img,device=disk,bus=virtio,size=10 \
+  --disk path=/opt/virtualdrive/<image-folder>/linux-server-lts.iso,device=cdrom \
+  --graphics none \
+  --network network=<bridged-network>
+
+[[Step 7]]: Create Linux Bridge using brctl
 If you don’t have networkmanager installed, you can use brctl command installed with the installation of bridge-utils to configure Linux bridge that we’ll use to configure KVM networking.
 
 Create a new bridge:
@@ -262,7 +386,7 @@ Delete a bridge, you need to first set it to down:
 $ sudo ip link set dev <virbr0> down
 $ sudo brctl delbr <virbr0>
 
-[[Step 6]]: Create Linux Bridge using XML
+[[Step 8]]: Create Linux Bridge using XML
 This network configuration uses a Linux bridge in combination with Network Address Translation (NAT) to enable a guest OS to get outbound connectivity regardless of the type of networking (wired, wireless, dial-up, and so on) used in the KVM host without requiring any specific administrator configuration.
 
 The quickest way to get started is by utilizing existing default network configuration. Dump default network xml configuration using below command.
