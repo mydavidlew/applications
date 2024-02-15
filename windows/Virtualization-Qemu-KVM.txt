@@ -203,7 +203,40 @@ Once boot-up, create new user and configure network using netplan, below is samp
         - to: default
           via: 192.168.1.254
 
-[[Step 5]]: Create Linux Bridge using brctl
+[[Step 5]]: The "default" Linux Bridge Network
+When libvirt is in use and the libvirtd daemon is running, a 'default' network is created. Can verify that this network exists by using the virsh utility that comes with the libvirt-client package.
+
+To invoke the utility so that it displays all the available virtual networks:
+$ sudo virsh net-list --all
+
+To obtain and edit the detailed information about the network:
+$ sudo virsh net-edit <default>
+
+# A temporary file containing the xml network definition is opened in a text editor
+<network>
+  <name>default</name>
+  <uuid>168f6909-715c-4333-a34b-f74584d26328</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr0' stp='on' delay='0'/>
+  <mac address='52:54:00:48:3f:0c'/>
+  <ip address='192.168.122.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.122.2' end='192.168.122.254'/>
+    </dhcp>
+  </ip>
+</network>
+
+The 'default' network is based on the use of the 'virbr0' virtual bridge, and uses NAT based connectivity to connect the virtual machines which are part of the network to the outside world.
+
+To verify that the bridge exists using the ip command:
+$ ip link show type bridge
+
+To show the interfaces which are part of the bridge, and query only for interfaces which have the 'virbr0' bridge as master:
+$ ip link show master <virbr0>
+
+No physical interfaces should ever be added to the 'virbr0' bridge, since it uses NAT to provide connectivity.
+
+[[Step 6]]: Create Linux Bridge using brctl
 If you don’t have networkmanager installed, you can use brctl command installed with the installation of bridge-utils to configure Linux bridge that we’ll use to configure KVM networking.
 
 Create a new bridge:
