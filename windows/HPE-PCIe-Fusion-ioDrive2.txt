@@ -11,6 +11,7 @@ https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
 
 1. Install the following packages necessary for compiling the Fusion-io Source Driver Packages:
    $ sudo apt install gcc fakeroot build-essential debhelper linux-headers-$(uname -r) rsync
+   $ sudo apt install dkms
    $ ls -al /lib/modules/$(uname -r)
 
 2. Download the driver source file for your target operating system at
@@ -18,6 +19,8 @@ https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
    or
    $ git clone https://github.com/snuf/iomemory-vsl
    $ cd iomemory-vsl/
+
+   [Step#1] Begin the Build Module Process: 
    $ make module
    $ sudo insmod root/usr/src/iomemory-vsl-3.2.16/iomemory-vsl.ko
    
@@ -36,12 +39,15 @@ https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
    Alternatively "debuild" can be used:
    $ debuild
    
-   or
-   
-   Begin the Build Process:
+OR
+
+   [Step#2] Begin the Build Package Process:
    $ make dpkg
 
 6. The new .deb package is located in the parent directory.
+   - iomemory-vsl-6.5.0-21-generic_3.2.16.1732_amd64.deb
+   - iomemory-vsl-config-6.5.0-21-generic_3.2.16.1732_amd64.deb
+   - iomemory-vsl-initrd-6.5.0-21-generic_3.2.16.1732_amd64.deb
 
    Note: A failure of any of these builds may be due to required packages
          missing from the system. The output from the failed command
