@@ -191,8 +191,8 @@ Once boot-up, create new user and configure network using netplan, below is samp
     version: 2
     ethernets:
       enp1s0:
-        dhcp4: no
-        dhcp6: no
+        dhcp4: false
+        dhcp6: false
         addresses:
         - 192.168.1.200/24
         nameservers:
