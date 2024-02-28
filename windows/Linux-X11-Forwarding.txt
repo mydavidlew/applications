@@ -70,3 +70,13 @@ $ xauth generate $DISPLAY
 $ xauth add $(xauth -f $HOME/.Xauthority list | tail -1)
 $ xauth list
 $ xauth info
+
+[---SSH specific purpose command---]
+Removes all keys belonging to hostname from a known_hosts file.
+$ ssh-keygen -R <hostname/ipaddr>
+
+Establish ssh connection without updating the known_hosts file.
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no <username>@<hostname>
+
+Establish ssh using only password and bypass the ssh private key.
+ssh -o PasswordAuthentication=yes -o PreferredAuthentications=password -o PubkeyAuthentication=no <username>@<hostname>
