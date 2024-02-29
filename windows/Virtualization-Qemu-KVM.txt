@@ -101,6 +101,9 @@ $ sudo virsh edit <vm>
 To connect to the guest console, use the command:
 $ sudo virsh console <vm> --force
 
+To create a easily exportable qcow1 format disk image:
+$ sudo qemu-img create -f qcow2 <disk-image-name> <size>G
+
 To create a new virtual machine with virsh, use:
 $ virt-install --osinfo list
 $ sudo virt-install \
