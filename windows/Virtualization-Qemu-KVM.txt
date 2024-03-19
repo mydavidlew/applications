@@ -185,7 +185,7 @@ $ qemu-img info /opt/virtualdrive/<image-folder>/linux-server-lts.img
 To resize the image to a specific size in Gig.
 $ qemu-img resize /opt/virtualdrive/<image-folder>/linux-server-lts.img <size>G
 To generate the overideable iso format of the image.
-$ genisoimage -output /opt/virtualdrive/<image-folder>/linux-server-lts.iso -volid cidata -joliet -rock user-data meta-data
+$ genisoimage -output /opt/virtualdrive/<image-folder>/linux-server-lts.iso -input-charset utf-8 -volid cidata -joliet -rock user-data meta-data
 
 MiniStep 3: Start up the image thru import into the KVM.
 $ virt-install --import \
