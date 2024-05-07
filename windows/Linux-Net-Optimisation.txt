@@ -1,0 +1,90 @@
+Network Connection Diagnosis and Optimisation
+
+Step #1
+Network diagnostics, using command below to shows the problem.
+
+$ sudo lshw -class network
+
+[sudo] password for root: 
+ *-network
+       description: Ethernet interface
+       product: I211 Gigabit Network Connection
+       vendor: Intel Corporation
+       physical id: 0
+       bus info: pci@0000:25:00.0
+       logical name: enp37s0
+       version: 03
+       serial: 70:85:c2:a8:bb:7f
+       size: 100Mbit/s
+       capacity: 1Gbit/s
+       width: 32 bits
+       clock: 33MHz
+       capabilities: pm msi msix pciexpress bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=igb driverversion=5.4.0-k duplex=full firmware=0. 4-1 ip=192.168.178.42 latency=0 link=yes multicast=yes port=twisted pair speed=100Mbit/s
+       resources: irq:40 memory:f7500000-f751ffff ioport:f000(size=32) memory:f7520000-f7523fff
+[OR]
+  *-network                 
+       description: Ethernet controller
+       product: Virtio network device
+       vendor: Red Hat, Inc.
+       physical id: 3
+       bus info: pci@0000:00:03.0
+       version: 00
+       width: 64 bits
+       clock: 33MHz
+       capabilities: msix bus_master cap_list rom
+       configuration: driver=virtio-pci latency=0
+       resources: irq:11 ioport:c040(size=32) memory:febd1000-febd1fff memory:fe000000-fe003fff memory:feb80000-febbffff
+     *-virtio0
+          description: Ethernet interface
+          physical id: 0
+          bus info: virtio@0
+          logical name: <ens3>
+          serial: 50:6b:8d:81:c4:aa
+          capabilities: ethernet physical
+          configuration: autonegotiation=off broadcast=yes driver=virtio_net driverversion=1.0.0 ip=10.25.187.204 link=yes multicast=yes
+
+$ sudo ethtool <ens3>
+
+Settings for ens3:
+	Supported ports: [ ]
+	Supported link modes:   Not reported
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Unknown! (255)
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: off
+	Link detected: yes
+
+Where it shows speed=Unknown! & duplex=Unknown!, that should read 1Gbit/s with full duplex.
+This indicates that most likely you've got a cabling problem. Replace ethernet cables using cat 5E or cat 6 cables, until the lshw output looks correct. The wiring is not up to the task of 1G LAN speeds.
+
+When you're working with a problematic cable, you can disable auto-negotiation so it doesn't keep trying to renegotiate then fail.
+$ sudo ethtool --change <ens3> speed <10> duplex <full> autoneg <off>
+$ sudo ethtool <ens3>
+
+Settings for ens3:
+	Supported ports: [ ]
+	Supported link modes:   Not reported
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: 100Mb/s
+	Duplex: Full
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Auto-negotiation: off
+	Link detected: yes
