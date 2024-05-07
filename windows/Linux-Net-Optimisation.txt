@@ -68,7 +68,7 @@ Where it shows speed=Unknown! & duplex=Unknown!, that should read 1Gbit/s with f
 This indicates that most likely you've got a cabling problem. Replace ethernet cables using cat 5E or cat 6 cables, until the lshw output looks correct. The wiring is not up to the task of 1G LAN speeds.
 
 When you're working with a problematic cable, you can disable auto-negotiation so it doesn't keep trying to renegotiate then fail.
-$ sudo ethtool --change <ens3> speed <10> duplex <full> autoneg <off>
+$ sudo ethtool --change <ens3> speed <100> duplex <full> autoneg <off>
 $ sudo ethtool <ens3>
 
 Settings for ens3:
