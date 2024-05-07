@@ -1,6 +1,7 @@
-Network Connection Diagnosis and Optimisation
+Network Connection Diagnosis, Tuning, Configuration and Optimisation
 
-Step #1
+[[[Step #1]]]
+
 Network diagnostics, using command below to shows the problem.
 $ sudo lshw -class network
  *-network
@@ -83,3 +84,21 @@ Settings for ens3:
 	Transceiver: internal
 	Auto-negotiation: off
 	Link detected: yes
+
+[[[Step #2]]]
+
+The ip can then be used to set the link up or down.
+$ ip link set dev <ens3> up
+$ ip link set dev <ens3> down
+
+To verify the IP address configuration of <ens3>
+$ ip address show dev <ens3>
+
+To verify your default gateway route configuration
+$ ip route show
+
+To configure a default route gateway using ip command
+$ ip route add default via <gateway-ip>
+
+If no longer need this configuration and wish to purge all IP configuration from an interface
+$ ip addr flush <ens3>
