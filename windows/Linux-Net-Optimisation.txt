@@ -4,8 +4,6 @@ Step #1
 Network diagnostics, using command below to shows the problem.
 
 $ sudo lshw -class network
-
-[sudo] password for root: 
  *-network
        description: Ethernet interface
        product: I211 Gigabit Network Connection
@@ -45,7 +43,6 @@ $ sudo lshw -class network
           configuration: autonegotiation=off broadcast=yes driver=virtio_net driverversion=1.0.0 ip=10.25.187.204 link=yes multicast=yes
 
 $ sudo ethtool <ens3>
-
 Settings for ens3:
 	Supported ports: [ ]
 	Supported link modes:   Not reported
@@ -70,7 +67,6 @@ This indicates that most likely you've got a cabling problem. Replace ethernet c
 When you're working with a problematic cable, you can disable auto-negotiation so it doesn't keep trying to renegotiate then fail.
 $ sudo ethtool --change <ens3> speed <100> duplex <full> autoneg <off>
 $ sudo ethtool <ens3>
-
 Settings for ens3:
 	Supported ports: [ ]
 	Supported link modes:   Not reported
