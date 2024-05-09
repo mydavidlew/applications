@@ -25,6 +25,19 @@ Warning: untrusted X11 forwarding setup failed: xauth key data not generated
 Make sure you have installed "xauth" on your Serer Side. If it is not installed, run the following command as root or sudo user:
 $ sudo apt install xauth
 
+In Ubuntu later there's no longer a ~/.Xauthority file. Instead you'll find the equivalent in
+   $ /var/run/user/1000/gdm/Xauthority
+which will be re-created with new random characters on every session start. You can get its name via the $XAUTHORITY environment variable.
+
+If you need a ~/.Xauthority file to be present, I guess you can simply create a symbolic link to $AUTHORITY on every session start:
+   1. Open System > Preferences > Startup Applications
+   2. Click on Add :
+        - Name:    Xauthority
+        - Command: /bin/bash -c 'ln -s -f "$XAUTHORITY" ~/.Xauthority'
+        - Comment: Creates a symbolic link from ~/.Xauthority to $XAUTHORITY
+      and add the entry by clicking on Add.
+   3. Now every time you log in, it should create the link to the current authority file.
+
 
 [###X11 Forwarding thru SSH Tunneling###]
 Have 3 hosts A, B & C. Host A can access B through ssh only. Host B can access C. We want to be able to run X11 programs on C and forward display to A. localPort can be any port that you are not already listening to on A, I often use 2222 for simplicity.
