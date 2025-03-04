@@ -88,3 +88,9 @@ UUID=BD43-5933                            /boot/efi       vfat    umask=0077    
 # additional swap space in filesystem
 /media/superadmin/ioDrive/swapfile        none            swap    sw                0       0
 /swapfile                                 none            swap    sw                0       0
+
+9. To remove kernel module drive build into initrd.img
+   - to get the module and its respective version
+   $ dkms status
+   - to remove the module entirelly
+   $ sudo dkms remove <module/version> --all
