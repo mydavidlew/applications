@@ -98,3 +98,5 @@ UUID=BD43-5933                            /boot/efi       vfat    umask=0077    
    $ ubuntu-drivers devices
    - Install the driver
    $ sudo ubuntu-drivers autoinstall
+   - build the new kernel with module
+   $ sudo update-initramfs -u
