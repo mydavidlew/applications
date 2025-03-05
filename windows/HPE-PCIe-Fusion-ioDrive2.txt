@@ -95,7 +95,7 @@ UUID=BD43-5933                            /boot/efi       vfat    umask=0077    
    - to remove the module entirelly
    $ sudo dkms remove <module/version> --all
    - Identify available drivers
-   $ ubuntu-drivers devices
+   $ ubuntu-drivers devices / list
    - Install the driver
    $ sudo ubuntu-drivers autoinstall
    - build the new kernel with module
