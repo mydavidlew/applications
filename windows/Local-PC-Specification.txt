@@ -395,3 +395,142 @@ Repos:     Packages: 2999 apt: 2958 snap: 41
            1: deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
 Info:      Processes: 436 Uptime: 19m wakeups: 0 Memory: 31.25 GiB used: 4.29 GiB (13.7%) Init: systemd v: 248 runlevel: 5 
            Compilers: gcc: 11.2.0 alt: 10/11 Shell: Bash v: 5.1.8 running-in: gnome-terminal inxi: 3.3.06 
+
+superadmin@iamoverlord:~$ sudo inxi -Fxxxrz (2025-03-15)
+System:
+  Kernel: 6.8.0-52-generic x86_64 bits: 64 compiler: N/A Desktop: GNOME 42.9 tk: GTK 3.24.33 wm: gnome-shell dm: GDM3 42.0
+  Distro: Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+Machine:
+  Type: Desktop System: Dell product: Precision Tower 3620 v: N/A serial: <filter> Chassis: type: 3 serial: <filter>
+  Mobo: Dell model: 09WH54 v: A00 serial: <filter> UEFI-[Legacy]: Dell v: 2.24.0 date: 11/10/2022
+CPU:
+  Info: quad core model: Intel Core i7-6700 bits: 64 type: MT MCP smt: enabled arch: Skylake-S rev: 3 cache: L1: 256 KiB L2: 1024 KiB L3: 8 MiB
+  Speed (MHz): avg: 1917 high: 3100 min/max: 800/4000 volts: 1.1 V ext-clock: 100 MHz cores: 1: 3000 2: 3001 3: 800 4: 3100 5: 800 6: 800 7: 800 8: 3035 bogomips: 54398
+  Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:
+  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel ports: active: none empty: DP-1, DP-2, DP-3, HDMI-A-1, HDMI-A-2, HDMI-A-3
+    bus-ID: 00:02.0 chip-ID: 8086:1912 class-ID: 0380
+  Device-2: AMD Oland [Radeon HD 8570 / R5 430 OEM R7 240/340 Radeon 520 OEM] vendor: Dell driver: radeon v: kernel pcie: speed: 8 GT/s lanes: 8 ports: active: DP-4,DVI-I-1 empty: none 
+    bus-ID: 01:00.0 chip-ID: 1002:6611 class-ID: 0300
+  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo 
+    bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
+  Display: server: X.Org v: 1.21.1.4 compositor: gnome-shell driver: X: loaded: ati,modesetting,radeon unloaded: fbdev,vesa alternate: nvidia gpu: radeon display-ID: :0 screens: 1
+  Screen-1: 0 s-res: 3840x1080 s-dpi: 96 s-size: 1016x285mm (40.0x11.2") s-diag: 1055mm (41.5")
+  Monitor-1: DVI-0 mapped: DVI-I-1 pos: right model: Dell P2212H serial: <filter> res: 1920x1080 hz: 60 dpi: 92 size: 531x299mm (20.9x11.8")
+    diag: 551mm (21.7") modes: max: 1920x1080 min: 720x400
+  Monitor-2: DisplayPort-3 mapped: DP-4 pos: primary,left model: Dell P2314H serial: <filter> res: 1920x1080 hz: 60 dpi: 96 size: 509x286mm (20.0x11.3")
+    diag: 584mm (23") modes: max: 1920x1080 min: 720x400
+  OpenGL: renderer: OLAND ( LLVM 15.0.7 DRM 2.50 6.8.0-52-generic) v: 4.5 Mesa 23.2.1-1ubuntu3.1~22.04.3 direct render: Yes
+Audio:
+  Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel 
+    bus-ID: 00:1f.3 chip-ID: 8086:a170 class-ID: 0403
+  Device-2: AMD Oland/Hainan/Cape Verde/Pitcairn HDMI Audio [Radeon HD 7000 Series] vendor: Dell driver: snd_hda_intel v: kernel pcie: speed: 8 GT/s lanes: 8
+    bus-ID: 01:00.1 chip-ID: 1002:aab0 class-ID: 0403
+  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo
+    bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
+  Sound Server-1: ALSA v: k6.8.0-52-generic running: yes
+  Sound Server-2: PulseAudio v: 15.99.1 running: yes
+  Sound Server-3: PipeWire v: 0.3.48 running: yes
+Network:
+  Device-1: Intel Ethernet I219-LM vendor: Dell driver: e1000e v: kernel port: N/A bus-ID: 00:1f.6 chip-ID: 8086:15b7 class-ID: 0200
+  IF: enp0s31f6 state: down mac: <filter>
+  Device-2: Broadcom BCM43228 802.11a/b/g/n vendor: Dell driver: wl v: kernel pcie: speed: 2.5 GT/s lanes: 1 bus-ID: 04:00.0 chip-ID: 14e4:4359 class-ID: 0280
+  IF: wlp4s0 state: up mac: <filter>
+  IF-ID-1: docker0 state: down mac: <filter>
+  IF-ID-2: virbr0 state: down mac: <filter>
+  IF-ID-3: virbr1 state: down mac: <filter>
+Bluetooth:
+  Device-1: D-Link DBT-122 Bluetooth adapter type: USB driver: btusb v: 0.8 bus-ID: 1-4:3 chip-ID: 2001:f111 class-ID: e001 serial: <filter>
+  Report: hciconfig ID: hci0 rfk-id: 2 state: up address: <filter> bt-v: 1.1 lmp-v: 1.2 sub-v: 309 hci-v: 1.2 rev: 2788
+Drives:
+  Local Storage: total: 2.69 TiB used: 891.12 GiB (32.3%)
+  ID-1: /dev/sda vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB speed: 6.0 Gb/s type: SSD serial: <filter> rev: 0150 temp: 38 C scheme: GPT
+  ID-2: /dev/sdb vendor: Toshiba model: DT01ACA200 size: 1.82 TiB speed: 6.0 Gb/s type: N/A serial: <filter> rev: ABB0 temp: 37 C scheme: MBR
+  ID-3: /dev/sdc vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB speed: 6.0 Gb/s type: SSD serial: <filter> rev: 0150 temp: 39 C scheme: GPT
+Partition:
+  ID-1: / size: 438.55 GiB used: 121.35 GiB (27.7%) fs: ext4 dev: /dev/sda3
+  ID-2: /boot/efi size: 512 MiB used: 6.1 MiB (1.2%) fs: vfat dev: /dev/sda2
+Swap:
+  ID-1: swap-1 type: file size: 32 GiB used: 0 KiB (0.0%) priority: -2 file: /media/superadmin/Office/swapfile
+Sensors:
+  System Temperatures: cpu: 48.0 C pch: 65.5 C mobo: 40.0 C gpu: radeon temp: 54.0 C
+  Fan Speeds (RPM): cpu: 1043 mobo: 1800
+Repos:
+  Packages: 3131 apt: 3057 snap: 74
+  Active apt repos in: /etc/apt/sources.list
+    1: deb http://my.archive.ubuntu.com/ubuntu/ jammy main restricted
+    2: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+    3: deb http://my.archive.ubuntu.com/ubuntu/ jammy universe
+    4: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates universe
+    5: deb http://my.archive.ubuntu.com/ubuntu/ jammy multiverse
+    6: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+    7: deb http://my.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+    8: deb http://security.ubuntu.com/ubuntu jammy-security main restricted
+    9: deb http://security.ubuntu.com/ubuntu jammy-security universe
+    10: deb http://security.ubuntu.com/ubuntu jammy-security multiverse
+  No active apt repos in: /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
+  Active apt repos in: /etc/apt/sources.list.d/docker.list
+    1: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu jammy stable
+  Active apt repos in: /etc/apt/sources.list.d/google-chrome.list
+    1: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+  Active apt repos in: /etc/apt/sources.list.d/kubernetes.list
+    1: deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /
+  Active apt repos in: /etc/apt/sources.list.d/lens.list
+    1: deb [arch=amd64 signed-by=/usr/share/keyrings/lens-archive-keyring.gpg] https://downloads.k8slens.dev/apt/debian stable main
+  Active apt repos in: /etc/apt/sources.list.d/malcscott-ubuntu-ppa-jammy.list
+    1: deb https://ppa.launchpadcontent.net/malcscott/ppa/ubuntu/ jammy main
+  Active apt repos in: /etc/apt/sources.list.d/microsoft-prod.list
+    1: deb [arch=amd64,arm64,armhf] https://packages.microsoft.com/ubuntu/22.04/prod jammy main
+  Active apt repos in: /etc/apt/sources.list.d/opera-stable.list
+    1: deb https://deb.opera.com/opera-stable/ stable non-free
+  Active apt repos in: /etc/apt/sources.list.d/pentaho.list
+    1: deb [arch=amd64] http://cz.archive.ubuntu.com/ubuntu bionic main universe
+  No active apt repos in: /etc/apt/sources.list.d/steam-beta.list
+  Active apt repos in: /etc/apt/sources.list.d/steam-stable.list
+    1: deb [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] https://repo.steampowered.com/steam/ stable steam
+    2: deb-src [arch=amd64,i386 signed-by=/usr/share/keyrings/steam.gpg] https://repo.steampowered.com/steam/ stable steam
+  Active apt repos in: /etc/apt/sources.list.d/teams.list
+    1: deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main
+Info:
+  Processes: 378 Uptime: 31m wakeups: 0 Memory: 31.12 GiB used: 5.83 GiB (18.7%) 
+  Init: systemd v: 249 runlevel: 5 Compilers: gcc: 11.4.0 alt: 11/12 Shell: Sudo (sudo) v: 1.9.9 default: Bash v: 5.1.16 running-in: gnome-terminal inxi: 3.3.13
+
+superadmin@iamoverlord:~$ glxinfo -B (2025-03-15)
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: AMD (0x1002)
+    Device: OLAND (, LLVM 15.0.7, DRM 2.50, 6.8.0-52-generic) (0x6611)
+    Version: 23.2.1
+    Accelerated: yes
+    Video memory: 2048MB
+    Unified memory: no
+    Preferred profile: core (0x1)
+    Max core profile version: 4.5
+    Max compat profile version: 4.5
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.2
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 1386 MB, largest block: 1386 MB
+    VBO free aux. memory - total: 2016 MB, largest block: 2016 MB
+    Texture free memory - total: 1386 MB, largest block: 1386 MB
+    Texture free aux. memory - total: 2016 MB, largest block: 2016 MB
+    Renderbuffer free memory - total: 1386 MB, largest block: 1386 MB
+    Renderbuffer free aux. memory - total: 2016 MB, largest block: 2016 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 2048 MB
+    Total available memory: 4091 MB
+    Currently available dedicated video memory: 1386 MB
+OpenGL vendor string: AMD
+OpenGL renderer string: OLAND (, LLVM 15.0.7, DRM 2.50, 6.8.0-52-generic)
+OpenGL core profile version string: 4.5 (Core Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3
+OpenGL core profile shading language version string: 4.50
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.5 (Compatibility Profile) Mesa 23.2.1-1ubuntu3.1~22.04.3
+OpenGL shading language version string: 4.50
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+OpenGL ES profile version string: OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
