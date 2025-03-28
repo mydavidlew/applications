@@ -32,7 +32,9 @@ Drives:    Local Storage: total: 3.87 TiB used: 520.54 GiB (13.1%)
 Partition: ID-1: / size: 228.60 GiB used: 62.53 GiB (27.4%) fs: ext4 dev: /dev/sdc5 
 Sensors:   System Temperatures: cpu: 47.0 C mobo: 44.0 C gpu: radeon temp: 29 C 
            Fan Speeds (RPM): cpu: 941 mobo: 1224 
-Info:      Processes: 415 Uptime: 4h 16m Memory: 31.26 GiB used: 4.24 GiB (13.6%) Init: systemd runlevel: 5 Compilers: gcc: 9.3.0
+Info:      Processes: 415 Uptime: 4h 16m
+           Memory: 31.26 GiB used: 4.24 GiB (13.6%)
+           Init: systemd runlevel: 5 Compilers: gcc: 9.3.0
            Shell: bash v: 5.0.17 inxi: 3.0.38 
 
 superadmin@dl-OptiPlex-7020:~$ inxi -Fxz
@@ -59,7 +61,9 @@ Partition: ID-1: / size: 5.81 GiB used: 348.6 MiB (5.9%) fs: overlay source: ERR
            ID-2: /var/log size: 1.09 GiB used: 21.1 MiB (1.9%) fs: ext4 dev: /dev/sdb3 
 Sensors:   System Temperatures: cpu: 42.0 C mobo: N/A 
            Fan Speeds (RPM): N/A 
-Info:      Processes: 265 Uptime: 9m Memory: 11.61 GiB used: 1.32 GiB (11.4%) Init: systemd runlevel: 5 Compilers: gcc: N/A 
+Info:      Processes: 265 Uptime: 9m 
+           Memory: 11.61 GiB used: 1.32 GiB (11.4%) 
+           Init: systemd runlevel: 5 Compilers: gcc: N/A 
            Shell: bash v: 5.0.17 inxi: 3.0.38 
 
 superadmin@dl-OptiPlex-XE2:~$ inxi -Fxz
@@ -119,7 +123,9 @@ Drives:    Local Storage: total: 1.82 TiB used: 58.96 GiB (3.2%)
 Partition: ID-1: / size: 915.40 GiB used: 58.96 GiB (6.4%) fs: ext4 dev: /dev/sdb5 
 Sensors:   System Temperatures: cpu: 42.0 C mobo: N/A gpu: radeon temp: 43 C 
            Fan Speeds (RPM): N/A 
-Info:      Processes: 315 Uptime: 11m Memory: 31.31 GiB used: 1.99 GiB (6.3%) Init: systemd runlevel: 5 Compilers: gcc: 9.3.0 
+Info:      Processes: 315 Uptime: 11m 
+           Memory: 31.31 GiB used: 1.99 GiB (6.3%) 
+           Init: systemd runlevel: 5 Compilers: gcc: 9.3.0 
            Shell: bash v: 5.0.17 inxi: 3.0.38 
 
 superadmin@dl-PrecT-3620:~$ glxinfo -B
@@ -275,8 +281,8 @@ Adapter: Single Controller Adapter
 	HP 1205GB MLC PCIe ioDrive2 for ProLiant Servers, Product Number:673646-B21, SN:3UN316C02C
 	External Power: NOT connected
 	PCIe Power limit threshold: 24.75W
-	Connected ioMemory modules:
-	  fct0:	Product Number:673646-B21, SN:1309D02D2
+	Connected ioMemory modules: 
+           fct0: Product Number:673646-B21, SN:1309D02D2
 fct0	Attached
 	ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
 	Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
@@ -285,8 +291,8 @@ fct0	Attached
 	1205.00 GBytes device size
 	Internal temperature: 71.86 degC, max 73.82 degC
 	Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
-	Contained VSUs:
-	  fioa:	ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
+	Contained VSUs: 
+           fioa: ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 fioa	State: Online, Type: block device
 	ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 	1205.00 GBytes device size
@@ -300,14 +306,11 @@ Machine:   Type: Desktop System: Dell product: Precision Tower 3620 v: N/A seria
            Mobo: Dell model: 09WH54 v: A00 serial: <filter> UEFI-[Legacy]: Dell v: 2.22.0 date: 07/13/2022 
 CPU:       Info: Quad Core model: Intel Core i7-6700 bits: 64 type: MT MCP arch: Skylake-S rev: 3 cache: L2: 8 MiB 
            flags: avx avx2 lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx bogomips: 54398 
-           Speed: 3511 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 3511 2: 3492 3: 3453 4: 3200 5: 3469 6: 3426 7: 3643 
-           8: 3468 
+           Speed: 3511 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 3511 2: 3492 3: 3453 4: 3200 5: 3469 6: 3426 7: 3643 8: 3468 
 Graphics:  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel bus-ID: 00:02.0 
-           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell 
-           driver: radeon v: kernel bus-ID: 01:00.0 
+           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell driver: radeon v: kernel bus-ID: 01:00.0 
            Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
-           Display: x11 server: X.Org 1.20.13 driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa 
-           resolution: 1920x1080~60Hz 
+           Display: x11 server: X.Org 1.20.13 driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa resolution: 1920x1080~60Hz 
            OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.13.0-52-generic LLVM 12.0.1) v: 3.3 Mesa 21.2.6 direct render: Yes 
 Audio:     Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 
            Device-2: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
@@ -335,8 +338,10 @@ Partition: ID-1: / size: 228.54 GiB used: 65.65 GiB (28.7%) fs: ext4 dev: /dev/s
 Swap:      ID-1: swap-1 type: file size: 32 GiB used: 0 KiB (0.0%) file: /media/superadmin/ioDrive/swapfile 
 Sensors:   System Temperatures: cpu: 62.0 C mobo: 45.0 C gpu: radeon temp: 68.5 C 
            Fan Speeds (RPM): cpu: 1018 mobo: 1226 
-Info:      Processes: 438 Uptime: 5h 8m Memory: 31.25 GiB used: 8.41 GiB (26.9%) Init: systemd runlevel: 5 Compilers: 
-           gcc: 11.2.0 Packages: 2998 Shell: Bash v: 5.1.8 inxi: 3.3.06 
+Info:      Processes: 438 Uptime: 5h 8m 
+           Memory: 31.25 GiB used: 8.41 GiB (26.9%) 
+           Init: systemd runlevel: 5 Compilers: gcc: 11.2.0 Packages: 2998 
+           Shell: Bash v: 5.1.8 inxi: 3.3.06 
 
 superadmin@dl-PrecT-3620:~$ inxi -Fxz (2022-12-28)
 System:    Kernel: 5.13.0-52-generic x86_64 bits: 64 compiler: gcc v: 11.2.0 Desktop: GNOME 40.5 
@@ -345,14 +350,11 @@ Machine:   Type: Desktop System: Dell product: Precision Tower 3620 v: N/A seria
            Mobo: Dell model: 09WH54 v: A00 serial: <filter> UEFI: Dell v: 2.24.0 date: 11/10/2022 
 CPU:       Info: Quad Core model: Intel Core i7-6700 bits: 64 type: MT MCP arch: Skylake-S rev: 3 cache: L2: 8 MiB 
            flags: avx avx2 lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx bogomips: 54398 
-           Speed: 3483 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 3483 2: 2836 3: 3246 4: 2650 5: 2699 6: 2739 7: 2848 
-           8: 3112 
+           Speed: 3483 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 3483 2: 2836 3: 3246 4: 2650 5: 2699 6: 2739 7: 2848 8: 3112 
 Graphics:  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel bus-ID: 00:02.0 
-           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell 
-           driver: radeon v: kernel bus-ID: 01:00.0 
+           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell driver: radeon v: kernel bus-ID: 01:00.0 
            Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
-           Display: x11 server: X.Org 1.20.13 driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa 
-           resolution: 1920x1080~60Hz 
+           Display: x11 server: X.Org 1.20.13 driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa resolution: 1920x1080~60Hz 
            OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.13.0-52-generic LLVM 12.0.1) v: 3.3 Mesa 21.2.6 direct render: Yes 
 Audio:     Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 
            Device-2: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 
@@ -380,58 +382,45 @@ Partition: ID-1: / size: 228.54 GiB used: 65.65 GiB (28.7%) fs: ext4 dev: /dev/s
 Swap:      ID-1: swap-1 type: file size: 32 GiB used: 0 KiB (0.0%) file: /media/superadmin/ioDrive/swapfile 
 Sensors:   System Temperatures: cpu: 50.0 C mobo: 40.0 C gpu: radeon temp: 55.5 C 
            Fan Speeds (RPM): cpu: 1034 mobo: 1230 
-Info:      Processes: 384 Uptime: 0m Memory: 31.25 GiB used: 2.12 GiB (6.8%) Init: systemd runlevel: 5 Compilers: gcc: 11.2.0 
-           Packages: 2998 Shell: Bash v: 5.1.8 inxi: 3.3.06 
+Info:      Processes: 384 Uptime: 0m 
+           Memory: 31.25 GiB used: 2.12 GiB (6.8%) 
+           Init: systemd runlevel: 5 Compilers: gcc: 11.2.0 Packages: 2998 
+           Shell: Bash v: 5.1.8 inxi: 3.3.06 
 
 superadmin@dl-PrecT-3620:~$ inxi -Fxxxrz (2022-12-30)
-System:    Kernel: 5.13.0-52-generic x86_64 bits: 64 compiler: gcc v: 11.2.0 Desktop: GNOME 40.5 tk: GTK 3.24.30 
-           wm: gnome-shell dm: GDM3 41.rc Distro: Ubuntu 21.10 (Impish Indri) 
+System:    Kernel: 5.13.0-52-generic x86_64 bits: 64 compiler: gcc v: 11.2.0 Desktop: GNOME 40.5 tk: GTK 3.24.30 wm: gnome-shell dm: GDM3 41.rc 
+           Distro: Ubuntu 21.10 (Impish Indri) 
 Machine:   Type: Desktop System: Dell product: Precision Tower 3620 v: N/A serial: <filter> Chassis: type: 3 serial: <filter> 
            Mobo: Dell model: 09WH54 v: A00 serial: <filter> UEFI: Dell v: 2.24.0 date: 11/10/2022 
 CPU:       Info: Quad Core model: Intel Core i7-6700 bits: 64 type: MT MCP arch: Skylake-S rev: 3 cache: L2: 8 MiB 
            flags: avx avx2 lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx bogomips: 54398 
-           Speed: 1383 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 1383 2: 2046 3: 1851 4: 1716 5: 2970 6: 1964 7: 3231 
-           8: 2218 
-Graphics:  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel bus-ID: 00:02.0 chip-ID: 8086:1912 
-           class-ID: 0380 
-           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell 
-           driver: radeon v: kernel bus-ID: 01:00.0 chip-ID: 1002:6779 class-ID: 0300 
-           Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 
-           class-ID: 0102 
-           Display: x11 server: X.Org 1.20.13 compositor: gnome-shell driver: loaded: ati,modesetting,radeon 
-           unloaded: fbdev,vesa resolution: 1920x1080~60Hz s-dpi: 96 
-           OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.13.0-52-generic LLVM 12.0.1) v: 3.3 Mesa 21.2.6 compat-v: 3.1 
-           direct render: Yes 
-Audio:     Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 
-           chip-ID: 8086:a170 class-ID: 0403 
-           Device-2: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 
-           class-ID: 0102 
+           Speed: 1383 MHz min/max: 800/4000 MHz Core speeds (MHz): 1: 1383 2: 2046 3: 1851 4: 1716 5: 2970 6: 1964 7: 3231 8: 2218 
+Graphics:  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel bus-ID: 00:02.0 chip-ID: 8086:1912 class-ID: 0380 
+           Device-2: Advanced Micro Devices [AMD/ATI] Caicos [Radeon HD 6450/7450/8450 / R5 230 OEM] vendor: Dell driver: radeon v: kernel bus-ID: 01:00.0 chip-ID: 1002:6779 class-ID: 0300 
+           Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102 
+           Display: x11 server: X.Org 1.20.13 compositor: gnome-shell driver: loaded: ati,modesetting,radeon unloaded: fbdev,vesa resolution: 1920x1080~60Hz s-dpi: 96 
+           OpenGL: renderer: AMD CAICOS (DRM 2.50.0 / 5.13.0-52-generic LLVM 12.0.1) v: 3.3 Mesa 21.2.6 compat-v: 3.1 direct render: Yes 
+Audio:     Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 chip-ID: 8086:a170 class-ID: 0403 
+           Device-2: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102 
            Sound Server-1: ALSA v: k5.13.0-52-generic running: yes 
            Sound Server-2: PulseAudio v: 15.0 running: yes 
            Sound Server-3: PipeWire v: 0.3.32 running: yes 
-Network:   Device-1: Intel Ethernet I219-LM vendor: Dell driver: e1000e v: kernel port: f040 bus-ID: 00:1f.6 
-           chip-ID: 8086:15b7 class-ID: 0200 
+Network:   Device-1: Intel Ethernet I219-LM vendor: Dell driver: e1000e v: kernel port: f040 bus-ID: 00:1f.6 chip-ID: 8086:15b7 class-ID: 0200 
            IF: enp0s31f6 state: down mac: <filter> 
-           Device-2: Qualcomm Atheros AR9285 Wireless Network Adapter driver: ath9k v: kernel port: e000 bus-ID: 05:00.0 
-           chip-ID: 168c:002b class-ID: 0280 
+           Device-2: Qualcomm Atheros AR9285 Wireless Network Adapter driver: ath9k v: kernel port: e000 bus-ID: 05:00.0 chip-ID: 168c:002b class-ID: 0280 
            IF: wlp5s0 state: up mac: <filter> 
            IF-ID-1: br-08c6dba7361a state: down mac: <filter> 
            IF-ID-2: br-20f173d5d876 state: down mac: <filter> 
            IF-ID-3: docker0 state: down mac: <filter> 
            IF-ID-4: virbr0 state: down mac: <filter> 
            IF-ID-5: virbr1 state: down mac: <filter> 
-Bluetooth: Device-1: D-Link DBT-122 Bluetooth adapter type: USB driver: btusb v: 0.8 bus-ID: 1-4:3 chip-ID: 2001:f111 
-           class-ID: e001 serial: <filter> 
-           Report: hciconfig ID: hci0 rfk-id: 0 state: up address: <filter> bt-v: 1.1 lmp-v: 1.2 sub-v: 309 hci-v: 1.2 
-           rev: 2788 
+Bluetooth: Device-1: D-Link DBT-122 Bluetooth adapter type: USB driver: btusb v: 0.8 bus-ID: 1-4:3 chip-ID: 2001:f111 class-ID: e001 serial: <filter> 
+           Report: hciconfig ID: hci0 rfk-id: 0 state: up address: <filter> bt-v: 1.1 lmp-v: 1.2 sub-v: 309 hci-v: 1.2 rev: 2788 
 Drives:    Local Storage: total: 3.58 TiB used: 696.61 GiB (19.0%) 
            ID-1: /dev/fioa model: N/A size: 1.1 TiB type: N/A serial: N/A temp: 53.0 C 
-           ID-2: /dev/sda vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB speed: 6.0 Gb/s type: SSD serial: <filter> 
-           rev: 0150 scheme: GPT 
-           ID-3: /dev/sdb vendor: Toshiba model: DT01ACA200 size: 1.82 TiB speed: 6.0 Gb/s type: HDD rpm: 7200 
-           serial: <filter> rev: ABB0 scheme: MBR 
-           ID-4: /dev/sdc vendor: Apple model: SSD SM256E size: 233.76 GiB speed: 6.0 Gb/s type: SSD serial: <filter> 
-           rev: 2A0Q scheme: GPT 
+           ID-2: /dev/sda vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB speed: 6.0 Gb/s type: SSD serial: <filter> rev: 0150 scheme: GPT 
+           ID-3: /dev/sdb vendor: Toshiba model: DT01ACA200 size: 1.82 TiB speed: 6.0 Gb/s type: HDD rpm: 7200 serial: <filter> rev: ABB0 scheme: MBR 
+           ID-4: /dev/sdc vendor: Apple model: SSD SM256E size: 233.76 GiB speed: 6.0 Gb/s type: SSD serial: <filter> rev: 2A0Q scheme: GPT 
 Partition: ID-1: / size: 228.54 GiB used: 66.79 GiB (29.2%) fs: ext4 dev: /dev/sdc3 
            ID-2: /boot/efi size: 512 MiB used: 5.2 MiB (1.0%) fs: vfat dev: /dev/sdc2 
 Swap:      ID-1: swap-1 type: file size: 32 GiB used: 0 KiB (0.0%) priority: -2 file: /media/superadmin/ioDrive/swapfile 
@@ -466,8 +455,10 @@ Repos:     Packages: 2999 apt: 2958 snap: 41
            1: deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main
            Active apt repos in: /etc/apt/sources.list.d/vscode.list 
            1: deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
-Info:      Processes: 436 Uptime: 19m wakeups: 0 Memory: 31.25 GiB used: 4.29 GiB (13.7%) Init: systemd v: 248 runlevel: 5 
-           Compilers: gcc: 11.2.0 alt: 10/11 Shell: Bash v: 5.1.8 running-in: gnome-terminal inxi: 3.3.06 
+Info:      Processes: 436 Uptime: 19m wakeups: 0 
+           Memory: 31.25 GiB used: 4.29 GiB (13.7%) 
+           Init: systemd v: 248 runlevel: 5 Compilers: gcc: 11.2.0 alt: 10/11 
+           Shell: Bash v: 5.1.8 running-in: gnome-terminal inxi: 3.3.06 
 
 superadmin@dl-PrecT-3620:~$ sudo inxi -Fxxxrz (2025-03-15)
 System:
@@ -481,26 +472,18 @@ CPU:
   Speed (MHz): avg: 1917 high: 3100 min/max: 800/4000 volts: 1.1 V ext-clock: 100 MHz cores: 1: 3000 2: 3001 3: 800 4: 3100 5: 800 6: 800 7: 800 8: 3035 bogomips: 54398
   Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
 Graphics:
-  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel ports: active: none empty: DP-1, DP-2, DP-3, HDMI-A-1, HDMI-A-2, HDMI-A-3
-    bus-ID: 00:02.0 chip-ID: 8086:1912 class-ID: 0380
-  Device-2: AMD Oland [Radeon HD 8570 / R5 430 OEM R7 240/340 Radeon 520 OEM] vendor: Dell driver: radeon v: kernel pcie: speed: 8 GT/s lanes: 8 ports: active: DP-4,DVI-I-1 empty: none 
-    bus-ID: 01:00.0 chip-ID: 1002:6611 class-ID: 0300
-  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo 
-    bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
+  Device-1: Intel HD Graphics 530 vendor: Dell driver: i915 v: kernel ports: active: none empty: DP-1, DP-2, DP-3, HDMI-A-1, HDMI-A-2, HDMI-A-3 bus-ID: 00:02.0 chip-ID: 8086:1912 class-ID: 0380
+  Device-2: AMD Oland [Radeon HD 8570 / R5 430 OEM R7 240/340 Radeon 520 OEM] vendor: Dell driver: radeon v: kernel pcie: speed: 8 GT/s lanes: 8 ports: active: DP-4,DVI-I-1 empty: none bus-ID: 01:00.0 chip-ID: 1002:6611 class-ID: 0300
+  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
   Display: server: X.Org v: 1.21.1.4 compositor: gnome-shell driver: X: loaded: ati,modesetting,radeon unloaded: fbdev,vesa alternate: nvidia gpu: radeon display-ID: :0 screens: 1
   Screen-1: 0 s-res: 3840x1080 s-dpi: 96 s-size: 1016x285mm (40.0x11.2") s-diag: 1055mm (41.5")
-  Monitor-1: DVI-0 mapped: DVI-I-1 pos: right model: Dell P2212H serial: <filter> res: 1920x1080 hz: 60 dpi: 92 size: 531x299mm (20.9x11.8")
-    diag: 551mm (21.7") modes: max: 1920x1080 min: 720x400
-  Monitor-2: DisplayPort-3 mapped: DP-4 pos: primary,left model: Dell P2314H serial: <filter> res: 1920x1080 hz: 60 dpi: 96 size: 509x286mm (20.0x11.3")
-    diag: 584mm (23") modes: max: 1920x1080 min: 720x400
+  Monitor-1: DVI-0 mapped: DVI-I-1 pos: right model: Dell P2212H serial: <filter> res: 1920x1080 hz: 60 dpi: 92 size: 531x299mm (20.9x11.8") diag: 551mm (21.7") modes: max: 1920x1080 min: 720x400
+  Monitor-2: DisplayPort-3 mapped: DP-4 pos: primary,left model: Dell P2314H serial: <filter> res: 1920x1080 hz: 60 dpi: 96 size: 509x286mm (20.0x11.3") diag: 584mm (23") modes: max: 1920x1080 min: 720x400
   OpenGL: renderer: OLAND ( LLVM 15.0.7 DRM 2.50 6.8.0-52-generic) v: 4.5 Mesa 23.2.1-1ubuntu3.1~22.04.3 direct render: Yes
 Audio:
-  Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel 
-    bus-ID: 00:1f.3 chip-ID: 8086:a170 class-ID: 0403
-  Device-2: AMD Oland/Hainan/Cape Verde/Pitcairn HDMI Audio [Radeon HD 7000 Series] vendor: Dell driver: snd_hda_intel v: kernel pcie: speed: 8 GT/s lanes: 8
-    bus-ID: 01:00.1 chip-ID: 1002:aab0 class-ID: 0403
-  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo
-    bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
+  Device-1: Intel 100 Series/C230 Series Family HD Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1f.3 chip-ID: 8086:a170 class-ID: 0403
+  Device-2: AMD Oland/Hainan/Cape Verde/Pitcairn HDMI Audio [Radeon HD 7000 Series] vendor: Dell driver: snd_hda_intel v: kernel pcie: speed: 8 GT/s lanes: 8 bus-ID: 01:00.1 chip-ID: 1002:aab0 class-ID: 0403
+  Device-3: Generalplus GENERAL WEBCAM type: USB driver: snd-usb-audio,uvcvideo bus-ID: 1-3:2 chip-ID: 1b3f:2247 class-ID: 0102
   Sound Server-1: ALSA v: k6.8.0-52-generic running: yes
   Sound Server-2: PulseAudio v: 15.99.1 running: yes
   Sound Server-3: PipeWire v: 0.3.48 running: yes
@@ -565,8 +548,10 @@ Repos:
   Active apt repos in: /etc/apt/sources.list.d/teams.list
     1: deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main
 Info:
-  Processes: 378 Uptime: 31m wakeups: 0 Memory: 31.12 GiB used: 5.83 GiB (18.7%) Init: systemd v: 249 runlevel: 5 
-  Compilers: gcc: 11.4.0 alt: 11/12 Shell: Sudo (sudo) v: 1.9.9 default: Bash v: 5.1.16 running-in: gnome-terminal inxi: 3.3.13
+  Processes: 378 Uptime: 31m wakeups: 0 
+  Memory: 31.12 GiB used: 5.83 GiB (18.7%) 
+  Init: systemd v: 249 runlevel: 5 Compilers: gcc: 11.4.0 alt: 11/12 
+  Shell: Sudo (sudo) v: 1.9.9 default: Bash v: 5.1.16 running-in: gnome-terminal inxi: 3.3.13
 
 superadmin@dl-PrecT-3620:~$ glxinfo -B (2025-03-15)
 name of display: :0
