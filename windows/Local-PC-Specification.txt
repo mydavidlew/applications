@@ -282,7 +282,7 @@ Adapter: Single Controller Adapter
 	External Power: NOT connected
 	PCIe Power limit threshold: 24.75W
 	Connected ioMemory modules: 
-           fct0: Product Number:673646-B21, SN:1309D02D2
+          fct0: Product Number:673646-B21, SN:1309D02D2
 fct0	Attached
 	ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
 	Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
@@ -292,10 +292,56 @@ fct0	Attached
 	Internal temperature: 71.86 degC, max 73.82 degC
 	Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
 	Contained VSUs: 
-           fioa: ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
+          fioa: ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 fioa	State: Online, Type: block device
 	ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 	1205.00 GBytes device size
+
+superadmin@dl-PrecT-3620:~$ fio-status.exe -a /dev/fct0
+Found 1 ioMemory device in this system as device '/dev/fct0'
+Driver version: 3.2.14 build 1675
+Adapter: Single Controller Adapter
+        HP 1205GB MLC PCIe ioDrive2 for ProLiant Servers, Product Number:673646-B21, SN:3UN316C02C
+        ioDrive2 Adapter Controller, PN:674327-001
+        External Power: NOT connected
+        PCIe Bus voltage: avg 12.15V
+        PCIe Bus current: avg 0.81A
+        PCIe Bus power: avg 9.79W
+        PCIe Power limit threshold: 24.75W
+        PCIe slot available power: unavailable
+        Connected ioMemory modules:
+          fct0: Product Number:673646-B21, SN:1309D02D2
+fct0    Attached
+        ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
+        ioDrive2 Adapter Controller, PN:674327-001
+        SMP(AVR) Versions: App Version: 1.0.23.0, Boot Version: 0.0.8.1
+        Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
+        Powerloss protection: protected
+        PCI:06:00.0, Slot Number:4
+        Vendor:1aed, Device:2001, Sub vendor:1590, Sub device:6f
+        Firmware v7.1.13, rev 109322 Public
+        1294.00 GBytes device size
+        Format: v500, 2527343750 sectors of 512 bytes
+        PCIe slot available power: 25.00W
+        PCIe negotiated link: 4 lanes at 5.0 Gt/sec each, 2000.00 MBytes/sec total
+        Internal temperature: 68.41 degC, max 68.90 degC
+        Internal voltage: avg 1.02V, max 1.02V
+        Aux voltage: avg 2.49V, max 2.49V
+        Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
+        Active media: 100.00%
+        Rated PBW: 17.00 PB, 99.97% remaining
+        Lifetime data volumes:
+           Physical bytes written: 4,575,883,262,152
+           Physical bytes read   : 5,650,349,120,208
+        RAM usage:
+           Current: 389,636,800 bytes
+           Peak   : 389,636,800 bytes
+        Contained VSUs:
+          fct0: ID:0, UUID:45c49fc3-3627-43a4-aeba-d07c668350c0
+fct0    State: Online, Type: block device
+        ID:0, UUID:45c49fc3-3627-43a4-aeba-d07c668350c0
+        1294.00 GBytes device size
+        Format: 2527343750 sectors of 512 bytes
 
 [[[UPDATES]]]
 
