@@ -5,6 +5,7 @@ https://github.com/RemixVSL/iomemory-vsl
 http://repo.bitcoder.org/download/fusion-iodrive2/ubuntu-16.04/
 https://github.com/vinsonlee/iomemory-vsl
 https://github.com/RemixVSL/iomemory-vsl
+https://support.hpe.com/connect/s/softwaredetails?language=en_US&collectionId=MTX-6734c54b76264ecc&tab=Installation+Instructions
 
 References for ioMemory VSL Installation
 https://www.thomas-krenn.com/en/wiki/Fusion-io_ioDrive_use_with_Debian
