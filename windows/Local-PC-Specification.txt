@@ -283,7 +283,7 @@ Adapter: Single Controller Adapter
 	PCIe Power limit threshold: 24.75W
 	Connected ioMemory modules: 
           fct0: Product Number:673646-B21, SN:1309D02D2
-fct0	Attached
+fct0    Attached
 	ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
 	Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
 	PCI:04:00.0, Slot Number:36
@@ -293,7 +293,7 @@ fct0	Attached
 	Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
 	Contained VSUs: 
           fioa: ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
-fioa	State: Online, Type: block device
+fioa    State: Online, Type: block device
 	ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 	1205.00 GBytes device size
 
@@ -331,11 +331,11 @@ fct0    Attached
         Active media: 100.00%
         Rated PBW: 17.00 PB, 99.97% remaining
         Lifetime data volumes:
-           Physical bytes written: 4,575,883,262,152
-           Physical bytes read   : 5,650,349,120,208
+          Physical bytes written: 4,575,883,262,152
+          Physical bytes read   : 5,650,349,120,208
         RAM usage:
-           Current: 389,636,800 bytes
-           Peak   : 389,636,800 bytes
+          Current: 389,636,800 bytes
+          Peak   : 389,636,800 bytes
         Contained VSUs:
           fct0: ID:0, UUID:45c49fc3-3627-43a4-aeba-d07c668350c0
 fct0    State: Online, Type: block device
