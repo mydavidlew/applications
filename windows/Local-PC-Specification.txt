@@ -278,24 +278,24 @@ superadmin@dl-PrecT-3620:~$ sudo fio-status
 Found 1 ioMemory device in this system
 Driver version: 3.2.16 build 1731
 Adapter: Single Controller Adapter
-	HP 1205GB MLC PCIe ioDrive2 for ProLiant Servers, Product Number:673646-B21, SN:3UN316C02C
-	External Power: NOT connected
-	PCIe Power limit threshold: 24.75W
-	Connected ioMemory modules: 
+        HP 1205GB MLC PCIe ioDrive2 for ProLiant Servers, Product Number:673646-B21, SN:3UN316C02C
+        External Power: NOT connected
+        PCIe Power limit threshold: 24.75W
+        Connected ioMemory modules: 
           fct0: Product Number:673646-B21, SN:1309D02D2
 fct0    Attached
-	ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
-	Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
-	PCI:04:00.0, Slot Number:36
-	Firmware v7.1.13, rev 109322 Public
-	1205.00 GBytes device size
-	Internal temperature: 71.86 degC, max 73.82 degC
-	Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
-	Contained VSUs: 
+        ioDrive2 Adapter Controller, Product Number:673646-B21, SN:1309D02D2
+        Located in slot 0 Center of ioDrive2 Adapter Controller SN:1309D02D2
+        PCI:04:00.0, Slot Number:36
+        Firmware v7.1.13, rev 109322 Public
+        1205.00 GBytes device size
+        Internal temperature: 71.86 degC, max 73.82 degC
+        Reserve space status: Healthy; Reserves: 100.00%, warn at 10.00%
+        Contained VSUs: 
           fioa: ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
 fioa    State: Online, Type: block device
-	ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
-	1205.00 GBytes device size
+        ID:0, UUID:c8b82b38-e74c-45c3-8234-6bcff0ec2d46
+        1205.00 GBytes device size
 
 superadmin@dl-PrecT-3620:~$ fio-status.exe -a /dev/fct0
 Found 1 ioMemory device in this system as device '/dev/fct0'
