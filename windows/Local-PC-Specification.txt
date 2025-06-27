@@ -1,3 +1,44 @@
+superadmin@systemonline:~$ inxi -Fzx
+System:    Kernel: 6.11.0-28-generic arch: x86_64 bits: 64 compiler: gcc v: 13.3.0
+           Desktop: GNOME v: 46.0 Distro: Ubuntu 24.04.2 LTS (Noble Numbat)
+Machine:   Type: Desktop System: Gigabyte product: B450 AORUS PRO WIFI v: N/A serial: N/A
+           Mobo: Gigabyte model: B450 AORUS PRO WIFI-CF serial: N/A BIOS: American Megatrends LLC. v: F66g date: 03/11/2025
+CPU:       Info: 8-core model: AMD Ryzen 7 5700X bits: 64 type: MT MCP arch: Zen 3+ rev: 2 cache: L1: 512 KiB L2: 4 MiB L3: 32 MiB
+           Speed (MHz): avg: 740 high: 3599 min/max: 550/4663 boost: enabled cores:
+           1: 550 2: 550 3: 550 4: 550 5: 550 6: 550 7: 550 8: 550 9: 550 10: 3599
+           11: 550 12: 550 13: 550 14: 550 15: 550 16: 550 bogomips: 108791
+           Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 sse4a ssse3 svm
+Graphics:  Device-1: NVIDIA TU116 [GeForce GTX 1660 SUPER] vendor: Micro-Star MSI driver: nvidia v: 570.133.07 arch: Turing bus-ID: 08:00.0
+           Device-2: Generalplus GENERAL WEBCAM driver: snd-usb-audio,uvcvideo type: USB bus-ID: 5-3:3
+           Display: server: X.Org v: 21.1.11 with: Xwayland v: 23.2.6 driver: X: loaded: nvidia gpu: nvidia,nvidia-nvswitch resolution: 1: 1920x1080~60Hz 2: 1920x1080~60Hz
+           API: EGL v: 1.5 drivers: nvidia,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland,device-1
+           API: OpenGL v: 4.6.0 compat-v: 4.5 vendor: nvidia mesa v: 570.133.07 glx-v: 1.4 direct-render: yes renderer: NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2
+Audio:     Device-1: NVIDIA TU116 High Definition Audio vendor: Micro-Star MSI driver: snd_hda_intel v: kernel bus-ID: 08:00.1
+           Device-2: AMD Starship/Matisse HD Audio vendor: Gigabyte driver: snd_hda_intel v: kernel bus-ID: 0a:00.4
+           Device-3: Generalplus GENERAL WEBCAM driver: snd-usb-audio,uvcvideo type: USB bus-ID: 5-3:3
+           API: ALSA v: k6.11.0-28-generic status: kernel-api
+           Server-1: PipeWire v: 1.0.5 status: n/a (root, process)
+Network:   Device-1: Intel I211 Gigabit Network vendor: Gigabyte driver: igb v: kernel port: f000 bus-ID: 04:00.0
+           IF: eno1 state: up speed: 100 Mbps duplex: full mac: <filter>
+           Device-2: Intel Dual Band Wireless-AC 3168NGW [Stone Peak] driver: iwlwifi v: kernel bus-ID: 05:00.0
+           IF: wlp5s0 state: up mac: <filter>
+           IF-ID-1: docker0 state: down mac: <filter>
+Bluetooth: Device-1: Intel Wireless-AC 3168 Bluetooth driver: btusb v: 0.8 type: USB bus-ID: 1-5:2
+           Report: hciconfig ID: hci0 rfk-id: 0 state: up address: <filter> bt-v: 4.2 lmp-v: 8
+Drives:    Local Storage: total: 1.8 TiB used: 41.88 GiB (2.3%)
+           ID-1: /dev/nvme0n1 vendor: A-Data model: LEGEND 710 size: 476.94 GiB temp: 32.9 C
+           ID-2: /dev/nvme1n1 vendor: A-Data model: LEGEND 710 size: 476.94 GiB temp: 33.9 C
+           ID-3: /dev/sda vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB
+           ID-4: /dev/sdb vendor: Intel model: SSDSC2BB480G6 size: 447.13 GiB
+Partition: ID-1: / size: 468.38 GiB used: 41.77 GiB (8.9%) fs: ext4 dev: /dev/nvme1n1p2
+Swap:      ID-1: swap-1 type: file size: 8 GiB used: 0 KiB (0.0%) file: /swap.img
+Sensors:   System Temperatures: cpu: 49.0 C mobo: 26.0 C gpu: nvidia temp: 42 C
+           Fan Speeds (rpm): cpu: 0 fan-1: 0 fan-3: 0 gpu: nvidia fan: 44%
+           Power: 12v: N/A 5v: N/A 3.3v: 3.38 vbat: 3.16
+Info:      Memory: total: 32 GiB available: 31.26 GiB used: 6.48 GiB (20.7%)
+           Processes: 452 Uptime: 1h 22m Init: systemd target: graphical (5)
+           Packages: 1984 Compilers: gcc: 13.3.0 Shell: Sudo v: 1.9.15p5 inxi: 3.3.34
+
 superadmin@dl-PrecT-3620:~$ inxi -Fxz
 System:    Kernel: 5.11.0-38-generic x86_64 bits: 64 compiler: N/A Desktop: Gnome 3.36.9 
            Distro: Ubuntu 20.04.3 LTS (Focal Fossa) 
@@ -127,6 +168,27 @@ Info:      Processes: 315 Uptime: 11m
            Memory: 31.31 GiB used: 1.99 GiB (6.3%) 
            Init: systemd runlevel: 5 Compilers: gcc: 9.3.0 
            Shell: bash v: 5.0.17 inxi: 3.0.38 
+
+superadmin@systemonline:~$ glxinfo -B
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 6144 MB
+    Total available memory: 6144 MB
+    Currently available dedicated video memory: 5001 MB
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2
+OpenGL core profile version string: 4.6.0 NVIDIA 570.133.07
+OpenGL core profile shading language version string: 4.60 NVIDIA
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.6.0 NVIDIA 570.133.07
+OpenGL shading language version string: 4.60 NVIDIA
+OpenGL context flags: (none)
+OpenGL profile mask: (none)
+OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 570.133.07
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
 
 superadmin@dl-PrecT-3620:~$ glxinfo -B
 name of display: :0
