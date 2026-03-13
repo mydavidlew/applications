@@ -1,0 +1,24 @@
+[Disable Nouveau]
+To disable the Nouveau driver in Ubuntu, blacklist it by creating /etc/modprobe.d/blacklist-nouveau.conf 
+with the lines blacklist nouveau and options nouveau modeset=0. Then, update the initial RAM filesystem 
+using sudo update-initramfs -u and reboot your system to apply the changes. 
+
+1) Create a blacklist file: Open a terminal and create a new configuration file to blacklist the driver:
+    :~$ echo -e "blacklist nouveau\noptions nouveau modeset=0" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
+
+2) Update initramfs: Update the boot image to ensure the driver does not load during startup:
+    :~$ sudo update-initramfs -u
+
+3) Reboot: Restart your computer to apply the changes:
+    :~$ sudo reboot
+
+[Nouveau Verification]
+After rebooting, you can verify that the Nouveau driver is not loaded by running lsmod. If the command 
+returns no output, the driver has been successfully disabled.  
+    :~$ lsmod | grep nouveau
+
+[Re-enabling Nouveau]
+To reverse this process, delete the configuration file created and update the initramfs again: 
+    :~$ sudo rm /etc/modprobe.d/blacklist-nouveau.conf
+    :~$ sudo update-initramfs -u
+    :~$ sudo reboot
