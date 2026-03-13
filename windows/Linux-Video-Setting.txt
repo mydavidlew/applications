@@ -5,6 +5,11 @@ using sudo update-initramfs -u and reboot your system to apply the changes.
 
 1) Create a blacklist file: Open a terminal and create a new configuration file to blacklist the driver:
     :~$ echo -e "blacklist nouveau\noptions nouveau modeset=0" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
+  <or>
+    :~$ cat <<EOF | sudo tee /etc/modprobe.d/blacklist-nouveau.conf
+        blacklist nouveau
+        options nouveau modeset=0
+        EOF
 
 2) Update initramfs: Update the boot image to ensure the driver does not load during startup:
     :~$ sudo update-initramfs -u
