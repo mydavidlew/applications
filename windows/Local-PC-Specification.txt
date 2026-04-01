@@ -1,3 +1,8 @@
+DELL P2314H (DP-4),
+DELL P2212H (HDMI-0)
+DELL E1911
+DELL E1911c
+
 superadmin@systemonline:~$ inxi -Fzx
 System:    Kernel: 6.11.0-28-generic arch: x86_64 bits: 64 compiler: gcc v: 13.3.0
            Desktop: GNOME v: 46.0 Distro: Ubuntu 24.04.2 LTS (Noble Numbat)
