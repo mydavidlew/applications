@@ -1,4 +1,38 @@
+[To remove NVIDIA drivers from the Ubuntu 'initrd' (initial RAM disk) image]
+----------------------------------------------------------------------------
+ - you must perform two main steps: [1] uninstalling the driver packages from the system and [2] regenerating the initrd file to reflect those changes. 
+
+[1] Uninstall NVIDIA Drivers 
+First, remove the actual driver files and configurations from your system so they are not available to be included in the next image build. 
+ - For drivers installed via 'apt' (standard):
+   Run the following command to purge all NVIDIA-related packages and dependencies:
+      :~$ sudo apt-get purge '^nvidia-.*'
+   Follow this with:
+      :~$ sudo apt-get autoremove
+ - For drivers installed via '.run' file (manual):
+   If you used a manual installer, run the uninstall script:
+      :~$ sudo nvidia-uninstall
+   (Note: If the file is still on your system, you can also run "sudo ./NVIDIA-Linux-x86_64-<version>.run --uninstall")
+
+[2] Update the initrd Image 
+The initrd image is a static archive created at a specific point in time. Simply deleting the drivers from "/usr/lib" does not remove them from the already-compressed "initrd.img" file used at boot. You must rebuild it:
+ - To update the current kernel's initrd:
+      :~$ sudo update-initramfs -u
+ - To update all installed kernel images:
+      :~$ sudo update-initramfs -u -k all
+
+[3] Verify and Clean Up
+ - Remove Xorg remnants: Delete existing X11 configurations that might still try to load the NVIDIA driver:
+      :~$ sudo rm /etc/X11/xorg.conf
+ - Check for Blacklisting: Ensure the open-source 'Nouveau' driver isn't blacklisted (which would prevent it from loading after NVIDIA is gone). Check for and remove files like "/etc/modprobe.d/blacklist-nouveau.conf".
+ - Reboot: Restart your system to boot with the newly generated initrd:
+      :~$ sudo reboot
+
+Pro-Tip: If you cannot boot into the desktop to run these commands, hold "Shift + Esc" during boot to enter the 'GRUB' menu, select 'Advanced options', and drop to a 'root shell' in recovery mode to perform the uninstallation.
+
+
 [Disable Nouveau]
+-----------------
 To disable the Nouveau driver in Ubuntu, blacklist it by creating /etc/modprobe.d/blacklist-nouveau.conf 
 with the lines blacklist nouveau and options nouveau modeset=0. Then, update the initial RAM filesystem 
 using sudo update-initramfs -u and reboot your system to apply the changes. 
