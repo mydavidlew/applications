@@ -1,0 +1,33 @@
+[Boot Ubuntu into console (text) mode] - [1] temporary one-time access or [2] permanent change. 
+-----------------------------------------------------------------------------------------------
+
+[1] Temporary Boot to Console (via GRUB) 
+This method is best if you only need console access for a single session (e.g., to fix drivers).
+a. Restart your computer.
+b. Hold the "Shift" key (for BIOS) or tap the "Esc" key (for UEFI) immediately after the manufacturer logo appears to enter the GRUB menu.
+c. Select the top 'Ubuntu' entry and press "e" to edit boot parameters.
+d. Find the line starting with 'linux'. Use the arrow keys to go to the end of that line.
+e. Add a space followed by the number "3" at the very end (after 'quiet splash').
+f. Press "Ctrl + X" or "F10" to boot. 
+
+[2] Permanent Boot to Console (via Systemd)
+Use this if you want Ubuntu to always start in a text-only mode.
+a. Open a 'terminal' (or a console).
+b. Run the following command to set the default boot target to a multi-user command-line interface:
+   :~$ sudo systemctl set-default multi-user.target
+c. To revert this later and boot back into the GUI, run:
+   :~$ sudo systemctl set-default graphical.target
+
+3. Quick Switch While Logged In (Keyboard Shortcuts) 
+If Ubuntu has already booted to the GUI and you just need to switch to a terminal without rebooting, use 'Virtual Consoles' (TTY).
+ - Switch to Console: Press "Ctrl + Alt + F3" (you can also use "F4", "F5" or "F6").
+ - Switch back to GUI: Press "Ctrl + Alt + F2" (or "Alt + F1" in some versions).
+ - Note: On laptops, you may need to hold the "Fn" key as well (e.g., "Ctrl + Alt + Fn + F3").
+
+4. Recovery Mode (Maintenance)
+If you cannot boot normally at all, use Recovery Mode to get a root prompt.
+a. In the 'GRUB' menu, select "Advanced options for Ubuntu".
+b, Select the entry ending in "(recovery mode)".
+c. From the Recovery Menu, scroll down to "root" and press "Enter".
+d. To get write permissions for the disk, run:
+   :~$ mount -o remount,rw /.
