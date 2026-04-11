@@ -7,6 +7,8 @@ First, remove the actual driver files and configurations from your system so the
  - For drivers installed via 'apt' (standard):
    Run the following command to purge all NVIDIA-related packages and dependencies:
       :~$ sudo apt-get purge '^nvidia-.*'
+    or
+      :~$ sudo apt remove --purge nvidia-*
    Follow this with:
       :~$ sudo apt-get autoremove
  - For drivers installed via '.run' file (manual):
