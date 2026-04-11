@@ -7,7 +7,7 @@ a. Restart your computer.
 b. Hold the "Shift" key (for BIOS) or tap the "Esc" key (for UEFI) immediately after the manufacturer logo appears to enter the GRUB menu.
 c. Select the top 'Ubuntu' entry and press "e" to edit boot parameters.
 d. Find the line starting with 'linux'. Use the arrow keys to go to the end of that line.
-e. Add a space followed by the number "3" at the very end (after 'quiet splash').
+e. Add a "space" followed by the number "3" at the very end (after 'quiet splash') to boot into 'multi-user-text-mode'.
 f. Press "Ctrl + X" or "F10" to boot. 
 
 [2] Permanent Boot to Console (via Systemd)
