@@ -11,6 +11,8 @@ First, remove the actual driver files and configurations from your system so the
       :~$ sudo apt remove --purge nvidia-*
    Follow this with:
       :~$ sudo apt-get autoremove
+   If get errors about unmet dependencies, try to fix them with:
+      :~$ sudo apt --fix-broken install
  - For drivers installed via '.run' file (manual):
    If you used a manual installer, run the uninstall script:
       :~$ sudo nvidia-uninstall
