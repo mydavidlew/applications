@@ -32,6 +32,17 @@ The initrd image is a static archive created at a specific point in time. Simply
  - Reboot: Restart your system to boot with the newly generated initrd:
       :~$ sudo reboot
 
+[4] Strategic Recovery
+If system is currently in a broken state with partially installed packages, follow these steps:
+ - Clean the Slate: Remove all existing NVIDIA packages to prevent dependency conflicts.
+      :~$ sudo apt purge ^nvidia-*
+ - Use the Recommended Driver Tool: Instead of manually choosing a version, use Ubuntu's Official Ubuntu Drivers tool to identify the most compatible driver for your hardware:
+      :~$ sudo ubuntu-drivers devices
+      :~$ sudo ubuntu-drivers autoinstall
+ - Disable Secure Boot: If the build succeeds but the driver fails to load (check nvidia-smi), Secure Boot might be blocking the unsigned or self-signed kernel module. You may need to disable it in your BIOS/UEFI.
+ - Review the Build Log: For specific error details, check the DKMS make log:
+      :~$ cat /var/lib/dkms/nvidia/535.x.x/build/make.log
+
 Pro-Tip: If you cannot boot into the desktop to run these commands, hold "Shift + Esc" during boot to enter the 'GRUB' menu, select 'Advanced options', and drop to a 'root shell' in recovery mode to perform the uninstallation.
 
 
