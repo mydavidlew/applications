@@ -1,3 +1,5 @@
+# /etc/systemd/system/myservice.service
+#
 [Unit]
 Description=My Root Startup Script
 #After=network.target
@@ -17,4 +19,3 @@ RestartSec=3
 [Install]
 #WantedBy=multi-user.target
 WantedBy=default.target
-
