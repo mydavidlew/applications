@@ -85,3 +85,7 @@ $ sudo apt install ./hddtemp_0.3-beta15-53_amd64.deb
 
 Next update the /etc/sudoers using 'visudo' command to allow execute cmd without keyin password
 # <username> ALL=(ALL) NOPASSWD: /usr/sbin/hddtemp
+
+
+Shell gnome extension manager
+$ sudo apt install gnome-shell-extension-manager
