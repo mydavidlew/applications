@@ -87,5 +87,9 @@ Next update the /etc/sudoers using 'visudo' command to allow execute cmd without
 # <username> ALL=(ALL) NOPASSWD: /usr/sbin/hddtemp
 
 
-Shell gnome extension manager
+[Install the Extension Manager]
+Allow Remote Desktop While Locked (GUI Extension) on your Linux machine:
 $ sudo apt install gnome-shell-extension-manager
+Open the 'Extension Manager' app from your desktop applications.
+Search for and install the "Allow Locked Remote Desktop" extension.
+Enable the extension. RDP sessions will now remain active even when the screen is locked or times out.
