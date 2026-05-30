@@ -283,7 +283,7 @@ ${color orange}Hostname: ${color}${nodename} - "${color cyan}${USER}${color}"
 ${color orange}Kernel: ${color}${sysname} ${kernel} on ${machine}
 ${color orange}Uptime: ${color}${uptime} ${alignr}${color orange}Load: ${color}${loadavg}
 ###
-${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' | tail -n 1}]${font}${color yellow}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' -e 's/CPU //g' | tail -n 1}]${font}${color yellow}${hr}
 #${color orange}1:${color} acpitz${hwmon 0 temp 1} skylake${hwmon 1 temp 1} radeon${hwmon 2 temp 1} dell_smm${hwmon 3 temp 1} coretemp${hwmon 4 temp 1}
 #${color orange}2:${color} acpitz${hwmon 0 temp 2} skylake${hwmon 1 temp 0} radeon${hwmon 2 temp 0} dell_smm${hwmon 3 temp 2} coretemp${hwmon 4 temp 2}
 #${color orange}3:${color} acpitz${hwmon 0 temp 0} skylake${hwmon 1 temp 0} radeon${hwmon 2 temp 0} dell_smm${hwmon 3 temp 0} coretemp${hwmon 4 temp 3}
@@ -291,8 +291,8 @@ ${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | 
 #${color orange}3:${color} acpitz${hwmon 0 temp 0} skylake${hwmon 1 temp 0} radeon${hwmon 2 temp 0} dell_smm${hwmon 3 temp 0} coretemp${hwmon 4 temp 5}
 #${color orange}4:${color} dell_smm${hwmon 3 fan 1} 
 #${color orange}5:${color} dell_smm${hwmon 3 fan 2}
-${color orange}Coretmp:${color}${hwmon 2 temp 1}°C  \
-${color orange}Canlake:${color}${hwmon 3 temp 1}°C  \
+${color orange}Coretemp:${color}${hwmon 2 temp 1}°C  \
+${color orange}Skylake:${color}${hwmon 3 temp 1}°C  \
 ${color orange}Ambient:${color}${hwmon 0 temp 1}°C
 ${color orange}Freq:${color}   ${freq_g 0}GHz ${goto 144}${color orange}Usage:${color}  ${cpu cpu0}%
 #${color orange}FanCPU:${color} ${i8k_right_fan_rpm}rpm ${goto 144}${color orange}FanMBs:${color} ${i8k_left_fan_rpm}rpm
