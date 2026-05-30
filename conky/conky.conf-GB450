@@ -55,7 +55,7 @@ ${color orange}Hostname: ${color}${nodename} - "${color cyan}${USER}${color}"
 ${color orange}Kernel: ${color}${sysname} ${kernel} on ${machine}
 ${color orange}Uptime: ${color}${uptime} ${alignr}${color orange}Load: ${color}${loadavg}
 ###
-${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' | tail -n 1}]${font}${color yellow}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' -e 's/ Processor//g' | tail -n 1}]${font}${color yellow}${hr}
 ### check {
 #${color orange}0:${color} h0:${hwmon 0 temp 1} h1:${hwmon 0 temp 2} h2:${hwmon 0 temp 3} h3:${hwmon 0 temp 4} h4:${hwmon 0 temp 5}
 #${color orange}1:${color} h0:${hwmon 1 temp 1} h1:${hwmon 1 temp 2} h2:${hwmon 1 temp 3} h3:${hwmon 1 temp 4} h4:${hwmon 1 temp 5}
@@ -143,6 +143,8 @@ ${color orange}Processes: ${color}${processes}  \
 ${color orange}Running: ${color}${running_processes}  \
 ${color orange}Threads: ${color}${threads}
 ${exec /usr/lib/update-notifier/apt-check --human-readable}
+#${exec sudo nvidia-settings -a "[gpu:0]/GPUFanControlState=1"}
+#${exec sudo nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=50"}
 ]]
 
 conky.config1 = {
