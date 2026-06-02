@@ -93,3 +93,13 @@ $ sudo apt install gnome-shell-extension-manager
 Open the 'Extension Manager' app from your desktop applications.
 Search for and install the "Allow Locked Remote Desktop" extension.
 Enable the extension. RDP sessions will now remain active even when the screen is locked or times out.
+
+
+[Install and Use XFCE (Most Stable with XRDP)]
+To configure the Correct Window Manager, the XFCE desktop environment
+$ sudo apt update
+$ sudo apt install xfce4 xfce4-goodies -y
+
+Then set startwm.sh in /etc/xrdp/startwm.sh:
+$ #!/bin/sh
+$ startxfce4
