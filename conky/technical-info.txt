@@ -99,7 +99,14 @@ Enable the extension. RDP sessions will now remain active even when the screen i
 To configure the Correct Window Manager, the XFCE desktop environment
 $ sudo apt update
 $ sudo apt install xfce4 xfce4-goodies -y
+$ sudo dpkg-reconfigure xserver-xorg-legacy
 
 Then set startwm.sh in /etc/xrdp/startwm.sh:
 $ #!/bin/sh
 $ startxfce4
+
+Restart the remote desktop services
+$ sudo systemctl restart xrdp-sesman.service xrdp.service
+$ journalctl -S today -xeu xrdp-sesman
+$ journalctl -S today -xeu xrdp
+
