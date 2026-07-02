@@ -1,0 +1,15 @@
+[System Control Service Maintenance]
+To completely remove or reset a systemctl application (service) unit file in Ubuntu, you must stop it, disable it from running at boot, delete the unit files, and tell systemd to forget it.
+
+Run the following commands, replacing [service_name] with the actual name of your service:
+$ sudo systemctl stop [service_name]
+$ sudo systemctl disable [service_name]
+$ sudo rm /etc/systemd/system/[service_name].service
+$ sudo rm /lib/systemd/system/[service_name].service
+$ sudo rm /usr/lib/systemd/system/[service_name].service
+$ sudo systemctl daemon-reload
+$ sudo systemctl reset-failed
+
+If you only want to remove an overridden configuration (revisions) of an existing service and restore it to its original, vendor-default state instead of deleting it entirely, you can use the revert command instead:
+$ sudo systemctl revert [service_name]
+$ sudo systemctl restart [service_name]
