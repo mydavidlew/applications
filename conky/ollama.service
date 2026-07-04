@@ -16,3 +16,21 @@ Environment="ANTHROPIC_BASE_URL=http://localhost:11434"
 
 [Install]
 WantedBy=default.target
+
+...to set or force ollmam to used GPU...
+This error typically occurs when running third-party machine learning frameworks or tools (like Ollama) 
+on newer JetPack versions (e.g., JetPack 7.x). Because the pre-built CUDA libraries lack native support 
+for your Orin's architecture, the application defaults to the CPU.
+
+To fix this, try setting manual environment variables to force the application to utilize your Jetson's GPU:
+1. Open the service file: 
+  $ sudo systemctl edit ollama.service
+2. Add the following environment variables inside the [Service] block:
+  | [Service]
+  | Environment="OLLAMA_IGPU_ENABLE=1"
+  | Environment="GGML_BACKEND_PATH=/usr/local/lib/ollama/cuda_v13/libggml-cuda.so"
+  | Environment="LD_LIBRARY_PATH=/usr/local/lib/ollama:/usr/local/lib/ollama/cuda_v13"
+3. Save the file, reload the daemon:
+  $ sudo systemctl daemon-reload
+4. Restart the service:
+  $ sudo systemctl restart ollama
