@@ -5,6 +5,10 @@
 [1] Uninstall NVIDIA Drivers 
 First, remove the actual driver files and configurations from your system so they are not available to be included in the next image build. 
  - For drivers installed via 'apt' (standard):
+   Find the tails of other drivers that are not related to ...
+      :~$ dpkg -l | grep nvidia
+   Remove unnecessary dependencies:
+      :~$ sudo apt purge ~c
    Run the following command to purge all NVIDIA-related packages and dependencies:
       :~$ sudo apt-get purge '^nvidia-.*'
     or
