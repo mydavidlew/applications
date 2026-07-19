@@ -18,6 +18,11 @@ Graphics:  Device-1: NVIDIA TU116 [GeForce GTX 1660 SUPER] vendor: Micro-Star MS
            Display: server: X.Org v: 21.1.11 with: Xwayland v: 23.2.6 driver: X: loaded: nvidia gpu: nvidia,nvidia-nvswitch resolution: 1: 1920x1080~60Hz 2: 1920x1080~60Hz
            API: EGL v: 1.5 drivers: nvidia,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland,device-1
            API: OpenGL v: 4.6.0 compat-v: 4.5 vendor: nvidia mesa v: 570.133.07 glx-v: 1.4 direct-render: yes renderer: NVIDIA GeForce GTX 1660 SUPER/PCIe/SSE2
+Graphics:  Device-1: NVIDIA GP102 [GeForce GTX 1080 Ti] vendor: ASUSTeK driver: nvidia v: 535.309.01 arch: Pascal bus-ID: 08:00.0
+           Device-2: Generalplus GENERAL WEBCAM driver: snd-usb-audio,uvcvideo type: USB bus-ID: 3-3:3
+           Display: server: X.Org v: 21.1.11 with: Xwayland v: 23.2.6 driver: X: loaded: nvidia gpu: nvidia,nvidia-nvswitch resolution: 1: 1920x1080 2: 1920x1080
+           API: EGL v: 1.5 drivers: nvidia,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland,device-1
+           API: OpenGL v: 4.6.0 compat-v: 4.5 vendor: nvidia mesa v: 535.309.01 glx-v: 1.4 direct-render: yes renderer: NVIDIA GeForce GTX 1080 Ti/PCIe/SSE2
 Audio:     Device-1: NVIDIA TU116 High Definition Audio vendor: Micro-Star MSI driver: snd_hda_intel v: kernel bus-ID: 08:00.1
            Device-2: AMD Starship/Matisse HD Audio vendor: Gigabyte driver: snd_hda_intel v: kernel bus-ID: 0a:00.4
            Device-3: Generalplus GENERAL WEBCAM driver: snd-usb-audio,uvcvideo type: USB bus-ID: 5-3:3
