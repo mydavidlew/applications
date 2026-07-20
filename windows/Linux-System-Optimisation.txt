@@ -3,11 +3,16 @@ To completely remove or reset a systemctl application (service) unit file in Ubu
 disable it from running at boot, delete the unit files, and tell systemd to forget it.
 
 Run the following commands, replacing [service_name] with the actual name of your service:
+  1. Stop and disable the service:
   $ sudo systemctl stop [service_name]
   $ sudo systemctl disable [service_name]
+
+  2. Remove the unit files:
   $ sudo rm /etc/systemd/system/[service_name].service
   $ sudo rm /lib/systemd/system/[service_name].service
   $ sudo rm /usr/lib/systemd/system/[service_name].service
+
+  3. Reload systemd and reset failed states:
   $ sudo systemctl daemon-reload
   $ sudo systemctl reset-failed
 
