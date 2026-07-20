@@ -102,3 +102,62 @@ $ ip route add default via <gateway-ip>
 
 If no longer need this configuration and wish to purge all IP configuration from an interface
 $ ip addr flush <ens3>
+
+
+
+[[[OpenFortiVPN]]]
+openfortivpn does not have a built-in configuration option to directly execute custom shell scripts. However, 
+you can easily automate script execution by wrapping the openfortivpn command in a parent bash script or by 
+using systemd event triggers.
+
+Here is how to configure these two approaches.
+
+Method 1: The Wrapper Script Approach (Recommended)
+This is the simplest way to run scripts immediately before establishing the VPN connection and right after 
+the connection closes.
+
+1. Create a new script file:
+   ~$ bashsudo nano /usr/local/bin/my-vpn.sh
+
+2. Add your configuration and script triggers:
+   bash ~$ 
+     #!/bin/bash
+     
+     # 1. Run scripts BEFORE connecting
+     /path/to/your/before-script.sh
+
+     # 2. Start openfortivpn (points to your config file)
+     sudo openfortivpn -c /etc/openfortivpn/config
+
+     # 3. Run scripts AFTER disconnecting
+     # This line only executes after openfortivpn exits
+     /path/to/your/after-script.sh
+
+3. Make the wrapper script executable:
+   ~$ sudo chmod +x /usr/local/bin/my-vpn.sh
+
+Method 2: The Systemd Approach (For Background Services)
+If you run openfortivpn as a systemd service, you can use systemd directives to trigger scripts when the service 
+starts or stops.
+
+1. Edit your openfortivpn systemd service:
+   ~$ sudo systemctl edit openfortivpn.service
+
+2. Add the script execution directives:
+   bash ~$ 
+     [Service]
+     # Runs as soon as the service starts
+     ExecStartPost=/path/to/your/after-connected-script.sh
+
+     # Runs as soon as the service stops
+     ExecStopPost=/path/to/your/after-disconnected-script.sh
+
+3. Reload systemd to apply changes:
+   ~$ sudo systemctl daemon-reload
+
+Handling Route and DNS Changes
+If your shell script is intended to modify routing tables or DNS settings, you can use openfortivpn's built-in 
+flags to prevent it from altering them natively. This prevents conflicts with your custom scripts.
+
+* Use --no-routes to handle routing completely via your custom shell script.
+* Use --no-dns to handle DNS configuration completely via your custom shell script.
