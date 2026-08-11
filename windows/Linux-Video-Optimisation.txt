@@ -85,3 +85,31 @@ To reverse this process, delete the configuration file created and update the in
     :~$ sudo rm /etc/modprobe.d/blacklist-nouveau.conf
     :~$ sudo update-initramfs -u
     :~$ sudo reboot
+
+
+[To Install Missing Kernel Headers and NVIDIA drivers]
+------------------------------------------------------
+1. Install Missing Kernel Headers
+   DKMS requires your specific kernel headers to compile the driver. Run this command to install them:
+    :~$ apt update && sudo apt install linux-headers-$(uname -r)
+
+2. Force Package ReconfigurationOnce the headers are in place, attempt to repair the broken configuration state:
+    :~$ dpkg --configure -a
+
+   If it succeeds, your driver is compiled. If it fails again, check the build log for the exact error (e.g., cat /var/lib/dkms/nvidia/580.*/build/make.log).
+
+3. Clear the DKMS Cache & Reinstall
+   If the configuration still fails, a corrupted dkms directory or an installation conflict is likely. Clean out the broken remnants and reinstall:
+    :~$ # 1. Purge the existing broken installations
+    :~$ sudo apt remove --purge '^nvidia-.*'
+
+    :~$ # 2. Clean up any stuck DKMS directories
+    :~$ sudo rm -rf /var/lib/dkms/nvidia
+
+    :~$ # 3. Clean up the apt cache
+    :~$ sudo apt autoremove && sudo apt clean
+
+    :~$ # 4. Reinstall the recommended 580 driver
+    :~$ sudo apt install nvidia-dkms-580 nvidia-driver-580
+
+   (Note: If you are using the open-source kernel modules variant, substitute the final command with sudo apt install nvidia-dkms-580-open nvidia-driver-580-open.)
