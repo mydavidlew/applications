@@ -101,7 +101,7 @@ To reverse this process, delete the configuration file created and update the in
 3. Clear the DKMS Cache & Reinstall
    If the configuration still fails, a corrupted dkms directory or an installation conflict is likely. Clean out the broken remnants and reinstall:
     :~$ # 1. Purge the existing broken installations
-    :~$ sudo apt remove --purge '^nvidia-.*'
+    :~$ sudo apt remove --purge '^nvidia-.*' '^libnvidia-.*'
 
     :~$ # 2. Clean up any stuck DKMS directories
     :~$ sudo rm -rf /var/lib/dkms/nvidia
