@@ -102,6 +102,8 @@ To reverse this process, delete the configuration file created and update the in
    If the configuration still fails, a corrupted dkms directory or an installation conflict is likely. Clean out the broken remnants and reinstall:
     :~$ # 1. Purge the existing broken installations
     :~$ sudo apt remove --purge '^nvidia-.*' '^libnvidia-.*'
+   -or-
+    :~$ dpkg -l | grep nvidia | awk '{print $2}' | xargs sudo dpkg --force-all -P; sudo apt --fix-broken install
 
     :~$ # 2. Clean up any stuck DKMS directories
     :~$ sudo rm -rf /var/lib/dkms/nvidia
