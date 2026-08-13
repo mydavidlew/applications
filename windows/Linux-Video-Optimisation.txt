@@ -91,7 +91,7 @@ To reverse this process, delete the configuration file created and update the in
 ------------------------------------------------------
 1. Install Missing Kernel Headers
    DKMS requires your specific kernel headers to compile the driver. Run this command to install them:
-    :~$ apt update && sudo apt install dkms linux-headers-$(uname -r)
+    :~$ apt update && sudo apt install build-essential dkms linux-headers-$(uname -r)
 
 2. Force Package ReconfigurationOnce the headers are in place, attempt to repair the broken configuration state:
     :~$ dpkg --configure -a
