@@ -117,7 +117,7 @@ To reverse this process, delete the configuration file created and update the in
 
    (Note: If you are using the open-source kernel modules variant, substitute the final command with sudo apt install nvidia-dkms-580-open nvidia-driver-580-open.)
 
-4. Get all the Video and Graphics information
+4. Get all the Video and Graphics Information
    Install display tools;
     :~$ sudo apt install mesa-utils vulkan-tools clinfo vdpauinfo -y
    Show display details;
