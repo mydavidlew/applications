@@ -72,10 +72,14 @@ ${color yellow}${font Droid Sans:style=Bold:size=10}[${exec cat /proc/cpuinfo | 
 #${color orange}Coretemp:${color}${hwmon 4 temp 1}°C  \
 #${color orange}Skylake:${color}${hwmon 1 temp 1}°C  \
 #${color orange}Radeon:${color}${hwmon 2 temp 1}°C
-${color orange}Coretemp: ${color}${hwmon 4 temp 1}°C  \
-${color orange}Skylake: ${color}${hwmon 4 temp 3}°C  \
-${color orange}Wifi: ${color}${hwmon 5 temp 1}°C
-${color orange}Freq: ${color}${freq_g 0}GHz ${goto 154}${color orange}Usage: ${color}${cpu cpu0}%
+${color orange}Coretemp: ${color}${hwmon 5 temp 1}°C  \
+${color orange}Skylake: ${color}${hwmon 5 temp 3}°C  \
+${color orange}Wifi: ${color}${hwmon 6 temp 1}°C
+${color orange}CpuFreq: ${color}${freq_g 0}GHz ${goto 154}${color orange}CpuUsage: ${color}${cpu cpu0}%
+${color orange}CpuFan: ${color}${hwmon 3 fan 1} ${goto 154}${color orange}CpuOptFan: ${color}${hwmon 3 fan 5}
+${color orange}SysFan1: ${color}${hwmon 3 fan 2} \
+${color orange}SysFan2: ${color}${hwmon 3 fan 3} \
+${color orange}SysFan3: ${color}${hwmon 3 fan 4}
 #${color orange}FanCPU:${color} ${i8k_right_fan_rpm}rpm ${goto 144}${color orange}FanMBs:${color} ${i8k_left_fan_rpm}rpm
 ${cpugraph cpu0 30,290 000000 0ABFFF}
 ${color orange}CPU01:${color} ${cpu cpu1}% ${freq_g 1}GHz ${goto 135}${cpubar cpu1}
