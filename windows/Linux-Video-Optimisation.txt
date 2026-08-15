@@ -90,7 +90,8 @@ To reverse this process, delete the configuration file created and update the in
 [To Install Missing Kernel Headers and NVIDIA drivers]
 ------------------------------------------------------
 1. Install Missing Kernel Headers
-   DKMS requires your specific kernel headers to compile the driver. Run this command to install them:
+   DKMS requires your specific kernel headers to compile the driver. Run this command to check and install them:
+    :~$ sudo apt-cache policy linux-headers-$(uname -r)
     :~$ apt update && sudo apt install build-essential dkms linux-headers-$(uname -r)
     :~$ apt list 2>/dev/null | grep -E '^(nvidia|libnvidia|cuda)'
 
