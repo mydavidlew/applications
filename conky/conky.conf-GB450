@@ -146,7 +146,7 @@ ${color lightgrey} ${top name 10} ${alignr}${top pid 10} ${top cpu 10} ${top mem
 ${color orange}Processes: ${color}${processes}  \
 ${color orange}Running: ${color}${running_processes}  \
 ${color orange}Threads: ${color}${threads}
-${exec /usr/lib/update-notifier/apt-check --human-readable}
+${exec /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
 #${exec sudo nvidia-settings -a "[gpu:0]/GPUFanControlState=1"}
 #${exec sudo nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=50"}
 ]]
