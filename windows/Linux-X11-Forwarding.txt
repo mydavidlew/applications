@@ -99,16 +99,19 @@ ssh -o PasswordAuthentication=yes -o PreferredAuthentications=password -o Pubkey
 To configure it without using the graphical settings menu or interacting with a manual password prompt, you can use the command-line utility 'grdctl'. This allows you to set explicit credentials and enable the service directly from the terminal.
 
 [Configuring via Terminal (grdctl)]
-1) Open your terminal application (or via SSH).
+Use the System-Wide Flag (Recommended) - To manage the server globally or headlessly over SSH, execute 'grdctl' using the '--system' scope. This bypasses the requirement for an active user X11 session or user D-Bus loop.
+1) Open your terminal application (or via SSH) and check status:
+$ sudo grdctl --system status
 
 2) Set your chosen username and password directly using the 'grdctl' command:
-$ grdctl rdp set-credentials <your-username> <your-password>
+$ sudo grdctl --system rdp set-auth-method credentials
+$ sudo grdctl --system rdp set-credentials <your-username> <your-password>
 
 3) Enable the RDP server backend:
-$ grdctl rdp enable
+$ sudo grdctl --system rdp enable
 
 4) If you want to allow full control (rather than view-only), disable view-only mode:
-$ grdctl rdp disable-view-only
+$ sudo grdctl --system rdp disable-view-only
 
 5) Ensure the user service is running and enabled:
 $ systemctl --user enable --now gnome-remote-desktop.service
