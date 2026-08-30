@@ -100,6 +100,7 @@ To configure it without using the graphical settings menu or interacting with a 
 
 [Configuring via Terminal (grdctl)]
 Use the System-Wide Flag (Recommended) - To manage the server globally or headlessly over SSH, execute 'grdctl' using the '--system' scope. This bypasses the requirement for an active user X11 session or user D-Bus loop.
+
 1) Open your terminal application (or via SSH) and check status:
 $ sudo grdctl --system status
 
