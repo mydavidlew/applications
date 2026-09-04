@@ -51,12 +51,12 @@ conky.config = {
 }
 
 conky.text = [[
-${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 300 lsb_release -d | cut -f 2} ${color}@ ${color lightgreen}${execpi 300 lsb_release -cs}${color yellow}]${font}${color yellow}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 lsb_release -d | cut -f 2} ${color}@ ${color lightgreen}${execpi 900 lsb_release -cs}${color yellow}]${font}${color yellow}${hr}
 ${color orange}Hostname: ${color}${nodename} - "${color cyan}${USER}${color}"
 ${color orange}Kernel: ${color}${sysname} ${kernel} on ${machine}
 ${color orange}Uptime: ${color}${uptime} ${alignr}${color orange}Load: ${color}${loadavg}
 ###
-${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 300 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' -e 's/ Processor//g' | tail -n 1}]${font}${color yellow}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //' -e 's/ Processor//g' | tail -n 1}]${font}${color yellow}${hr}
 ### check {
 #${color orange}0:${color} h0:${hwmon 0 temp 1} h1:${hwmon 0 temp 2} h2:${hwmon 0 temp 3} h3:${hwmon 0 temp 4} h4:${hwmon 0 temp 5}
 #${color orange}1:${color} h0:${hwmon 1 temp 1} h1:${hwmon 1 temp 2} h2:${hwmon 1 temp 3} h3:${hwmon 1 temp 4} h4:${hwmon 1 temp 5}
@@ -96,7 +96,7 @@ ${color orange}CPU14:${color} ${cpu cpu14}% ${freq_g 14}GHz ${goto 135}${cpubar 
 ${color orange}CPU15:${color} ${cpu cpu15}% ${freq_g 15}GHz ${goto 135}${cpubar cpu15}
 ${color orange}CPU16:${color} ${cpu cpu16}% ${freq_g 16}GHz ${goto 135}${cpubar cpu16}
 ###
-${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 300 nvidia-smi --query-gpu=gpu_name --format=csv,noheader}${color} @ ${execpi 5 (nvidia-smi --query-gpu=pstate --format=csv,noheader)}]${font}${color yellow}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 nvidia-smi --query-gpu=gpu_name --format=csv,noheader}${color} @ ${execpi 5 (nvidia-smi --query-gpu=pstate --format=csv,noheader)}]${font}${color yellow}${hr}
 #${color orange}P-State: ${color}${execpi 5 (nvidia-smi --query-gpu=pstate --format=csv,noheader)}
 ${color orange}BIOS: ${color}${execpi 5 (nvidia-smi --query-gpu=vbios_version --format=csv,noheader)}   \
 ${color orange}Ver: ${color}${execpi 5 (nvidia-smi --query-gpu=driver_version --format=csv,noheader)}
@@ -141,7 +141,7 @@ ${color lightgrey} ${top name 8} ${alignr}${top pid 8} ${top cpu 8} ${top mem 8}
 ${color orange}Processes: ${color}${processes}  \
 ${color orange}Running: ${color}${running_processes}  \
 ${color orange}Threads: ${color}${threads}
-${execpi 600 /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
+${execpi 1800 /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
 #${exec sudo nvidia-settings -a "[gpu:0]/GPUFanControlState=1"}
 #${exec sudo nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=50"}
 ]]
