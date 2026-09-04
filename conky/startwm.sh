@@ -36,3 +36,29 @@ exec /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
 
 Finally,
 --> sudo chmod +x /etc/xrdp/startwm.sh
+
+[A] Black screen after connecting:
+# Usually a desktop environment startup issue
+
+# Check session startup script
+cat /etc/xrdp/startwm.sh
+
+# Try creating a user-level .xsession file
+echo "startxfce4" > ~/.xsession && chmod +x ~/.xsession
+
+# Check for errors in sesman log
+sudo tail -50 /var/log/xrdp-sesman.log
+
+[B] Authentication failure / "Your session has ended":
+
+# Check PAM configuration
+sudo tail -20 /var/log/auth.log | grep xrdp
+
+# Ensure user is in the tsusers group if TerminalServerUsers is set
+groups username
+
+# Verify the user's password works
+su - username
+
+# Add the xrdp user to the ssl-cert group (required for TLS)
+sudo usermod -aG ssl-cert xrdp
