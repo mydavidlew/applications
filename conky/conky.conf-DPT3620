@@ -75,7 +75,7 @@ conky.config = {
 }
 
 conky.text = [[
-${color yellow}${font Droid Sans:style=Bold:size=10}[${exec lsb_release -d | cut -f 2} ${color}@ ${color lightgreen}${exec lsb_release -cs}${color yellow}]${font}${color}${hr}
+${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 lsb_release -d | cut -f 2} ${color}@ ${color lightgreen}${execpi 900 lsb_release -cs}${color yellow}]${font}${color}${hr}
 ${color orange}Hostname: ${color}${nodename} - "${color cyan}${USER}${color}"
 ${color orange}Kernel: ${color}${sysname} ${kernel} on ${machine}
 ${color orange}Uptime: ${color}${uptime} ${alignr}${color orange}Load: ${color}${loadavg}
@@ -108,9 +108,9 @@ ${color orange}RAM:  ${color}${mem}/${memmax} ${memperc}% ${membar 4}
 ${color orange}Swap: ${color}${swap}/${swapmax} ${swapperc}% ${swapbar 4}
 ###
 ${color yellow}${font Droid Sans:style=Bold:size=10}[Storage]${font}${color}${hr}
-${color orange}Dev1: ${color}${exec hddtemp /dev/sda}
-${color orange}Dev2: ${color}${exec hddtemp /dev/sdb}
-${color orange}Dev3: ${color}${exec hddtemp /dev/sdc}
+${color orange}Dev1: ${color}${execpi 1 hddtemp /dev/sda}
+${color orange}Dev2: ${color}${execpi 1 hddtemp /dev/sdb}
+${color orange}Dev3: ${color}${execpi 1 hddtemp /dev/sdc}
 ${color orange}root: ${color}${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color orange}fioa: ${color}${fs_used /media/superadmin/ioDrive}/${fs_size /media/superadmin/ioDrive} ${fs_bar 6 /media/superadmin/ioDrive}
 ###
@@ -136,7 +136,7 @@ ${color lightgrey} ${top name 10} ${alignr}${top pid 10} ${top cpu 10} ${top mem
 ${color orange}Processes: ${color}${processes}  \
 ${color orange}Running: ${color}${running_processes}  \
 ${color orange}Threads: ${color}${threads}
-${exec /usr/lib/update-notifier/apt-check --human-readable}
+${execpi 900 /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
 ]]
 
 #Optiplex990
