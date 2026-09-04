@@ -136,7 +136,7 @@ ${color lightgrey} ${top name 10} ${alignr}${top pid 10} ${top cpu 10} ${top mem
 ${color orange}Processes: ${color}${processes}  \
 ${color orange}Running: ${color}${running_processes}  \
 ${color orange}Threads: ${color}${threads}
-${execpi 900 /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
+${execpi 1800 /usr/lib/update-notifier/apt-check --human-readable --no-esm-messages}
 ]]
 
 #Optiplex990
