@@ -36,6 +36,7 @@ exec /usr/lib/gnome-session/gnome-session-binary --session=ubuntu
 
 Finally,
 --> sudo chmod +x /etc/xrdp/startwm.sh
+--> sudo ss -tlnup
 
 [A] Black screen after connecting:
 # Usually a desktop environment startup issue
