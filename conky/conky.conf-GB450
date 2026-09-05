@@ -98,14 +98,14 @@ ${color orange}CPU16:${color} ${cpu cpu16}% ${freq_g 16}GHz ${goto 135}${cpubar 
 ###
 ${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 nvidia-smi --query-gpu=gpu_name --format=csv,noheader}${color} @ ${execpi 5 (nvidia-smi --query-gpu=pstate --format=csv,noheader)}]${font}${color yellow}${hr}
 #${color orange}P-State: ${color}${execpi 5 (nvidia-smi --query-gpu=pstate --format=csv,noheader)}
-${color orange}BIOS: ${color}${execpi 5 (nvidia-smi --query-gpu=vbios_version --format=csv,noheader)}   \
-${color orange}Ver: ${color}${execpi 5 (nvidia-smi --query-gpu=driver_version --format=csv,noheader)}
-${color orange}GPU0: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.sm --format=csv,noheader)}  \
-${color orange}Temp: ${color}${execpi 1 (nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)}°C  \
-${color orange}Pwr: ${color}${execpi 1 (nvidia-smi --query-gpu=power.draw --format=csv,noheader)}
-${color orange}Usage: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader)}   \
-${color orange}VRam: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.memory --format=csv,noheader)}   \
-${color orange}Freq: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.mem --format=csv,noheader)}
+${goto 005}${color orange}BIOS: ${color}${execpi 5 (nvidia-smi --query-gpu=vbios_version --format=csv,noheader)} \
+${goto 195}${color orange}Ver: ${color}${execpi 5 (nvidia-smi --query-gpu=driver_version --format=csv,noheader)}
+${goto 005}${color orange}GPU0: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.sm --format=csv,noheader)} \
+${goto 110}${color orange}Temp: ${color}${execpi 1 (nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)}°C \
+${goto 195}${color orange}Pwr: ${color}${execpi 1 (nvidia-smi --query-gpu=power.draw --format=csv,noheader)}
+${goto 005}${color orange}Usage: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader)} \
+${goto 110}${color orange}VRam: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.memory --format=csv,noheader)} \
+${goto 195}${color orange}Freq: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.mem --format=csv,noheader)}
 ###
 ${color yellow}${font Droid Sans:style=Bold:size=10}[Memory]${font}${color yellow}${hr}
 ${color orange}RAM:  ${color}${mem}/${memmax} ${memperc}% ${membar 4}
