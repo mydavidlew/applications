@@ -109,7 +109,7 @@ ${color yellow}${font Droid Sans:style=Bold:size=10}[${execpi 900 nvidia-smi --q
 ${goto 005}${color orange}BIOS: ${color}${execpi 5 (nvidia-smi --query-gpu=vbios_version --format=csv,noheader)} \
 ${goto 195}${color orange}Ver: ${color}${execpi 5 (nvidia-smi --query-gpu=driver_version --format=csv,noheader)}
 ${goto 005}${color orange}GPU0: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.sm --format=csv,noheader)} \
-${goto 110}${color orange}GUsg: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader)} \
+${goto 110}${color orange}GUse: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader)} \
 ${goto 195}${color orange}Temp: ${color}${execpi 1 (nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)}°C
 ${goto 005}${color orange}Freq: ${color}${execpi 1 (nvidia-smi --query-gpu=clocks.mem --format=csv,noheader)} \
 ${goto 110}${color orange}VRam: ${color}${execpi 1 (nvidia-smi --query-gpu=utilization.memory --format=csv,noheader)} \
