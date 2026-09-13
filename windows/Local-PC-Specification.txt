@@ -250,13 +250,12 @@ Info:      Memory: total: 16 GiB available: 15.51 GiB used: 1.46 GiB (9.4%)
 superadmin@jetsonorin:~$ inxi -Fzx
 System:    Kernel: 6.8.12-1021-tegra arch: aarch64 bits: 64 compiler: gcc v: 1.26.0
            Desktop: GNOME v: 46.0 Distro: Ubuntu 24.04.4 LTS (Noble Numbat)
-Machine:   Type: Other-vm? System: NVIDIA product: NVIDIA Jetson AGX Orin Developer Kit v: N/A serial: <filter>
+Machine:   Type: Other-vm? System: NVIDIA product: NVIDIA Jetson AGX Orin Developer Kit v: N/A serial: 1421325036968
            Mobo: NVIDIA model: Jetson serial: <filter> UEFI: EDK II v: 39.2.1-gcid-46758480 date: 08/07/2026
 Memory:    System RAM: total: 64 GiB note: est. available: 61.34 GiB used: 2.93 GiB (4.8%)
            Array-1: capacity: 64 GiB slots: 1 modules: 0 EC: Single-bit ECC max-module-size: 64 GiB note: est.
 CPU:       Info: quad core model: N/A variant: cortex-a78 bits: 64 type: MT MCP arch: ARMv8 rev: 1 cache: L1: 1.5 MiB L2: 3 MiB L3: 6 MiB
-           Speed (MHz): avg: 742 high: 882 min/max: 115/2202 
-           cores: 1: 882 2: 730 3: 730 4: 730 5: 730 6: 730 7: 730 8: 730 9: 730 10: 730 11: 730 12: 730 bogomips: 750
+           Speed (MHz): avg: 742 high: 882 min/max: 115/2202 cores: 1: 882 2: 730 3: 730 4: 730 5: 730 6: 730 7: 730 8: 730 9: 730 10: 730 11: 730 12: 730 bogomips: 750
            Features: aes asimd asimddp asimdhp asimdrdm atomics cpuid crc32 dcpop evtstrm flagm fp fphp ilrcpc lrcpc paca pacg pmull sha1 sha2 uscat
 Graphics:  Device-1: tegra234-display driver: nv_platform v: N/A bus-ID: N/A chip-ID: nvidia:13800000 class-ID: display
            Device-2: ga10b driver: gk20a v: N/A bus-ID: N/A chip-ID: nvidia:17000000 class-ID: gpu
