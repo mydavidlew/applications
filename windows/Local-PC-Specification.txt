@@ -258,13 +258,15 @@ CPU:       Info: quad core model: N/A variant: cortex-a78 bits: 64 type: MT MCP 
            Speed (MHz): avg: 742 high: 882 min/max: 115/2202 
            cores: 1: 882 2: 730 3: 730 4: 730 5: 730 6: 730 7: 730 8: 730 9: 730 10: 730 11: 730 12: 730 bogomips: 750
            Features: aes asimd asimddp asimdhp asimdrdm atomics cpuid crc32 dcpop evtstrm flagm fp fphp ilrcpc lrcpc paca pacg pmull sha1 sha2 uscat
-Graphics:  Device-1: tegra234-display driver: nv_platform v: N/A bus-ID: N/A
-           Device-2: ga10b driver: gk20a v: N/A bus-ID: N/A
-           Device-3: ga10b driver: gk20a v: N/A bus-ID: N/A
-           Display: server: X.Org v: 21.1.11 with: Xwayland v: 23.2.6 driver: X: loaded: N/A failed: nvidia gpu: nv_platform,nvidia resolution: 1600x900~60Hz
-           API: EGL v: 1.5 drivers: nvidia,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland,device-1,device-2
+Graphics:  Device-1: tegra234-display driver: nv_platform v: N/A bus-ID: N/A chip-ID: nvidia:13800000 class-ID: display
+           Device-2: ga10b driver: gk20a v: N/A bus-ID: N/A chip-ID: nvidia:17000000 class-ID: gpu
+           Device-3: ga10b driver: gk20a v: N/A bus-ID: N/A chip-ID: nvidia:gpu class-ID: gpu
+           Display: server: X.Org v: 21.1.11 with: Xwayland v: 23.2.6 compositor: gnome-shell driver: X: loaded: N/A failed: nvidia gpu: nv_platform,nvidia display-ID: :0 screens: 1
+           Screen-1: 0 s-res: 1600x900 s-dpi: 96 s-size: 423x238mm (16.65x9.37") s-diag: 485mm (19.11")
+           Monitor-1: DP-1 mapped: DP-0 note: disabled model: Dell P2314H serial: <filter> res: 1600x900 hz: 60 dpi: 80 size: 510x290mm (20.08x11.42") diag: 584mm (23") modes: max: 1920x1080 min: 640x480
+           API: EGL v: 1.5 hw: drv: nvidia platforms: device: 0 drv: nvidia device: 3 drv: swrast gbm: drv: nvidia surfaceless: drv: nvidia x11: drv: nvidia inactive: wayland,device-1,device-2
            API: OpenGL v: 4.6.0 compat-v: 4.5 vendor: nvidia mesa v: 595.78 glx-v: 1.4 direct-render: yes renderer: NVIDIA Tegra Orin (nvgpu)/integrated
-           API: Vulkan v: 1.4.321 drivers: N/A surfaces: xcb,xlib devices: 1
+           API: Vulkan v: 1.4.321 layers: N/A surfaces: xcb,xlib device: 0 type: integrated-gpu driver: N/A device-ID: 10de:97ba03d7
 Audio:     Device-1: tegra186-audio-graph-card driver: tegra_audio_graph_card bus-ID: N/A
            API: ALSA v: k6.8.12-1021-tegra status: kernel-api
            Server-1: PipeWire v: 1.0.5 status: n/a (root, process)
