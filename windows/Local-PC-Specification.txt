@@ -214,6 +214,39 @@ Info:      Memory: total: 16 GiB available: 15.44 GiB used: 1.79 GiB (11.6%) igp
            Processes: 284 Uptime: 5m Init: systemd target: graphical (5)
            Packages: 2484 Compilers: gcc: 13.3.0 Shell: Sudo v: 1.9.15p5 inxi: 3.3.34
 
+superadmin@COMe-bIP6:~$ inxi -Fzx
+System:    Kernel: 7.0.0-linuxlite arch: x86_64 bits: 64 compiler: gcc v: 15.2.0
+           Desktop: Xfce v: 4.20.1 Distro: Linux Lite 8.0 base: Ubuntu 26.04.1 LTS (Resolute Raccoon)
+Machine:   Type: Desktop Mobo: Kontron Embedded Modules GmbH model: COMe-bIP6 v: 1.0.0 serial: <filter> 
+           Firmware: BIOS vendor: American Megatrends v: CCR6R111 date: 10/24/2012
+CPU:       Info: dual core model: Intel Core i5-3610ME bits: 64 type: MT MCP arch: Ivy Bridge rev: 9 cache: L1: 128KiB L2: 512KiB L3: 3MiB
+           Speed (MHz): avg: 1198 min/max: 1200/3300 cores: 1: 1198 2: 1198 3: 1198 4: 1198 bogomips: 21550
+           Flags-basic: avx ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:  Device-1: Intel Ivy Bridge mobile GT2 [HD Graphics 4000] driver: i915 v: kernel arch: Gen-7 bus-ID: 00:02.0
+           Display: x11 server: X.Org v: 21.1.22 driver: X: loaded: modesetting dri: crocus gpu: i915 resolution: 1824x972~50Hz
+           API: EGL v: 1.5 drivers: crocus,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland
+           API: OpenGL v: 4.5 compat-v: 4.2 vendor: intel mesa v: 26.0.8-1ubuntu0.3 glx-v: 1.4 direct-render: yes renderer: Mesa Intel HD Graphics 4000 (IVB GT2)
+           API: Vulkan Message: No Vulkan data available.
+           Info: Tools: api: eglinfo, glxinfo, vulkaninfo de: xfce4-display-settings x11: xdriinfo, xdpyinfo, xprop, xrandr
+Audio:     Device-1: Intel 7 Series/C216 Family High Definition Audio driver: snd_hda_intel v: kernel bus-ID: 00:1b.0
+           API: ALSA v: k7.0.0-linuxlite status: kernel-api
+           Server-1: PipeWire v: 1.6.2 status: n/a (root, process)
+           Server-2: PulseAudio v: 17.0 status: off (using pipewire-pulse)
+Network:   Device-1: Intel 82579LM Gigabit Network driver: e1000e v: kernel port: f080 bus-ID: 00:19.0
+           IF: eno1 state: down mac: <filter>
+           Device-2: Qualcomm Atheros AR93xx Wireless Network Adapter driver: ath9k v: kernel bus-ID: 02:00.0
+           IF: wlp2s0 state: up mac: <filter>
+Drives:    Local Storage: total: 74.53 GiB used: 11.54 GiB (15.5%)
+           ID-1: /dev/sda vendor: Intel model: SSDMAEMC080G2 size: 74.53 GiB
+Partition: ID-1: / size: 72.81 GiB used: 11.54 GiB (15.8%) fs: ext4 dev: /dev/sda1
+Swap:      ID-1: swap-1 type: file size: 512 MiB used: 0 KiB (0.0%) file: /swapfile
+Sensors:   System Temperatures: cpu: 59.6 C mobo: 41.8 C
+           Fan Speeds (rpm): cpu: 6633 fan-2: 0 fan-3: 0 fan-4: 0
+           Power: 12v: 9.90 5v: 5.16 3.3v: 3.32 vbat: N/A
+Info:      Memory: total: 16 GiB available: 15.51 GiB used: 1.46 GiB (9.4%)
+           Processes: 262 Uptime: 28m Init: systemd
+           Packages: 2771 Compilers: gcc: 15.2.0 Shell: Sudo inxi: 3.3.40
+
 superadmin@systemonline:~$ glxinfo -B
 name of display: :0
 display: :0  screen: 0
@@ -430,6 +463,35 @@ OpenGL context flags: (none)
 OpenGL profile mask: compatibility profile
 OpenGL ES profile version string: OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+
+superadmin@COMe-bIP6:~$ glxinfo -B
+name of display: :10.0
+display: :10  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: Intel (0x8086)
+    Device: Mesa Intel(R) HD Graphics 4000 (IVB GT2) (0x166)
+    Version: 26.0.8
+    Accelerated: yes
+    Video memory: 1536MB
+    Unified memory: yes
+    Preferred profile: core (0x1)
+    Max core profile version: 4.2
+    Max compat profile version: 4.2
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.0
+OpenGL vendor string: Intel
+OpenGL renderer string: Mesa Intel(R) HD Graphics 4000 (IVB GT2)
+OpenGL core profile version string: 4.2 (Core Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL core profile shading language version string: 4.20
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.2 (Compatibility Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL shading language version string: 4.20
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+OpenGL ES profile version string: OpenGL ES 3.0 Mesa 26.0.8-1ubuntu0.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 
 superadmin@dl-PrecT-3620:~$ sudo fio-status
 Found 1 ioMemory device in this system
