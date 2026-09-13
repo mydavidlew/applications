@@ -79,7 +79,7 @@ $ echo $DISPLAY
 $ export DISPLAY=:0
 
 5) If you switched users (e.g., using 'su' or 'sudo') and are trying to open the Xapp, the new user doesn't have permission to access your main user's graphical interface.
-Switch back to your primary logged-in user. Grant display access to all local users by running:
+Switch back to your primary logged-in user. Grant display access to all local users by running;
 $ xhost +local:
 
 6) In case you've warning: No xauth data, you may try to generate a new .Xauthority file;
