@@ -76,8 +76,13 @@ $ export XAUTHORITY=$HOME/.Xauthority
 
 4) Then verify that the DISPLAY is not empty by;
 $ echo $DISPLAY
+$ export DISPLAY=:0
 
-5) In case you've warning: No xauth data, you may try to generate a new .Xauthority file;
+5) If you switched users (e.g., using 'su' or 'sudo') and are trying to open the Xapp, the new user doesn't have permission to access your main user's graphical interface.
+Switch back to your primary logged-in user. Grant display access to all local users by running:
+$ xhost +local:
+
+6) In case you've warning: No xauth data, you may try to generate a new .Xauthority file;
 $ xauth generate :0 . trusted
 $ xauth generate $DISPLAY
 $ xauth add $(xauth -f $HOME/.Xauthority list | tail -1)
