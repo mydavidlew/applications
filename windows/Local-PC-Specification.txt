@@ -250,7 +250,7 @@ Info:      Memory: total: 16 GiB available: 15.51 GiB used: 1.46 GiB (9.4%)
 superadmin@jetsonorin:~$ inxi -Fzx
 System:    Kernel: 6.8.12-1021-tegra arch: aarch64 bits: 64 compiler: gcc v: 1.26.0
            Desktop: GNOME v: 46.0 Distro: Ubuntu 24.04.4 LTS (Noble Numbat)
-Machine:   Type: Other-vm? System: NVIDIA product: NVIDIA Jetson AGX Orin Developer Kit v: N/A serial: 1421325036968
+Machine:   Type: Other-vm? System: NVIDIA product: NVIDIA Jetson AGX Orin Developer Kit v: N/A serial: 1421325036968 Asset Tag: 699-13701-0005-501 G.0
            Mobo: NVIDIA model: Jetson serial: <filter> UEFI: EDK II v: 39.2.1-gcid-46758480 date: 08/07/2026
 Memory:    System RAM: total: 64 GiB note: est. available: 61.34 GiB used: 2.93 GiB (4.8%)
            Array-1: capacity: 64 GiB slots: 1 modules: 0 EC: Single-bit ECC max-module-size: 64 GiB note: est.
