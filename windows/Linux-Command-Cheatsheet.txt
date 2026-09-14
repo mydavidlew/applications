@@ -1,29 +1,45 @@
-[[Command]]              [['su' Description]]
-  su                       Switch to root
-  su -                     Switch to root (login shell)
-  su username              Switch to another user
-  su -c 'command'          Run a command as root
-  su -s /bin/zsh           Use a specific shell
-  su -p                    Preserve environment
-  sudo su -                Switch to root via sudo
-  sudo su - username       Switch to another user via sudo
-  sudo -i                  Sudo login shell
+[[Command]]                       [['su' Description]]
+  su                                Switch to root
+  su -                              Switch to root (login shell)
+  su <username>                     Switch to another user
+  su -c 'command'                   Run a command as root
+  su -s /bin/zsh                    Use a specific shell
+  su -p                             Preserve environment
+  sudo su -                         Switch to root via sudo
+  sudo su - <username>              Switch to another user via sudo
+  sudo -i                           Sudo login shell
 
-[[Command]]              [['sudo' Description]]
-  sudo 'command'           Run a command as root
-  sudo -u user 'command'   Run a command as a specific user
-  sudo -i                  Open a root login shell
-  sudo -s                  Open a root shell (non-login)
-  sudo -l                  List sudo privileges for the current user
-  sudo -l -U user          List sudo privileges for another user
-  sudo -v                  Refresh cached credentials without running a command
-  sudo -k                  Invalidate cached credentials for the current terminal
-  sudo -K                  Remove cached credentials for every terminal
-  sudo -n 'command'        Fail with an error instead of prompting for a password
-  sudo -E 'command'        Preserve your current environment variables
-  sudo -b 'command'        Run the command in the background
-  sudo -H 'command'        Set 'HOME' to the target user’s home directory
-  sudo -D dir 'command'    Run in a specific directory when sudoers permits '-D'
-  sudo sh -c '...'         Run a full command line, pipes and redirects included, as root
-  sudo -e file             Edit a file as root using your default editor
-  sudo visudo              Edit the sudoers file safely
+[[Command]]                       [['sudo' Description]]
+  sudo 'command'                    Run a command as root
+  sudo -u <user> 'command'          Run a command as a specific user
+  sudo -i                           Open a root login shell
+  sudo -s                           Open a root shell (non-login)
+  sudo -l                           List sudo privileges for the current user
+  sudo -l -U <user>                 List sudo privileges for another user
+  sudo -v                           Refresh cached credentials without running a command
+  sudo -k                           Invalidate cached credentials for the current terminal
+  sudo -K                           Remove cached credentials for every terminal
+  sudo -n 'command'                 Fail with an error instead of prompting for a password
+  sudo -E 'command'                 Preserve your current environment variables
+  sudo -b 'command'                 Run the command in the background
+  sudo -H 'command'                 Set 'HOME' to the target user’s home directory
+  sudo -D <dir> 'command'           Run in a specific directory when sudoers permits '-D'
+  sudo sh -c '...'                  Run a full command line, pipes and redirects included, as root
+  sudo -e <filename>                Edit a file as root using your default editor
+  sudo visudo                       Edit the sudoers file safely
+
+[[Command]]	                                         [[Description]]
+  id <username>                                        View user’s groups
+  groups <username>                                    List group names only
+  getent group                                         List all system groups
+  getent group <groupname>                             List members of a group
+  getent passwd <username>                             Check whether a user exists
+  getent group <groupname>                             Check whether a group exists
+  sudo usermod -a -G <groupname> <username>            Add user to a group
+  sudo usermod -a -G <group1>,<group2> <username>      Add user to multiple groups
+  newgrp groupname                                     Start a shell with the new group
+  sudo usermod -g <groupname> <username>               Change primary group
+  sudo useradd -g primary -G <sec1>,<sec2> <username>  Create user with groups
+  sudo gpasswd -d <username> <groupname>               Remove user from a group
+  sudo groupadd <groupname>                            Create a group
+  sudo groupdel <groupname>                            Delete a group
