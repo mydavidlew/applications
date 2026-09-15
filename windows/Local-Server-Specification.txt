@@ -301,7 +301,7 @@ root@mi-healthcare-svr-03:~# ip a
 8: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc fq_codel master virbr0 state DOWN group default qlen 1000
     link/ether 52:54:00:ab:fe:9e brd ff:ff:ff:ff:ff:ff
 
-shmily@ai-drl01:~$ sudo inxi -Frzxm <Mimos-KK-Server>
+shmily@qct-ai-drl01:~$ sudo inxi -Frzxm <Mimos-KK-Server>
 System:    Kernel: 5.15.0-101-generic x86_64 bits: 64 compiler: gcc v: 11.4.0 Console: pty pts/0
            Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)
 Machine:   Type: Server System: Quanta Cloud product: QuantaGrid D52G-4U v: --- serial: <filter>
@@ -471,3 +471,24 @@ Repos:     Packages: 1869
              2: deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
 Info:      Processes: 381 Uptime: 13d 1h 4m Init: systemd
            Compilers: gcc: 13.3.0 Shell: Sudo v: 1.9.15p5 inxi: 3.3.34
+
+superadmin@Precision-T7600:~$ glxinfo -B
+name of display: :1
+display: :1  screen: 0
+direct rendering: Yes
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 11264 MB
+    Total available memory: 11264 MB
+    Currently available dedicated video memory: 10511 MB
+OpenGL vendor string: NVIDIA Corporation
+OpenGL renderer string: NVIDIA GeForce GTX 1080 Ti/PCIe/SSE2
+OpenGL core profile version string: 4.6.0 NVIDIA 580.178.04
+OpenGL core profile shading language version string: 4.60 NVIDIA
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.6.0 NVIDIA 580.178.04
+OpenGL shading language version string: 4.60 NVIDIA
+OpenGL context flags: (none)
+OpenGL profile mask: (none)
+OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 580.178.04
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
