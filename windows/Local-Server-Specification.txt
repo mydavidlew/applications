@@ -409,7 +409,8 @@ Repos:     Packages: 1256
            No active apt repos in: /etc/apt/sources.list.d/nvidia-docker.list
            Active apt repos in: /etc/apt/sources.list.d/tailscale.list
              1: deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu jammy main
-Info:      Processes: 730 Uptime: 143d 19h 9m Init: systemd runlevel: 5 Compilers: gcc: 11.4.0 Shell: Sudo v: 1.9.9 inxi: 3.3.13
+Info:      Processes: 730 Uptime: 143d 19h 9m Init: systemd runlevel: 5
+           Compilers: gcc: 11.4.0 Shell: Sudo v: 1.9.9 inxi: 3.3.13
 
 superadmin@Precision-T7600:~$ inxi -Frxzm
 System:    Kernel: 7.0.0-30-generic arch: x86_64 bits: 64 compiler: gcc v: 13.3.0
