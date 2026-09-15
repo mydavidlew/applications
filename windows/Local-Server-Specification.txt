@@ -302,129 +302,172 @@ root@mi-healthcare-svr-03:~# ip a
     link/ether 52:54:00:ab:fe:9e brd ff:ff:ff:ff:ff:ff
 
 shmily@ai-drl01:~$ sudo inxi -Frzxm <Mimos-KK-Server>
-System:
-  Kernel: 5.15.0-101-generic x86_64 bits: 64 compiler: gcc v: 11.4.0 Console: pty pts/0
-    Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)
-Machine:
-  Type: Server System: Quanta Cloud product: QuantaGrid D52G-4U v: --- serial: <filter>
-  Mobo: Quanta Cloud model: S5G-MB(LBG-1) v: 31S5GMB0020 serial: <filter>
-    UEFI: American Megatrends v: 3B16.Q102 date: 02/19/2020
-Memory:
-  RAM: total: 503.27 GiB used: 11.36 GiB (2.3%)
-  Array-1: capacity: 7.50 TiB note: check slots: 24 EC: Single-bit ECC max-module-size: 320 GiB
-    note: est.
-  Device-1: CPU0_A0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-2: CPU0_A1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-3: CPU0_B0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-4: CPU0_B1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-5: CPU0_C0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-6: CPU0_C1 size: No Module Installed
-  Device-7: CPU0_D0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-8: CPU0_D1 size: No Module Installed
-  Device-9: CPU0_E0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-10: CPU0_E1 size: No Module Installed
-  Device-11: CPU0_F0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-12: CPU0_F1 size: No Module Installed
-  Device-13: CPU1_A0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-14: CPU1_A1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-15: CPU1_B0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-16: CPU1_B1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-17: CPU1_C0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-18: CPU1_C1 size: No Module Installed
-  Device-19: CPU1_D0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-20: CPU1_D1 size: No Module Installed
-  Device-21: CPU1_E0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-22: CPU1_E1 size: No Module Installed
-  Device-23: CPU1_F0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
-  Device-24: CPU1_F1 size: No Module Installed
-CPU:
-  Info: 2x 16-core model: Intel Xeon Gold 5218 bits: 64 type: MT MCP SMP arch: Cascade Lake
-    rev: 7 cache: L1: 2x 1024 KiB (2 MiB) L2: 2x 16 MiB (32 MiB) L3: 2x 22 MiB (44 MiB)
-  Speed (MHz): avg: 2279 high: 2300 min/max: N/A cores: 1: 2300 2: 2300 3: 2300 4: 2300 5: 2300
-    6: 2300 7: 2300 8: 2300 9: 2300 10: 2300 11: 2300 12: 2300 13: 2300 14: 2300 15: 2300 16: 2300
-    17: 2300 18: 2300 19: 2300 20: 2300 21: 2300 22: 1000 23: 2300 24: 2300 25: 2300 26: 2300
-    27: 2300 28: 2300 29: 2300 30: 2300 31: 2300 32: 2300 33: 2300 34: 2300 35: 2300 36: 2300
-    37: 2300 38: 2300 39: 2300 40: 2300 41: 2300 42: 2300 43: 2300 44: 2300 45: 2300 46: 2300
-    47: 2300 48: 2300 49: 2300 50: 2300 51: 2300 52: 2300 53: 2300 54: 2300 55: 2300 56: 2300
-    57: 2300 58: 2300 59: 2300 60: 2300 61: 2300 62: 2300 63: 2300 64: 2300 bogomips: 294447
-  Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
-Graphics:
-  Device-1: ASPEED Graphics Family driver: ast v: kernel bus-ID: 02:00.0
-  Device-2: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: 1c:00.0
-  Device-3: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: 3d:00.0
-  Device-4: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: b1:00.0
-  Device-5: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: dc:00.0
-  Display: server: X.org v: 1.21.1.4 driver: gpu: ast note:  X driver n/a tty: 166x54
-  Message: GL data unavailable in console for root.
-Audio:
-  Message: No device data found.
-Network:
-  Device-1: Intel Ethernet X710 for 10GbE SFP+ driver: i40e v: kernel port: N/A bus-ID: 86:00.0
-  IF: enp134s0f0 state: up speed: 10000 Mbps duplex: full mac: <filter>
-  Device-2: Intel Ethernet X710 for 10GbE SFP+ driver: i40e v: kernel port: N/A bus-ID: 86:00.1
-  IF: enp134s0f1 state: down mac: <filter>
-  Device-3: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.0
-  IF: enp179s0f0 state: down mac: <filter>
-  Device-4: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.1
-  IF: enp179s0f1 state: down mac: <filter>
-  Device-5: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.2
-  IF: enp179s0f2 state: down mac: <filter>
-  Device-6: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.3
-  IF: enp179s0f3 state: down mac: <filter>
-  IF-ID-1: br-7547cb1342fa state: down mac: <filter>
-  IF-ID-2: docker0 state: down mac: <filter>
-RAID:
-  Hardware-1: Broadcom / LSI MegaRAID SAS-3 3108 [Invader] driver: megaraid_sas
-    v: 07.717.02.00-rc1 bus-ID: 62:00.0
-  Device-1: md0 type: mdraid level: raid-5 status: active size: 3.64 TiB
-  Info: report: 3/3 UUU blocks: 3906764800 chunk-size: 512k
-  Components: Online: 0: nvme0n1 1: nvme1n1 4: nvme2n1 Spare: 3: nvme3n1
-Drives:
-  Local Storage: total: 36.31 TiB used: 3.82 TiB (10.5%)
-  ID-1: /dev/nvme0n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
-  ID-2: /dev/nvme1n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
-  ID-3: /dev/nvme2n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
-  ID-4: /dev/nvme3n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
-  ID-5: /dev/sda model: M.2 S80 3TE7 size: 111.79 GiB
-  ID-6: /dev/sdb model: MRROMB size: 6.98 TiB
-  ID-7: /dev/sdc model: MRROMB size: 21.83 TiB
-  ID-8: /dev/sdd model: M.2 S80 3TE7 size: 111.79 GiB
-Partition:
-  ID-1: / size: 79.93 GiB used: 15.57 GiB (19.5%) fs: ext4 dev: /dev/sda2
-  ID-2: /boot/efi size: 233.3 MiB used: 6 MiB (2.6%) fs: vfat dev: /dev/sda1
-Swap:
-  ID-1: swap-1 type: partition size: 29.79 GiB used: 0 KiB (0.0%) dev: /dev/sda3
-Sensors:
-  Message: No ipmi sensor data found.
-  System Temperatures: lm-sensors cpu: 33.0 C pch: 36.0 C mobo: N/A gpu: nvidia temp: 34 C
-  Fan Speeds (RPM): lm-sensors N/A
-Repos:
-  Packages: 1256
-  Active apt repos in: /etc/apt/sources.list
-    1: deb http://my.archive.ubuntu.com/ubuntu/ jammy main restricted
-    2: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates main restricted
-    3: deb http://my.archive.ubuntu.com/ubuntu/ jammy universe
-    4: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates universe
-    5: deb http://my.archive.ubuntu.com/ubuntu/ jammy multiverse
-    6: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
-    7: deb http://my.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
-    8: deb http://security.ubuntu.com/ubuntu jammy-security main restricted
-    9: deb http://security.ubuntu.com/ubuntu jammy-security universe
-    10: deb http://security.ubuntu.com/ubuntu jammy-security multiverse
-  Active apt repos in: /etc/apt/sources.list.d/ceph.list
-    1: deb [arch=amd64 signed-by=/usr/share/keyrings/ceph.gpg] https://download.ceph.com/debian-octopus focal main
-  Active apt repos in: /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
-    1: deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
-  Active apt repos in: /etc/apt/sources.list.d/docker.list
-    1: deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable
-  Active apt repos in: /etc/apt/sources.list.d/graphics-drivers-ubuntu-ppa-jammy.list
-    1: deb https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/ jammy main
-  No active apt repos in: /etc/apt/sources.list.d/hwraid.list
-  Active apt repos in: /etc/apt/sources.list.d/nvidia-container-toolkit.list
-    1: deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /
-  No active apt repos in: /etc/apt/sources.list.d/nvidia-docker.list
-  Active apt repos in: /etc/apt/sources.list.d/tailscale.list
-    1: deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu jammy main
-Info:
-  Processes: 730 Uptime: 143d 19h 9m Init: systemd runlevel: 5 Compilers: gcc: 11.4.0 Shell: Sudo
-  v: 1.9.9 inxi: 3.3.13
+System:    Kernel: 5.15.0-101-generic x86_64 bits: 64 compiler: gcc v: 11.4.0 Console: pty pts/0
+           Distro: Ubuntu 22.04.4 LTS (Jammy Jellyfish)
+Machine:   Type: Server System: Quanta Cloud product: QuantaGrid D52G-4U v: --- serial: <filter>
+           Mobo: Quanta Cloud model: S5G-MB(LBG-1) v: 31S5GMB0020 serial: <filter> UEFI: American Megatrends v: 3B16.Q102 date: 02/19/2020
+Memory:    RAM: total: 503.27 GiB used: 11.36 GiB (2.3%)
+           Array-1: capacity: 7.50 TiB note: check slots: 24 EC: Single-bit ECC max-module-size: 320 GiB note: est.
+           Device-01: CPU0_A0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-02: CPU0_A1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-03: CPU0_B0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-04: CPU0_B1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-05: CPU0_C0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-06: CPU0_C1 size: No Module Installed
+           Device-07: CPU0_D0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-08: CPU0_D1 size: No Module Installed
+           Device-09: CPU0_E0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-10: CPU0_E1 size: No Module Installed
+           Device-11: CPU0_F0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-12: CPU0_F1 size: No Module Installed
+           Device-13: CPU1_A0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-14: CPU1_A1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-15: CPU1_B0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-16: CPU1_B1 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-17: CPU1_C0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-18: CPU1_C1 size: No Module Installed
+           Device-19: CPU1_D0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-20: CPU1_D1 size: No Module Installed
+           Device-21: CPU1_E0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-22: CPU1_E1 size: No Module Installed
+           Device-23: CPU1_F0 size: 32 GiB speed: spec: 2933 MT/s actual: 2666 MT/s type: DDR4
+           Device-24: CPU1_F1 size: No Module Installed
+CPU:       Info: 2x 16-core model: Intel Xeon Gold 5218 bits: 64 type: MT MCP SMP arch: Cascade Lake
+             rev: 7 cache: L1: 2x 1024 KiB (2 MiB) L2: 2x 16 MiB (32 MiB) L3: 2x 22 MiB (44 MiB)
+           Speed (MHz): avg: 2279 high: 2300 min/max: N/A cores: 1: 2300 2: 2300 3: 2300 4: 2300 5: 2300
+             6: 2300 7: 2300 8: 2300 9: 2300 10: 2300 11: 2300 12: 2300 13: 2300 14: 2300 15: 2300 16: 2300
+             17: 2300 18: 2300 19: 2300 20: 2300 21: 2300 22: 1000 23: 2300 24: 2300 25: 2300 26: 2300
+             27: 2300 28: 2300 29: 2300 30: 2300 31: 2300 32: 2300 33: 2300 34: 2300 35: 2300 36: 2300
+             37: 2300 38: 2300 39: 2300 40: 2300 41: 2300 42: 2300 43: 2300 44: 2300 45: 2300 46: 2300
+             47: 2300 48: 2300 49: 2300 50: 2300 51: 2300 52: 2300 53: 2300 54: 2300 55: 2300 56: 2300
+             57: 2300 58: 2300 59: 2300 60: 2300 61: 2300 62: 2300 63: 2300 64: 2300 bogomips: 294447
+           Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:  Device-1: ASPEED Graphics Family driver: ast v: kernel bus-ID: 02:00.0
+           Device-2: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: 1c:00.0
+           Device-3: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: 3d:00.0
+           Device-4: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: b1:00.0
+           Device-5: NVIDIA GV100GL [Tesla V100 SXM2 32GB] driver: nvidia v: 550.163.01 bus-ID: dc:00.0
+           Display: server: X.org v: 1.21.1.4 driver: gpu: ast note:  X driver n/a tty: 166x54
+           Message: GL data unavailable in console for root.
+Audio:     Message: No device data found.
+Network:   Device-1: Intel Ethernet X710 for 10GbE SFP+ driver: i40e v: kernel port: N/A bus-ID: 86:00.0
+           IF: enp134s0f0 state: up speed: 10000 Mbps duplex: full mac: <filter>
+           Device-2: Intel Ethernet X710 for 10GbE SFP+ driver: i40e v: kernel port: N/A bus-ID: 86:00.1
+           IF: enp134s0f1 state: down mac: <filter>
+           Device-3: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.0
+           IF: enp179s0f0 state: down mac: <filter>
+           Device-4: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.1
+           IF: enp179s0f1 state: down mac: <filter>
+           Device-5: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.2
+           IF: enp179s0f2 state: down mac: <filter>
+           Device-6: Intel I350 Gigabit Network driver: igb v: kernel port: N/A bus-ID: b3:00.3
+           IF: enp179s0f3 state: down mac: <filter>
+           IF-ID-1: br-7547cb1342fa state: down mac: <filter>
+           IF-ID-2: docker0 state: down mac: <filter>
+RAID:      Hardware-1: Broadcom / LSI MegaRAID SAS-3 3108 [Invader] driver: megaraid_sas v: 07.717.02.00-rc1 bus-ID: 62:00.0
+           Device-1: md0 type: mdraid level: raid-5 status: active size: 3.64 TiB
+           Info: report: 3/3 UUU blocks: 3906764800 chunk-size: 512k
+           Components: Online: 0: nvme0n1 1: nvme1n1 4: nvme2n1 Spare: 3: nvme3n1
+Drives:    Local Storage: total: 36.31 TiB used: 3.82 TiB (10.5%)
+           ID-1: /dev/nvme0n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
+           ID-2: /dev/nvme1n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
+           ID-3: /dev/nvme2n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
+           ID-4: /dev/nvme3n1 vendor: Intel model: SSDPE2KX020T8 size: 1.82 TiB temp: 32.9 C
+           ID-5: /dev/sda model: M.2 S80 3TE7 size: 111.79 GiB
+           ID-6: /dev/sdb model: MRROMB size: 6.98 TiB
+           ID-7: /dev/sdc model: MRROMB size: 21.83 TiB
+           ID-8: /dev/sdd model: M.2 S80 3TE7 size: 111.79 GiB
+Partition: ID-1: / size: 79.93 GiB used: 15.57 GiB (19.5%) fs: ext4 dev: /dev/sda2
+           ID-2: /boot/efi size: 233.3 MiB used: 6 MiB (2.6%) fs: vfat dev: /dev/sda1
+Swap:      ID-1: swap-1 type: partition size: 29.79 GiB used: 0 KiB (0.0%) dev: /dev/sda3
+Sensors:   Message: No ipmi sensor data found.
+           System Temperatures: lm-sensors cpu: 33.0 C pch: 36.0 C mobo: N/A gpu: nvidia temp: 34 C
+           Fan Speeds (RPM): lm-sensors N/A
+Repos:     Packages: 1256
+           Active apt repos in: /etc/apt/sources.list
+             1: deb http://my.archive.ubuntu.com/ubuntu/ jammy main restricted
+             2: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+             3: deb http://my.archive.ubuntu.com/ubuntu/ jammy universe
+             4: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates universe
+             5: deb http://my.archive.ubuntu.com/ubuntu/ jammy multiverse
+             6: deb http://my.archive.ubuntu.com/ubuntu/ jammy-updates multiverse
+             7: deb http://my.archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
+             8: deb http://security.ubuntu.com/ubuntu jammy-security main restricted
+             9: deb http://security.ubuntu.com/ubuntu jammy-security universe
+             10: deb http://security.ubuntu.com/ubuntu jammy-security multiverse
+           Active apt repos in: /etc/apt/sources.list.d/ceph.list
+             1: deb [arch=amd64 signed-by=/usr/share/keyrings/ceph.gpg] https://download.ceph.com/debian-octopus focal main
+           Active apt repos in: /etc/apt/sources.list.d/cuda-ubuntu2204-x86_64.list
+             1: deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /
+           Active apt repos in: /etc/apt/sources.list.d/docker.list
+             1: deb [arch=amd64 signed-by=/usr/share/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu jammy stable
+           Active apt repos in: /etc/apt/sources.list.d/graphics-drivers-ubuntu-ppa-jammy.list
+             1: deb https://ppa.launchpadcontent.net/graphics-drivers/ppa/ubuntu/ jammy main
+           No active apt repos in: /etc/apt/sources.list.d/hwraid.list
+           Active apt repos in: /etc/apt/sources.list.d/nvidia-container-toolkit.list
+             1: deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://nvidia.github.io/libnvidia-container/stable/deb/$(ARCH) /
+           No active apt repos in: /etc/apt/sources.list.d/nvidia-docker.list
+           Active apt repos in: /etc/apt/sources.list.d/tailscale.list
+             1: deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu jammy main
+Info:      Processes: 730 Uptime: 143d 19h 9m Init: systemd runlevel: 5 Compilers: gcc: 11.4.0 Shell: Sudo v: 1.9.9 inxi: 3.3.13
+
+superadmin@Precision-T7600:~$ inxi -Frxzm
+System:    Kernel: 7.0.0-30-generic arch: x86_64 bits: 64 compiler: gcc v: 13.3.0
+           Console: pty pts/4 Distro: Ubuntu 24.04.4 LTS (Noble Numbat)
+Machine:   Type: Desktop System: Dell product: Precision T7600 v: 01 serial: <filter>
+           Mobo: Dell model: 082WXT v: A01 serial: <filter> BIOS: Dell v: A17 date: 06/30/2019
+Memory:    System RAM: total: 64 GiB available: 62.72 GiB used: 6.43 GiB (10.3%)
+           Array-1: capacity: 512 GiB slots: 16 modules: 8 EC: Multi-bit ECC max-module-size: 32 GiB note: est.
+           Device-01: DIMM1_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-02: DIMM5_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-03: DIMM3_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-04: DIMM7_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-05: DIMM2_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-06: DIMM6_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-07: DIMM4_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-08: DIMM8_CPU1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-09: DIMM1_CPU2 type: no module installed
+           Device-10: DIMM5_CPU2 type: no module installed
+           Device-11: DIMM3_CPU2 type: no module installed
+           Device-12: DIMM7_CPU2 type: no module installed
+           Device-13: DIMM2_CPU2 type: no module installed
+           Device-14: DIMM6_CPU2 type: no module installed
+           Device-15: DIMM4_CPU2 type: no module installed
+           Device-16: DIMM8_CPU2 type: no module installed
+CPU:       Info: 6-core model: Intel Xeon E5-2620 0 bits: 64 type: MT MCP arch: Sandy Bridge rev: 7 cache: L1: 384 KiB L2: 1.5 MiB L3: 15 MiB
+           Speed (MHz): avg: 1243 high: 1596 min/max: 1200/2500
+             cores: 1: 1200 2: 1200 3: 1596 4: 1200 5: 1200 6: 1197 7: 1200 8: 1328 9: 1200 10: 1200 11: 1200 12: 1197 bogomips: 47886
+           Flags: avx ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:  Device-1: NVIDIA GP102 [GeForce GTX 1080 Ti] vendor: ASUSTeK driver: nvidia v: 580.178.04 arch: Pascal bus-ID: 03:00.0
+           Display: server: X.org v: 1.21.1.11 with: Xwayland v: 23.2.6 driver: X: loaded: nvidia unloaded: fbdev,modesetting,nouveau,vesa gpu: nvidia tty: 201x60
+           API: EGL v: 1.5 drivers: nvidia,swrast platforms: active: gbm,surfaceless,device inactive: wayland,x11,device-1
+           API: OpenGL v: 4.6.0 compat-v: 4.5 vendor: mesa v: 25.2.8-0ubuntu0.24.04.2 note: console (EGL sourced) renderer: NVIDIA GeForce GTX 1080 Ti/PCIe/SSE2, llvmpipe (LLVM 20.1.2 256 bits)
+Audio:     Device-1: Intel C600/X79 series High Definition Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1b.0
+           Device-2: NVIDIA GP102 HDMI Audio vendor: ASUSTeK driver: snd_hda_intel v: kernel bus-ID: 03:00.1
+           API: ALSA v: k7.0.0-30-generic status: kernel-api
+           Server-1: PipeWire v: 1.0.5 status: n/a (root, process)
+Network:   Device-1: Intel 82579LM Gigabit Network vendor: Dell driver: e1000e v: kernel port: f040 bus-ID: 00:19.0
+           IF: eno1 state: up speed: 100 Mbps duplex: full mac: <filter>
+           Device-2: Intel 82574L Gigabit Network vendor: Dell driver: e1000e v: kernel port: b000 bus-ID: 07:00.0
+           IF: enp7s0 state: down mac: <filter>
+RAID:      Hardware-1: Broadcom / LSI MegaRAID SAS 2008 [Falcon] driver: megaraid_sas v: 07.734.00.00-rc1 bus-ID: 02:00.0
+Drives:    Local Storage: total: 10.91 TiB used: 285.43 GiB (2.6%)
+           ID-1: /dev/sda model: Synology HAT3310-12T size: 10.91 TiB
+Partition: ID-1: / size: 10.82 TiB used: 285.21 GiB (2.6%) fs: ext4 dev: /dev/sda3
+           ID-2: /boot size: 3.68 GiB used: 216.8 MiB (5.8%) fs: ext4 dev: /dev/sda2
+Swap:      ID-1: swap-1 type: file size: 64 GiB used: 0 KiB (0.0%) file: /swap.img
+Sensors:   System Temperatures: cpu: 53.0 C mobo: 28.0 C sodimm: SODIMM C gpu: nvidia temp: 39 C
+           Fan Speeds (rpm): cpu: 986
+Repos:     Packages: 1869
+           No active apt repos in: /etc/apt/sources.list
+           Active apt repos in: /etc/apt/sources.list.d/cuda-ubuntu2404-x86_64.list
+             1: deb [signed-by=/usr/share/keyrings/cuda-archive-keyring.gpg] https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/ /
+           Active apt repos in: /etc/apt/sources.list.d/cursor.sources
+             1: deb [arch=amd64,arm64] https://downloads.cursor.com/aptrepo stable main
+           Active apt repos in: /etc/apt/sources.list.d/nodesource.sources
+             1: deb [arch=amd64] https://deb.nodesource.com/node_22.x nodistro main
+           Active apt repos in: /etc/apt/sources.list.d/ubuntu.sources
+             1: deb http://my.archive.ubuntu.com/ubuntu/ noble noble-updates noble-backports main restricted universe multiverse
+             2: deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
+Info:      Processes: 381 Uptime: 13d 1h 4m Init: systemd
+           Compilers: gcc: 13.3.0 Shell: Sudo v: 1.9.15p5 inxi: 3.3.34
