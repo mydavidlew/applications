@@ -31,3 +31,24 @@ b, Select the entry ending in "(recovery mode)".
 c. From the Recovery Menu, scroll down to "root" and press "Enter".
 d. To get write permissions for the disk, run:
    :~$ mount -o remount,rw /.
+
+
+
+[Job Account ID setup on a Kyocera printer driver in Ubuntu]
+------------------------------------------------------------
+
+To set a Job Account ID on a Kyocera printer in Ubuntu, you must edit the printer's PPD (PostScript Printer Description) file used by CUPS to append the accounting code injection string, as native Linux GUI options for job accounting are rarely built into generic drivers.
+
+1. Edit the PPD File
+ - Open your terminal.
+ - Find your printer's PPD file location, usually inside /etc/cups/ppd/.
+ - Open the PPD file with root permissions using a text editor (e.g., sudo nano /etc/cups/ppd/Your_Printer_Name.ppd).
+ - Scroll down to find the *% Management Code Definitions or look for KmManagment strings.
+ - Add or modify the default accounting line to hardcode your ID (replace 12345 with your actual Account ID/Department Code):
+   :~$ *KmManagment MG12345/12345: "(12345) statusdict /setmanagementnumber get exec"
+   :~$ *DefaultKmManagment: MG12345
+ - Save the file and exit the editor.
+
+2. Restart CUPS
+ - Restart the printing service to apply changes:
+   :~$ sudo systemctl restart cups
