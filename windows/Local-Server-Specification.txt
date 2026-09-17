@@ -493,3 +493,83 @@ OpenGL context flags: (none)
 OpenGL profile mask: (none)
 OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 580.178.04
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+
+superadmin@Precision-T3600:~$ inxi -Frxzm
+System:    Kernel: 7.0.0-31-generic arch: x86_64 bits: 64 compiler: gcc v: 15.2.0
+           Desktop: GNOME v: 50.1 Distro: Ubuntu 26.04.1 LTS (Resolute Raccoon)
+Machine:   Type: Desktop System: Dell product: Precision T3600 v: 01 serial: <filter>
+           Mobo: Dell model: 0PTTT9 v: A01 serial: <filter> Firmware: UEFI vendor: Dell v: A18 date: 06/25/2019
+Memory:    System RAM: total: 32 GiB available: 30.3 GiB used: 1.6 GiB (5.3%)
+           Array-1: capacity: 64 GiB slots: 4 modules: 4 EC: Multi-bit ECC max-module-size: 16 GiB note: est.
+           Device-1: DIMM1 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-2: DIMM3 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-3: DIMM2 type: DDR3 size: 8 GiB speed: 1067 MT/s
+           Device-4: DIMM4 type: DDR3 size: 8 GiB speed: 1067 MT/s
+CPU:       Info: quad core model: Intel Xeon E5-1607 0 bits: 64 type: MCP arch: Sandy Bridge rev: 7 cache: L1: 256 KiB L2: 1024 KiB L3: 10 MiB
+           Speed (MHz): avg: 1302 min/max: 1200/3000 cores: 1: 1302 2: 1302 3: 1302 4: 1302 bogomips: 23941
+           Flags-basic: avx ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:  Device-1: Advanced Micro Devices [AMD/ATI] Lexa XT [Radeon PRO WX 3100] vendor: Dell driver: amdgpu v: kernel arch: GCN-4 bus-ID: 03:00.0 temp: 45.0 C
+           Display: unspecified server: X.Org v: 24.1.10 with: Xwayland v: 24.1.10 driver: dri: radeonsi gpu: amdgpu resolution: 1920x1080~60Hz
+           API: EGL v: 1.5 drivers: radeonsi,swrast platforms: active: gbm,x11,surfaceless,device inactive: wayland
+           API: OpenGL v: 4.6 compat-v: 4.5 vendor: amd mesa v: 26.0.8-1ubuntu0.3 glx-v: 1.4 direct-render: yes renderer: AMD Radeon Pro WX 3100 (radeonsi polaris12 ACO DRM 3.64 7.0.0-31-generic)
+           Info: Tools: api: eglinfo,glxinfo x11: xdriinfo, xdpyinfo, xprop, xrandr
+Audio:     Device-1: Intel C600/X79 series High Definition Audio vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 00:1b.0
+           Device-2: Advanced Micro Devices [AMD/ATI] Baffin HDMI/DP Audio [Radeon RX 550 640SP / 560/560X] vendor: Dell driver: snd_hda_intel v: kernel bus-ID: 03:00.1
+           API: ALSA v: k7.0.0-31-generic status: kernel-api
+           Server-1: PipeWire v: 1.6.2 status: n/a (root, process)
+Network:   Device-1: Intel 82579LM Gigabit Network vendor: Dell driver: e1000e v: kernel port: f040 bus-ID: 00:19.0
+           IF: eno1 state: up speed: 100 Mbps duplex: full mac: <filter>
+Drives:    Local Storage: total: 931.51 GiB used: 14.92 GiB (1.6%)
+           ID-1: /dev/sda vendor: Western Digital model: WD10EZEX-75ZF5A0 size: 931.51 GiB
+Partition: ID-1: / size: 914.78 GiB used: 14.91 GiB (1.6%) fs: ext4 dev: /dev/sda2
+           ID-2: /boot/efi size: 1.05 GiB used: 6.3 MiB (0.6%) fs: vfat dev: /dev/sda1
+Swap:      ID-1: swap-1 type: file size: 8 GiB used: 0 KiB (0.0%) file: /swap.img
+Sensors:   System Temperatures: cpu: 44.0 C mobo: 26.0 C sodimm: 41.0 C gpu: amdgpu temp: 45.0 C
+           Fan Speeds (rpm): cpu: 985 gpu: amdgpu fan: 2092
+Repos:     Packages: 1662
+           No active apt repos in: /etc/apt/sources.list
+           Active apt repos in: /etc/apt/sources.list.d/ubuntu.sources
+             1: deb http://my.archive.ubuntu.com/ubuntu/ resolute resolute-updates resolute-backports main restricted universe multiverse
+             2: deb http://security.ubuntu.com/ubuntu/ resolute-security main restricted universe multiverse
+Info:      Processes: 268 Uptime: 2h 16m Init: systemd
+           Compilers: N/A Shell: Sudo inxi: 3.3.40
+
+superadmin@Precision-T3600:~$ glxinfo -B
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: AMD (0x1002)
+    Device: AMD Radeon Pro WX 3100 (radeonsi, polaris12, ACO, DRM 3.64, 7.0.0-31-generic) (0x6985)
+    Version: 26.0.8
+    Accelerated: yes
+    Video memory: 4096MB
+    Unified memory: no
+    Preferred profile: core (0x1)
+    Max core profile version: 4.6
+    Max compat profile version: 4.6
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.2
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 3747 MB, largest block: 3747 MB
+    VBO free aux. memory - total: 15439 MB, largest block: 15439 MB
+    Texture free memory - total: 3747 MB, largest block: 3747 MB
+    Texture free aux. memory - total: 15439 MB, largest block: 15439 MB
+    Renderbuffer free memory - total: 3747 MB, largest block: 3747 MB
+    Renderbuffer free aux. memory - total: 15439 MB, largest block: 15439 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 4096 MB
+    Total available memory: 19608 MB
+    Currently available dedicated video memory: 3747 MB
+OpenGL vendor string: AMD
+OpenGL renderer string: AMD Radeon Pro WX 3100 (radeonsi, polaris12, ACO, DRM 3.64, 7.0.0-31-generic)
+OpenGL core profile version string: 4.6 (Core Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL core profile shading language version string: 4.60
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.6 (Compatibility Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL shading language version string: 4.60
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+OpenGL ES profile version string: OpenGL ES 3.2 Mesa 26.0.8-1ubuntu0.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
