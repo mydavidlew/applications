@@ -110,7 +110,7 @@ Use the System-Wide Flag (Recommended) - To manage the server globally or headle
 $ sudo grdctl --system status
 
 2) Set your chosen username and password directly using the 'grdctl' command:
-$ sudo grdctl --system rdp set-auth-method credentials
+$ sudo grdctl --system rdp set-auth-methods credentials
 $ sudo grdctl --system rdp set-credentials <your-username> <your-password>
 
 3) Enable the RDP server backend:
