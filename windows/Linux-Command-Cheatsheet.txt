@@ -1,3 +1,12 @@
+[[Essential Commands & Quick Reference]]
+{Task}                                {Command}             {Description}
+ Switch to root (Non-login shell)      su                    Switches to the root user but retains your current user's environment (variables, PATH, directory).
+ Switch to root (Login shell)          su - (or su --login)  Recommended. Switches to root and loads a fresh login shell, inheriting root's environmental variables, PATH, and home directory (/root).
+ Switch to another user                su <username>         Switches to the specified user account using your current environment variables.
+ Switch to another user (Login shell)  su - <username>       Switches to the specified user with their complete login environment.
+ Run a single command                  su -c '<command>'     Executes a single command as the target user without opening a full interactive shell.
+ Exit the user session                 exit (or Ctrl+D)      Closes the current subshell and returns you to your previous user session.
+
 [[Command]]                       [['su' Description]]
   su                                Switch to root
   su -                              Switch to root (login shell)
