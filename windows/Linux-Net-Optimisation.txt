@@ -183,4 +183,7 @@ or
    ~$ ip link show
   # Assign the routing domain to your interface using the ~ prefix (which denotes a routing-only domain):
    ~$ sudo resolvectl domain <vpn0> ~local
+  # Verify the configuration to ensure 'local' is listed under the link's scope:
+   ~$ resolvectl status vpn0
+
 
