@@ -161,3 +161,17 @@ flags to prevent it from altering them natively. This prevents conflicts with yo
 
 * Use --no-routes to handle routing completely via your custom shell script.
 * Use --no-dns to handle DNS configuration completely via your custom shell script.
+
+
+
+[[[Configure domain in Ubuntu Desktop (nmcli / NetworkManager)]]]
+Find your active connection name and inject the parameter directly:
+
+# List network connections to find the exact target name
+   ~$ nmcli con show
+
+# Append the search domain to your connection (e.g., "Wired connection 1")
+   ~$ nmcli con modify "Wired connection 1" ipv4.dns-search "local"
+
+# Toggle the connection to apply changes
+   ~$ nmcli con down "Wired connection 1" && nmcli con up "Wired connection 1"
