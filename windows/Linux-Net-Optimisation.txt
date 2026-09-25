@@ -175,3 +175,10 @@ Find your active connection name and inject the parameter directly:
 
 # Toggle the connection to apply changes
    ~$ nmcli con down "Wired connection 1" && nmcli con up "Wired connection 1"
+
+# Append the routing domain to VPN connection (the ~ instructs Ubuntu to route matching requests here without making it your default system-wide search domain):
+   ~$ nmcli connection modify "MimosVPN" ipv4.dns-search "~local"
+or
+   ~$ ip link show
+   ~$ sudo resolvectl domain <vpn0> ~local
+
