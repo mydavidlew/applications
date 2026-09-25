@@ -159,7 +159,7 @@ Handling Route and DNS Changes
 If your shell script is intended to modify routing tables or DNS settings, you can use openfortivpn's built-in 
 flags to prevent it from altering them natively. This prevents conflicts with your custom scripts.
 
-* Use --no-routes to handle routing completely via your custom shell script.
+* Use --no-routes to handle routing completely via your custom shell script.Find your VPN interface name (e.g., tun0, wg0, or vpn0) by running:
 * Use --no-dns to handle DNS configuration completely via your custom shell script.
 
 
@@ -179,6 +179,8 @@ Find your active connection name and inject the parameter directly:
 # Append the routing domain to VPN connection (the ~ instructs Ubuntu to route matching requests here without making it your default system-wide search domain):
    ~$ nmcli connection modify "MimosVPN" ipv4.dns-search "~local"
 or
+  # Find your VPN interface name (e.g., tun0, wg0, or vpn0) by running:
    ~$ ip link show
+  # Assign the routing domain to your interface using the ~ prefix (which denotes a routing-only domain):
    ~$ sudo resolvectl domain <vpn0> ~local
 
