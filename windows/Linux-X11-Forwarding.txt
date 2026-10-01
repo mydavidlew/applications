@@ -104,7 +104,7 @@ ssh -o PasswordAuthentication=yes -o PreferredAuthentications=password -o Pubkey
 To configure it without using the graphical settings menu or interacting with a manual password prompt, you can use the command-line utility 'grdctl'. This allows you to set explicit credentials and enable the service directly from the terminal.
 
 [Configuring via Terminal (grdctl)]
-Use the System-Wide Flag (Recommended) - To manage the server globally or headlessly over SSH, execute 'grdctl' using the '--system' scope. This bypasses the requirement for an active user X11 session or user D-Bus loop.
+[A] Use the System-Wide Flag (Recommended) - To manage the server globally or headlessly over SSH, execute 'grdctl' using the '--system' scope. This bypasses the requirement for an active user X11 session or user D-Bus loop.
 
 1) Open your terminal application (or via SSH) and check status:
 $ sudo grdctl --system status
@@ -121,6 +121,23 @@ $ sudo grdctl --system rdp disable-view-only
 
 5) Ensure the user service is running and enabled:
 $ systemctl --user enable --now gnome-remote-desktop.service
+
+[B] How to Fix the RDP TLS certificate and Key Configuration
+Run the following commands in your terminal to create and configure the missing RDP TLS certificate and key not yet configured properly:
+
+1) Generate a self-signed certificate and key (if you do not already have them):
+$ openssl genrsa -out ~/.local/share/gnome-remote-desktop/rdp-tls.key 4096
+$ openssl req -new -key ~/.local/share/gnome-remote-desktop/rdp-tls.key -out ~/.local/share/gnome-remote-desktop/rdp-tls.csr
+$ openssl x509 -req -days 730 -signkey ~/.local/share/gnome-remote-desktop/rdp-tls.key -in ~/.local/share/gnome-remote-desktop/rdp-tls.csr -out ~/.local/share/gnome-remote-desktop/rdp-tls.crt
+
+2) Configure 'grdctl' to use the certificate and key:
+$ grdctl rdp set-tls-key ~/.local/share/gnome-remote-desktop/rdp-tls.key
+$ grdctl rdp set-tls-cert ~/.local/share/gnome-remote-desktop/rdp-tls.crt
+
+3) Set your RDP credentials and enable the service:
+$ grdctl rdp set-credentials
+$ grdctl rdp enable
+$ systemctl --user restart gnome-remote-desktop.service
 
 (Note: If you are configuring a system-wide/headless login screen daemon instead of an active user session, substitute the commands with the --system or --headless flag, such as sudo grdctl --system rdp enable).
 
