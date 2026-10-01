@@ -139,7 +139,8 @@ $ grdctl rdp set-credentials
 $ grdctl rdp enable
 $ systemctl --user restart gnome-remote-desktop.service
 
-(Note: If you are configuring a system-wide/headless login screen daemon instead of an active user session, substitute the commands with the --system or --headless flag, such as sudo grdctl --system rdp enable).
+(Note1: If you are configuring a system-wide/headless login screen daemon instead of an active user session, substitute the commands with the --system or --headless flag, such as sudo grdctl --system rdp enable).
+(Note2: If you are setting this up on a headless system (without a monitor or login screen), let me know so I can provide the sudo grdctl --system commands instead.)
 
 [To achieve unattended access or bypass manual password prompts in GNOME Remote Desktop (GRD)]
 To configure Automatic Login and clear your GNOME Keyring password so the system does not lock RDP credentials behind a prompt on boot.
