@@ -129,8 +129,7 @@ Run the following commands in your terminal to create and configure the missing 
 $ openssl genrsa -out ~/.local/share/gnome-remote-desktop/rdp-tls.key 4096
 $ openssl req -new -key ~/.local/share/gnome-remote-desktop/rdp-tls.key -out ~/.local/share/gnome-remote-desktop/rdp-tls.csr
 $ openssl x509 -req -days 730 -signkey ~/.local/share/gnome-remote-desktop/rdp-tls.key -in ~/.local/share/gnome-remote-desktop/rdp-tls.csr -out ~/.local/share/gnome-remote-desktop/rdp-tls.crt
- or
-Generate key and certificate with:
+ or --- Generate key and certificate with:
 $ openssl req -newkey rsa:2048 -nodes -keyout ~/.local/share/gnome-remote-desktop/rdp-tls.key -x509 -days 730 -out ~/.local/share/gnome-remote-desktop/rdp-tls.crt -subj "/CN=$(hostname)"
 
 2) Configure 'grdctl' to use the certificate and key:
