@@ -257,8 +257,7 @@ Memory:    System RAM: total: 4 GiB available: 3.63 GiB used: 1.38 GiB (37.8%)
            Device-1: DIMM1 type: DDR3 size: 2 GiB speed: 1333 MT/s
            Device-2: DIMM2 type: DDR3 size: 2 GiB speed: 1333 MT/s
 CPU:       Info: quad core model: Intel Core i7-4770S bits: 64 type: MT MCP arch: Haswell rev: 3 cache: L1: 256 KiB L2: 1024 KiB L3: 8 MiB
-           Speed (MHz): avg: 3093 high: 3095 min/max: 800/3900 
-           cores: 1: 3093 2: 3093 3: 3093 4: 3093 5: 3095 6: 3093 7: 3094 8: 3093 bogomips: 49484
+           Speed (MHz): avg: 3093 high: 3095 min/max: 800/3900 cores: 1: 3093 2: 3093 3: 3093 4: 3093 5: 3095 6: 3093 7: 3094 8: 3093 bogomips: 49484
            Flags: avx avx2 ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
 Graphics:  Device-1: Intel Xeon E3-1200 v3/4th Gen Core Processor Integrated Graphics vendor: Acer Incorporated ALI driver: i915 v: kernel arch: Gen-7.5 bus-ID: 00:02.0
            Display: server: X.org v: 1.21.1.11 with: Xwayland v: 23.2.6 driver: gpu: i915 resolution: 1440x900
@@ -277,10 +276,8 @@ Drives:    Local Storage: total: 298.09 GiB used: 11.22 GiB (3.8%)
 Partition: ID-1: / size: 291.31 GiB used: 11.21 GiB (3.8%) fs: ext4 dev: /dev/sda2
            ID-2: /boot/efi size: 1.05 GiB used: 6.1 MiB (0.6%) fs: vfat dev: /dev/sda1
 Swap:      ID-1: swap-1 type: file size: 4 GiB used: 420 KiB (0.0%) file: /swap.img
-Sensors:   System Temperatures: cpu: 29.8 C pch: 49.5 C mobo: N/A
-           Fan Speeds (rpm): N/A
-Repos:     Packages: 1550
-           No active apt repos in: /etc/apt/sources.list
+Sensors:   System Temperatures: cpu: 29.8 C pch: 49.5 C mobo: N/A Fan Speeds (rpm): N/A
+Repos:     Packages: 1550 No active apt repos in: /etc/apt/sources.list
            Active apt repos in: /etc/apt/sources.list.d/ubuntu.sources
              1: deb http://my.archive.ubuntu.com/ubuntu/ noble noble-updates noble-backports main restricted universe multiverse
              2: deb http://security.ubuntu.com/ubuntu/ noble-security main restricted universe multiverse
