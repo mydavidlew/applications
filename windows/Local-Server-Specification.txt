@@ -573,3 +573,91 @@ OpenGL context flags: (none)
 OpenGL profile mask: compatibility profile
 OpenGL ES profile version string: OpenGL ES 3.2 Mesa 26.0.8-1ubuntu0.3
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+
+superadmin@HP-Z600-Workstation:~$ inxi -Frxvm
+System:    Host: HP-Z600-Workstation Kernel: 7.0.0-38-generic arch: x86_64 bits: 64 compiler: gcc v: 15.2.0
+           Console: pty pts/2 Distro: Ubuntu 26.04.1 LTS (Resolute Raccoon)
+Machine:   Type: Desktop System: Hewlett-Packard product: HP Z600 Workstation v: N/A serial: SGH91402CF
+           Mobo: Hewlett-Packard model: 0AE8h v: C serial: SGH91402CF Firmware: BIOS vendor: Hewlett-Packard v: 786G4 v03.57 date: 07/15/2013
+Memory:    System RAM: total: 24 GiB available: 22.94 GiB used: 1.49 GiB (6.5%)
+           Report: arrays: 2 capacity: 48 GiB installed: 24 GiB slots: 7 active: 7 type: DDR3 eec: None
+           Array-1: capacity: 24 GiB installed: 24 GiB slots: 6 modules: 6 EC: None max-module-size: 4 GiB note: est.
+           Device-1: CPU0 DIMM1 type: DDR3 size: 4 GiB speed: 1333 MT/s
+           Device-2: CPU0 DIMM2 type: DDR3 size: 4 GiB speed: 1333 MT/s
+           Device-3: CPU0 DIMM3 type: DDR3 size: 4 GiB speed: 1333 MT/s
+           Device-4: CPU1 DIMM1 type: DDR3 size: 4 GiB speed: 1600 MT/s
+           Device-5: CPU1 DIMM2 type: DDR3 size: 4 GiB speed: 1600 MT/s
+           Device-6: CPU1 DIMM3 type: DDR3 size: 4 GiB speed: 1600 MT/s
+           Array-2: capacity: 24 GiB note: check installed: 2 MiB use: Flash Memory slots: 1 modules: 1 EC: None max-module-size: 24 GiB note: est.
+           Device-1: SYSTEM ROM type: Flash size: 2 MiB speed: N/A
+CPU:       Info: 2x 4-core model: Intel Xeon X5570 bits: 64 type: MT MCP SMP arch: Nehalem rev: 5 cache: L1: 2x 256 KiB (512 KiB) L2: 2x 1024 KiB (2 MiB) L3: 2x 8 MiB (16 MiB)
+           Speed (MHz): avg: 1596 min/max: 1596/2927 boost: enabled cores: 1: 1596 2: 1596 3: 1596 4: 1596 5: 1596 6: 1596 7: 1596 8: 1596 
+             9: 1596 10: 1596 11: 1596 12: 1596 13: 1596 14: 1596 15: 1596 16: 1596 bogomips: 93631
+           Flags-basic: ht lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3 vmx
+Graphics:  Device-1: NVIDIA GF106GL [Quadro 2000] driver: nouveau v: kernel arch: Fermi bus-ID: 0f:00.0 temp: 54.0 C
+           Display: unspecified server: Xwayland v: 24.1.10 driver: gpu: nouveau resolution: 1920x1080
+           API: EGL v: 1.5 drivers: nouveau,swrast platforms: active: gbm,surfaceless,device inactive: wayland,x11
+           API: OpenGL v: 4.5 compat-v: 4.3 vendor: mesa v: 26.0.8-1ubuntu0.3 note: incomplete (EGL sourced) renderer: NVC3, llvmpipe (LLVM 21.1.8 128 bits)
+           Info: Tools: api: eglinfo,glxinfo x11: xdriinfo, xdpyinfo, xprop, xrandr
+Audio:     Device-1: Intel 82801JI HD Audio vendor: Hewlett-Packard driver: snd_hda_intel v: kernel bus-ID: 00:1b.0
+           Device-2: NVIDIA GF106 High Definition Audio driver: snd_hda_intel v: kernel bus-ID: 0f:00.1
+           API: ALSA v: k7.0.0-38-generic status: kernel-api
+           Server-1: PipeWire v: 1.6.2 status: n/a (root, process)
+Network:   Device-1: Broadcom NetXtreme BCM5764M Gigabit Ethernet PCIe vendor: Hewlett-Packard driver: tg3 v: kernel port: N/A bus-ID: 01:00.0
+           IF: enp1s0 state: up speed: 100 Mbps duplex: full mac: 00:23:7d:c1:be:25
+           Device-2: Broadcom NetXtreme BCM5722 Gigabit Ethernet PCI Express driver: tg3 v: kernel port: N/A bus-ID: 03:00.0
+           IF: ens1 state: down mac: 00:10:18:8a:5d:4f
+RAID:      Hardware-1: Intel SATA Controller [RAID mode] driver: ahci v: 3.0 bus-ID: 00:1f.2
+Drives:    Local Storage: total: 465.76 GiB used: 15.6 GiB (3.3%)
+           ID-1: /dev/sda vendor: Western Digital model: WD5000AAKX-75U6AA0 size: 465.76 GiB
+Partition: ID-1: / size: 457.38 GiB used: 15.6 GiB (3.4%) fs: ext4 dev: /dev/sda2
+Swap:      ID-1: swap-1 type: file size: 8 GiB used: 0 KiB (0.0%) file: /swap.img
+Sensors:   System Temperatures: cpu: 53.2 C mobo: N/A gpu: nouveau temp: 54.0 C
+           Fan Speeds (rpm): cpu: 1238 fan-2: 0 fan-3: 0 gpu: nouveau fan: 2400
+           Power: 12v: N/A 5v: N/A 3.3v: 3.31 vbat: N/A
+Repos:     Packages: 1782 No active apt repos in: /etc/apt/sources.list
+           Active apt repos in: /etc/apt/sources.list.d/ubuntu.sources
+             1: deb http://my.archive.ubuntu.com/ubuntu/ resolute resolute-updates resolute-backports main restricted universe multiverse
+             2: deb http://security.ubuntu.com/ubuntu/ resolute-security main restricted universe multiverse
+Info:      Processes: 337 Uptime: 24m Init: systemd
+           Compilers: N/A Shell: Sudo inxi: 3.3.40
+
+superadmin@HP-Z600-Workstation:~$ glxinfo -B
+name of display: :0
+display: :0  screen: 0
+direct rendering: Yes
+Extended renderer info (GLX_MESA_query_renderer):
+    Vendor: Mesa (0x10de)
+    Device: NVC3 (0xdd8)
+    Version: 26.0.8
+    Accelerated: yes
+    Video memory: 1015MB
+    Unified memory: no
+    Preferred profile: core (0x1)
+    Max core profile version: 4.3
+    Max compat profile version: 4.3
+    Max GLES1 profile version: 1.1
+    Max GLES[23] profile version: 3.1
+Memory info (GL_ATI_meminfo):
+    VBO free memory - total: 812 MB, largest block: 812 MB
+    VBO free aux. memory - total: 838860 MB, largest block: 838860 MB
+    Texture free memory - total: 812 MB, largest block: 812 MB
+    Texture free aux. memory - total: 838860 MB, largest block: 838860 MB
+    Renderbuffer free memory - total: 812 MB, largest block: 812 MB
+    Renderbuffer free aux. memory - total: 838860 MB, largest block: 838860 MB
+Memory info (GL_NVX_gpu_memory_info):
+    Dedicated video memory: 1015 MB
+    Total available memory: 1049591 MB
+    Currently available dedicated video memory: 812 MB
+OpenGL vendor string: Mesa
+OpenGL renderer string: NVC3
+OpenGL core profile version string: 4.3 (Core Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL core profile shading language version string: 4.30
+OpenGL core profile context flags: (none)
+OpenGL core profile profile mask: core profile
+OpenGL version string: 4.3 (Compatibility Profile) Mesa 26.0.8-1ubuntu0.3
+OpenGL shading language version string: 4.30
+OpenGL context flags: (none)
+OpenGL profile mask: compatibility profile
+OpenGL ES profile version string: OpenGL ES 3.1 Mesa 26.0.8-1ubuntu0.3
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.10
