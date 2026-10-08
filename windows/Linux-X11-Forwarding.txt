@@ -132,14 +132,14 @@ $ openssl x509 -req -days 3650 -signkey ~/.local/share/gnome-remote-desktop/rdp-
  or --- Generate key and certificate with:
 $ openssl req -newkey rsa:2048 -nodes -keyout ~/.local/share/gnome-remote-desktop/rdp-tls.key -x509 -days 3650 -out ~/.local/share/gnome-remote-desktop/rdp-tls.crt -subj "/CN=$(hostname)"
  or --- Generate key and certificate with:
-$ openssl req -newkey rsa:2048 -nodes -keyout ~/.local/share/gnome-remote-desktop/rdp-key.pem -x509 -days 3650 -out ~/.local/share/gnome-remote-desktop/rdp-cert.pem -subj "/CN=gnome-remote-desktop"
+$ openssl req -newkey rsa:2048 -nodes -keyout ~/.local/share/gnome-remote-desktop/rdp-key.pem -x509 -days 3650 -out ~/.local/share/gnome-remote-desktop/rdp-crt.pem -subj "/CN=gnome-remote-desktop"
 
 2) Configure 'grdctl' to use the certificate and key:
 $ grdctl rdp set-tls-key ~/.local/share/gnome-remote-desktop/rdp-tls.key
 $ grdctl rdp set-tls-cert ~/.local/share/gnome-remote-desktop/rdp-tls.crt
  or --- insert key and certificate with:
-$ grdctl rdp set-tls-cert ~/.local/share/gnome-remote-desktop/rdp-cert.pem
 $ grdctl rdp set-tls-key ~/.local/share/gnome-remote-desktop/rdp-key.pem
+$ grdctl rdp set-tls-cert ~/.local/share/gnome-remote-desktop/rdp-crt.pem
 
 3) Set your RDP credentials and enable the service:
 $ grdctl rdp set-credentials
