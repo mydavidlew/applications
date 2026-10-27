@@ -4,4 +4,13 @@
 # NVIDIA Fan Control Settings
 # /usr/bin/nvidia-settings -a "[gpu:0]/GPUFanControlState=1"
 # /usr/bin/nvidia-settings -a "[fan:0]/GPUTargetFanSpeed=40"
+
 sh -c 'sudo /usr/bin/nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=40"'
+
+# or
+
+CMD=$1
+if [ -z "$1" ]; then
+  CMD=50
+fi
+sudo /usr/bin/nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=$CMD"
