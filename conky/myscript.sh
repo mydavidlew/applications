@@ -14,3 +14,10 @@ if [ -z "$1" ]; then
   CMD=50
 fi
 sudo /usr/bin/nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=$CMD"
+
+# or
+
+# ${1:-50} means it treats both an unset and an empty argument as "use the default"
+CMD=${1:-50}
+xset s off && xset -dpms
+sudo /usr/bin/nvidia-settings -a "[gpu:0]/GPUFanControlState=1" -a "[fan:0]/GPUTargetFanSpeed=$CMD"
